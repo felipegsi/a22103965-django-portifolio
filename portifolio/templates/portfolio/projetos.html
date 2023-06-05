@@ -1,0 +1,155 @@
+{% extends 'portfolio/index.html' %}
+
+{% block main %}
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/projetos.css' %}">
+
+
+    <section class="hero">
+        <div class="content">
+            <div class="capitais">
+                <h2>Meus Projetos</h2>
+                <p>Aqui jaz os meus projetos realizados durante minha carreira acadêmica/profissional.</p>
+
+                <div>
+                    <img src="{% static 'portfolio/images/car arduino.png' %}" alt=""> <!-- Outros projetos... -->
+                    <div>
+                        <p>Arduino Car</p>
+                    </div>
+                </div>
+                <button onclick="window.location.href='index.html'">Saiba mais</button>
+
+                <div>
+                    <img src="{% static 'portfolio/images/DeisiJungle.png' %}" alt="">  <!-- Outros projetos... -->
+
+                    <div>
+                        <p>Deisi Jungle</p>
+                    </div>
+                </div>
+                <button onclick="window.location.href='index.html'">Saiba mais</button>
+
+
+                <div>
+                    <img src="{% static 'portfolio/images/DeisiFlix.png' %}" alt="Deisi Flix">
+                    <div>
+                        <p>DeisiFlix Movies</p>
+                    </div>
+                </div>
+                <button onclick="window.location.href='index.html'">Saiba mais</button>
+
+
+                <div>
+                    <img src="{% static 'portfolio/images/ProjBaseDeDados.png' %}" alt="Projeto Base De Dados">
+                    <div>
+                        <p>Base de Dados(Projeto Final)</p>
+                    </div>
+                </div>
+                <button onclick="window.location.href='index.html'">Saiba mais</button>
+
+
+                <div>
+                    <img src="{% static 'portfolio/images/MaquinaLavar.png' %}"
+                         alt="Software Maquina de Lavar(funcional)">
+                    <div>
+                        <p>Software Máquina de Lavar(funcional)</p>
+                    </div>
+                </div>
+                <button onclick="window.location.href='index.html'">Saiba mais</button>
+
+
+                <div>
+                    <img src="{% static 'portfolio/images/MineProj.png' %}" alt="Projeto Minesweeper">
+                    <div>
+                        <p>Jogo Minesweeper(Projeto Final)</p>
+                    </div>
+                </div>
+                <button onclick="window.location.href='index.html'">Saiba mais</button>
+
+
+                <div>
+                    <img src="{% static 'portfolio/images/NaoTeConstipes.png' %}" alt="Não te Constipes">
+                    <div>
+                        <p>Jogo Não te Constipes(Projeto Final)</p>
+                    </div>
+                </div>
+                <button onclick="window.location.href='index.html'">Saiba mais</button>
+
+
+                <!-- Outros projetos... -->
+
+                <h1>Laboratórios (Programação Web)</h1>
+
+                <div>
+                    <img src="{% static 'portfolio/images/lab1Image.png' %}" alt=""> <!-- Outros projetos... -->
+
+                    <div>
+                        <p>Laboratório 1 (feito na cadeira de Programação Web)</p>
+                    </div>
+                </div>
+                <button onclick="window.location.href='lab1/index.html'">Saiba mais</button>
+
+                <div>
+                    <img src="{% static 'portfolio/images/lab2Image.png' %}" alt=""> <!-- Outros projetos... -->
+
+                    <div>
+                        <p>Laboratório 2 (feito na cadeira de Programação Web)</p>
+                    </div>
+                </div>
+                <button onclick="window.location.href='lab1/lab3/indexNovo.html'">Saiba mais</button>
+
+                <div>
+                    <img src="{% static 'portfolio/images/lab3Image.png' %}" alt=""> <!-- Outros projetos... -->
+                    <div>
+                        <p>Laboratório 3 (feito na cadeira de Programação Web)</p>
+                    </div>
+                </div>
+                <button onclick="window.location.href='lab1/lab4/indexNovo2.html'">Saiba mais</button>
+
+                <div class="Random">
+                    <div class="circle">
+                        <p>Random images</p>
+                    </div>
+                    <div class="image">
+                        <img src="{% static 'https://picsum.photos/400/300' %}" alt=""> <!-- Outros projetos... -->
+
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Código da calculadora -->
+    <div class="main">
+        <input type="text" id='res'>
+        <div class="btn">
+            <input type="button" value='C' onclick="Clear()">
+            <input type="button" value='%' onclick="Solve('%')">
+            <input type="button" value='←' onclick="Back('←')">
+            <input type="button" value='/' onclick="Solve('/')">
+            <br>
+            <input type="button" value='7' onclick="Solve('7')">
+            <input type="button" value='8' onclick="Solve('8')">
+            <input type="button" value='9' onclick="Solve('9')">
+            <input type="button" value='x' onclick="Solve('*')">
+            <br>
+            <input type="button" value='4' onclick="Solve('4')">
+            <input type="button" value='5' onclick="Solve('5')">
+            <input type="button" value='6' onclick="Solve('6')">
+            <input type="button" value='-' onclick="Solve('-')">
+            <br>
+            <input type="button" value='1' onclick="Solve('1')">
+            <input type="button" value='2' onclick="Solve('2')">
+            <input type="button" value='3' onclick="Solve('3')">
+            <input type="button" value='+' onclick="Solve('+')">
+            <br>
+            <input type="button" value='00' onclick="Solve('00')">
+            <input type="button" value='0' onclick="Solve('0')">
+            <input type="button" value='.' onclick="Solve('.')">
+            <input type="button" value='=' onclick="Result()">
+        </div>
+    </div>
+{% endblock %}

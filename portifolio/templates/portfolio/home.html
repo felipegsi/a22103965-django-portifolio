@@ -1,11 +1,22 @@
-<!DOCTYPE html>
-<!-- home.html -->
 
-{% extends 'portfolio/layout.html' %}
+
+{% extends 'portfolio/index.html' %}
 
 {% block main %}
-    <h3>Titulo</h3>
-    <p>texto texto texto texto texto texto texto </p>
+
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/home.css' %}">
+    <section class="hero">
+        <div class="content">
+            <h2>Portifólio</h2>
+            <p>Este é o meu Portifólio feito na cadeira de Programação Web.</p>
+            <p>
+                <button id="dark-mode-button">Modo Escuro</button>
+            </p>
+            <button class="button-28" role="button" href="{% url 'portifolio:sobreMim' %}">Sobre mim</button>
+        </div>
+        <div class="waves"></div>
+    </section>
+
 {% endblock %}
-{% load static %}
-<img src="{% static 'portfolio/images/image.png' %}">

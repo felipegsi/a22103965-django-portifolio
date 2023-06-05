@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Portifólio</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="author" content="Felipe Silva">
+    <meta name="description" content="Meu Portifólio">
+    <meta name="keywords" content="palavras chave">
+    <link rel="stylesheet" href="index.css">
+
+    <script>
+        const button = document.getElementById('dark-mode-button');
+        const body = document.body;
+
+        button.addEventListener('click', function () {
+            body.classList.toggle('dark-mode');
+        });
+    </script>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <div>
+            <a href="{% url 'portifolio:home' %}">Início</a>
+            <a href="{% url 'portifolio:sobreMim' %}">Sobre</a>
+            <a href="{% url 'portifolio:projetos' %}">Projetos</a>
+            <a href="{% url 'portifolio:contacto' %}">Contacto</a>
+            <a href="Curriculo.pdf" download="Curriculo">Currículo</a>
+            <div class="animation start-home"></div>
+        </div>
+    </nav>
+</header>
+<main>
+    {% block main %}
+    {% endblock main %}
+</main>
+</body>
+</html>
