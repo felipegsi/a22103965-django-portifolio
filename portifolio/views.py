@@ -2,11 +2,11 @@ from django.shortcuts import render
 
 # Create your views here.
 
-def home_page_view(request):
+def home(request):
 	return render(request, 'portfolio/home.html')
 
-def index_page_view(request):
-	return render(request, 'portfolio/home.html')
+def index(request):
+	return render(request, 'portfolio/index.html')
 
 def sobreMim(request):
 	return render(request, 'portfolio/sobreMim.html')
