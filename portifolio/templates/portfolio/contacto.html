@@ -1,45 +1,44 @@
-
 {% extends 'portfolio/index.html' %}
 
 {% block main %}
 
 
     {% load static %}
-<link rel="stylesheet" href="{% static 'portfolio/css/contacto.css' %}">
+    <link rel="stylesheet" href="{% static 'portfolio/css/contacto.css' %}">
 
 
     <section class="hero">
-      <div class="content">
+        <div class="content">
 
-        <h1>Entre em contato</h1>
-        <form action="enviar_email.php" method="POST">
-          <label for="nome">Nome:</label>
-          <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
-          <label for="email">E-mail:</label>
-          <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
-          <label for="telefone">Telefone:</label>
-          <input type="tel" id="telefone" name="telefone" placeholder="Digite seu telefone">
-          <label for="assunto">Assunto:</label>
-          <select id="assunto" name="assunto" required>
-            <option value="">Selecione o assunto</option>
-            <option value="duvida">Dúvida</option>
-            <option value="sugestao">Sugestão</option>
-            <option value="reclamacao">Reclamação</option>
-            <option value="outro">Outro</option>
-          </select>
-          <label for="mensagem">Mensagem:</label>
-          <textarea id="mensagem" name="mensagem" placeholder="Digite sua mensagem" rows="5" required></textarea>
-          <input type="submit" value="Enviar">
-        </form>
-      </div>
+            <h1>Entre em contato</h1>
+            <form action="enviar_email.php" method="POST">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone" placeholder="Digite seu telefone">
+                <label for="assunto">Assunto:</label>
+                <select id="assunto" name="assunto" required>
+                    <option value="">Selecione o assunto</option>
+                    <option value="duvida">Dúvida</option>
+                    <option value="sugestao">Sugestão</option>
+                    <option value="reclamacao">Reclamação</option>
+                    <option value="outro">Outro</option>
+                </select>
+                <label for="mensagem">Mensagem:</label>
+                <textarea id="mensagem" name="mensagem" placeholder="Digite sua mensagem" rows="5" required></textarea>
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
 
 
+        <div class="social">
+            <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
+        </div>
 
-      <div class="social">
-        <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
-      </div>
     </section>
-    {% endblock main %}
+{% endblock main %}
