@@ -3,6 +3,13 @@
 
 
 /*----------*/
+body {
+  font-size: 16px;
+  background: rgba(51, 51, 51, 1);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin: 0;
+  padding: 0;
+}
 
 
 header {
@@ -92,16 +99,6 @@ aside {
   grid-area: sidebar;
 }
 
-footer {
-  grid-area: footer;
-  background-color: #333;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
-  border-radius: 0 0 10px 10px;
-}
 
 
 .icon i {
@@ -124,19 +121,6 @@ to {
 transform: scale(1.05);
 transition: transform 0.3s ease-in-out;
 }
-
-
-
-
-/*
-.main{
-  width: 400px;
-  height: 450px;
-  background-color: white;
-  position: absolute;
-  border: 5px solid black;
-  border-radius: 6px; 
-}*/
 
 
 
