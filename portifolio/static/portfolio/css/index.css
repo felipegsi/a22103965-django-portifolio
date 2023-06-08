@@ -108,7 +108,7 @@ a:nth-child(5):hover~.animation {
   position: relative;
   background: #bbb6b6;
   color: white;
-  height: 100vh;
+
   display: flex;
   align-items: center;
   overflow: hidden;
