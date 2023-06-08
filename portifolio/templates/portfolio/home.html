@@ -12,9 +12,12 @@
         <div class="content">
             <h2>Portfólio</h2>
             <p>Este é o meu Portfólio feito na cadeira de Programação Web.</p>
-            <p>
-                <button id="dark-mode-button" onclick="toggleDarkMode()">Dark Mode</button>
-            </p>
+
+            <div>
+                <p>
+                    <button class="dark-mode" onclick="toggleDarkMode()">Dark Mode</button>
+                </p>
+            </div>
 
             <button class="button-28" onclick="window.location.href = '{% url 'portifolio:sobreMim' %}'">Sobre mim
             </button>
@@ -23,3 +26,4 @@
     </section>
 
 {% endblock %}
+
