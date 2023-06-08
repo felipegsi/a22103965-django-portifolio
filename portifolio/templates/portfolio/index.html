@@ -9,16 +9,17 @@
     <meta name="author" content="Felipe Silva">
     <meta name="description" content="Meu Portifólio">
     <meta name="keywords" content="palavras chave">
-    <link rel="stylesheet" href="index.css">
 
-        <script>
-      const button = document.getElementById('dark-mode-button');
-      const body = document.body;
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/index.css' %}">
+    {% block link %}
 
-      button.addEventListener('click', function () {
-        body.classList.toggle('dark-mode');
-      });
-    </script>
+    {% endblock %}
+
+
+    <script src="{% static 'portfolio/JavaScript/dark-mode-button.js' %}"></script>
+
+
 </head>
 
 <body>

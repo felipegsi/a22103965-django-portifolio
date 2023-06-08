@@ -1,11 +1,13 @@
 {% extends 'portfolio/index.html' %}
 
-{% block main %}
 
-
+{% block link %}
     {% load static %}
-    <link rel="stylesheet" href="{% static 'portfolio/css/index.css' %}">
     <link rel="stylesheet" href="{% static 'portfolio/css/contacto.css' %}">
+{% endblock %}
+
+
+{% block main %}
 
 
     <section class="hero">

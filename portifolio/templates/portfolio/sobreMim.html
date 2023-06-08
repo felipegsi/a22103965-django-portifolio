@@ -1,13 +1,13 @@
 {% extends 'portfolio/index.html' %}
 
+{% block link %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/home.css' %}">
+{% endblock %}
 
 
 {% block main %}
 
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'portfolio/css/index.css' %}">
-    <link rel="stylesheet" href="{% static 'portfolio/css/sobreMim.css' %}">
-s
     <video autoplay muted loop id="myVideo">
         <source src="{% static 'portfolio/Videos/sdf.mp4' %}" type="video/mp4">
         Your browser does not support HTML5 video.
@@ -19,20 +19,7 @@ s
         <button id="myBtn" onclick="myFunction()">Pause</button>
     </div>
 
-    <script>
-        var video = document.getElementById("myVideo");
-        var btn = document.getElementById("myBtn");
 
-        function myFunction() {
-            if (video.paused) {
-                video.play();
-                btn.innerHTML = "Pause";
-            } else {
-                video.pause();
-                btn.innerHTML = "Play";
-            }
-        }
-    </script>
 
     <div class="texto1">
         <h1>Capítulo 1: Introdução</h1>

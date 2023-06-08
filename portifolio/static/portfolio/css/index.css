@@ -99,7 +99,7 @@ a:nth-child(5):hover~.animation {
 }
 
 .content {
-  max-width: 600px;
+  max-width: 80%;
   margin: 0 auto;
   padding: 0 20px;
 }

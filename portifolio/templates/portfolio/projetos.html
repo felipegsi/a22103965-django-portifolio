@@ -1,11 +1,18 @@
 {% extends 'portfolio/index.html' %}
 
-{% block main %}
 
+
+{% block link %}
     {% load static %}
-    <!-- <link rel="stylesheet" href="{% static 'portfolio/css/index.css' %}" -->
     <link rel="stylesheet" href="{% static 'portfolio/css/projetos.css' %}">
+{% endblock %}
 
+
+
+
+
+
+{% block main %}
 
     <section class="hero">
         <div class="content">
@@ -14,21 +21,27 @@
                 <p>Aqui jaz os meus projetos realizados durante minha carreira acadêmica/profissional.</p>
 
                 <div>
-                    <img src="{% static 'portfolio/images/car arduino.png' %}" alt=""> <!-- Outros projetos... -->
-                    <div>
-                        <p>Arduino Car</p>
+                    <div class='projeto'>
+                        <img src="{% static 'portfolio/images/car arduino.png' %}" alt=""> <!-- Outros projetos... -->
+                        <div>
+                            <p>Arduino Car</p>
+                        </div>
+
+
                     </div>
+                    <button onclick="window.location.href='index.html'">Saiba mais</button>
                 </div>
-                <button onclick="window.location.href='index.html'">Saiba mais</button>
 
                 <div>
                     <img src="{% static 'portfolio/images/DeisiJungle.png' %}" alt="">  <!-- Outros projetos... -->
 
                     <div>
-                        <p>Deisi Jungle</p>
+                        <p>Deisi                <!-- Outros projetos... -->
+ Jungle</p>
                     </div>
+                    <button onclick="window.location.href='index.html'">Saiba mais</button>
+
                 </div>
-                <button onclick="window.location.href='index.html'">Saiba mais</button>
 
 
                 <div>
@@ -36,8 +49,9 @@
                     <div>
                         <p>DeisiFlix Movies</p>
                     </div>
+                    <button onclick="window.location.href='index.html'">Saiba mais</button>
+
                 </div>
-                <button onclick="window.location.href='index.html'">Saiba mais</button>
 
 
                 <div>
@@ -45,6 +59,7 @@
                     <div>
                         <p>Base de Dados(Projeto Final)</p>
                     </div>
+
                 </div>
                 <button onclick="window.location.href='index.html'">Saiba mais</button>
 
@@ -77,7 +92,6 @@
                 <button onclick="window.location.href='index.html'">Saiba mais</button>
 
 
-                <!-- Outros projetos... -->
 
                 <h1>Laboratórios (Programação Web)</h1>
 
