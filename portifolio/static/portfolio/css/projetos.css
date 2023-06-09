@@ -177,3 +177,29 @@ button {
   padding: 10px 60px;
   cursor: pointer;
 }
+
+.hero-projetos {
+    position: relative;
+    color: white;
+    align-items: center;
+    overflow: hidden;
+
+}
+
+.hero-projetos {
+    position: relative;
+    z-index: 1;
+    font-size: 4.5rem;
+    margin: 0 0 10px;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-projetos {
+    position: relative;
+    z-index: 1;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.4;
+    font-family: 'Cherry Swash', cursive;
+    font-size: 16px;
+}

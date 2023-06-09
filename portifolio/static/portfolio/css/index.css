@@ -100,11 +100,11 @@ a:nth-child(5):hover ~ .animation {
     max-width: 80%;
     margin: 0 auto;
     padding: 0 20px;
+
 }
 
 .hero {
     position: relative;
-    background: #bbb6b6;
     color: white;
     height: 100vh;
     display: flex;
