@@ -4,8 +4,7 @@ function Solve(val) {
 }
 function Result() {
   var num1 = document.getElementById('res').value;
-  var num2 = eval(num1);
-  document.getElementById('res').value = num2;
+  document.getElementById('res').value = eval(num1);
 }
 function Clear() {
   var inp = document.getElementById('res');
