@@ -1,47 +1,44 @@
 
-/* ==========WAVES=============== */
-
-/*---nao precisa de body---
-body {
-  font-size: 16px;
-  background: rgba(51, 51, 51, 1);
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  margin: 0;
-  padding: 0;
-}
-*/
-
 #myVideo {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%; 
-  min-height: 100%;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover; /* Adicione esta linha para ajustar o tamanho do vídeo */
+
 }
 
-.content {
-  position: fixed;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  color: #f1f1f1;
-  width: 100%;
-  padding: 20px;
+.cont {
+    position: fixed;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 30%;
+    padding: 20px;
+    text-align: center;
+    border-radius: 30px;
 }
 
 #myBtn {
-  width: 200px;
-  font-size: 18px;
-  padding: 10px;
-  border: none;
-  background: #000;
-  color: #fff;
-  cursor: pointer;
+    width: 40%;
+    font-size: 95%;
+    padding: 10px;
+    border: none;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+    margin: 0 auto; /* Adicione esta linha */
+    border-radius: 30px;
 }
+
 
 #myBtn:hover {
-  background: #ddd;
-  color: black;
+    background: #ddd;
+    color: black;
 }
 
-
+p{
+    font-size: 20px;
+}
 
