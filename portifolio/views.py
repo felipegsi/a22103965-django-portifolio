@@ -1,12 +1,13 @@
 from django.shortcuts import render
 
+import datetime
+
 
 # Create your views here.
 
 def home(request):
-    context = {
-        'nome': 'FELIPE'
-    }
+    agora = datetime.datetime.now()
+    local = 'Lisboa'
 
     return render(request, 'portfolio/home.html')
 
@@ -26,5 +27,11 @@ def projetos(request):
 def contacto(request):
     return render(request, 'portfolio/contacto.html')
 
+
 def blog(request):
-    return render(request, 'portfolio/blog.html')
+    topicos = ['HTML', 'Java', 'Kotlin', 'Python', 'Django', 'JavaScript', 'CSS']
+
+    context = {
+        'topicos': topicos,
+    }
+    return render(request, 'portfolio/blog.html',context)
