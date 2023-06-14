@@ -1,0 +1,50 @@
+{% extends 'portfolio/index.html' %}
+
+
+
+{% block link %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/tarefas.css' %}">
+{% endblock %}
+
+
+
+
+
+{% block main %}
+
+
+        <h1>Tarefas</h1>
+        <hr>
+        <p class="subtitulo">Aplicação para gerir o seu dia-a-dia</p>
+
+            {% for tarefa in tarefas %}
+                <p>
+                    <span class="info">
+                        ({{ tarefa.criado.day }}/{{ tarefa.criado.month }})
+                        {% if tarefa.prioridade == 1 %}
+                            🟢
+                        {% elif tarefa.prioridade == 2 %}
+                            🟡
+                        {% else %}
+                             🔴
+                        {% endif %}
+                    </span>
+                    {% if tarefa.concluido == True %}
+                        <del>{{ tarefa.titulo }}</del>
+                    {% else %}
+                        {{ tarefa.titulo }}
+                    {% endif %}
+
+                    <a href="{% url 'portifolio:edita_tarefa' tarefa.id %}" class="btn btn-warning  btn-sm" style="float: right; margin-right: 10px">
+                        Editar
+                    </a>
+                </p>
+            {% endfor %}
+
+            <a href="{% url 'portifolio:nova_tarefa' %}" class="btn btn-success btn-block">+ Nova Tarefa</a>
+
+
+
+
+{% endblock %}

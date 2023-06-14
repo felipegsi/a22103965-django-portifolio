@@ -1,0 +1,38 @@
+{% extends 'portfolio/index.html' %}
+
+
+
+{% block link %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/tarefas.css' %}">
+{% endblock %}
+
+
+
+
+
+{% block main %}
+
+
+
+    <h1>Tarefas</h1>
+    <hr>
+    <p class="subtitulo">Aplicação para gerir o seu dia-a-dia</p>
+
+    <div class="nova_tarefa">
+
+
+        <form action="{% url 'portifolio:edita_tarefa' tarefa_id %}" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <a href="{% url 'portifolio:home_tarefa' %}" role="button" class="btn btn-warning">Cancelar</a>
+            <input type="submit" value="Gravar" class="btn btn-success">
+            <a href="{% url 'portifolio:apaga_tarefa' tarefa_id %}" role="button" class="btn btn-danger">Apagar</a>
+        </form>
+
+    </div>
+
+
+
+{% endblock %}
