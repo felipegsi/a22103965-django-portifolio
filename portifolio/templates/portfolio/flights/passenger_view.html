@@ -2,12 +2,12 @@
 
 {% block main %}
 
-<h1>Passageiro {{ passageiro }} </h1>
+<h1>Passageiro {{ passenger }} </h1>
 
 <h3>Voos:</h3>
 <ul>
-    {% for voo in passageiro.voos.all  %}
-      <li> {{ voo }} </li>
+    {% for flight in passenger.flights.all  %}
+      <li> {{ flight }} </li>
     {% endfor %}
 </ul>
 
@@ -28,6 +28,6 @@
 
 
 <br><br>
-<a href="{% url 'voos' %}"><button>Voltar à lista de voos</button></a>
+<a href="{% url 'portifolio:flights' %}"><button>Voltar à lista de voos</button></a>
 
 {% endblock main %}

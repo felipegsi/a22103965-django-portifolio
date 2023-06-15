@@ -5,8 +5,8 @@
 <h3>Passageiros</h3>
 
 <ul>
-    {% for passageiro in passageiros  %}
-      <li> <a href="{% url 'passageiro' passageiro.id %}">{{ passageiro }}</a> </li>
+    {% for passenger in passengers  %}
+      <li> <a href="{% url 'portifolio:passenger' passenger.id %}">{{ passenger }}</a> </li>
     {% endfor %}
 </ul>
 
@@ -24,6 +24,6 @@
 <br><br>
 {% endif %}
 
-<a href="{% url 'voos' %}"><button>Voltar à lista de voos</button></a>
+<a href="{% url 'portifolio:flights' %}"><button>Voltar à lista de voos</button></a>
 
 {% endblock main %}

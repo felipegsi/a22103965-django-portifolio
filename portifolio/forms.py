@@ -37,6 +37,6 @@ class PassengerForm(ModelForm):
 class FlightForm(ModelForm):
     class Meta:
         model = Passenger
-        fields = ['flight']
-        labels = {'flight': ''}
-        help_texts = {'flight': 'Premir Ctrl para selecionar mais do que um'}
+        fields = ['flights']
+        labels = {'flights': ''}
+        help_texts = {'flights': 'Premir Ctrl para selecionar mais do que um'}

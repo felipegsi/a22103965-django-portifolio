@@ -19,7 +19,7 @@ urlpatterns = [
 
 
 
-    path('', views.flights_view, name='flights'),
+    path('flights', views.flights_view, name='flights'),
 
     path('flight/<int:flight_id>', views.flight_view, name='flight'),
 

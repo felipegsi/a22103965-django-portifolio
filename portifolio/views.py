@@ -91,7 +91,7 @@ def flight_view(request, flight_id):
     context = {
         'flight': flight,
         'passengers': flight.passengers.all(),
-        'no_passengers': Passenger.objects.exclude(flight__in=[flight])
+        'no_passengers': Passenger.objects.exclude(flights__in=[flight])
     }
 
     return render(request, 'portfolio/flights/flight_view.html', context)
@@ -121,7 +121,7 @@ def passenger_view(request, passenger_id):
         'form': form,
     }
 
-    return render(request, 'portfolio/flights/passengers_view.html', context)
+    return render(request, 'portfolio/flights/passenger_view.html', context)
 
 
 @login_required
@@ -132,7 +132,7 @@ def add_passenger_view(request, flight_id):
         passenger = Passenger.objects.get(id=request.POST['passenger'])
         flight.passengers.add(passenger)
 
-    return redirect('flight', flight_id=flight_id)
+    return redirect('portifolio:flight', flight_id=flight_id)
 
 
 @login_required
@@ -142,7 +142,7 @@ def remove_passenger_view(request, flight_id, passenger_id):
 
     flight.passengers.remove(passenger)
 
-    return redirect('flight', flight_id=flight_id)
+    return redirect('portifolio:flights', flight_id=flight_id)
 
 
 def login_view(request):
@@ -156,7 +156,7 @@ def login_view(request):
 
         if user is not None:
             login(request, user)
-            return redirect('flight')
+            return redirect('portifolio:flights')
         else:
             return render(request, 'portfolio/flights/login.html', {
                 'message': 'Credenciais invalidas'
@@ -166,4 +166,4 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('flight')
+    return redirect('portifolio:flights')

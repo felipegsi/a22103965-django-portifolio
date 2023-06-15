@@ -4,9 +4,9 @@
 
 <h3>Voos</h3>
 <ul>
-    {% for voo in voos  %}
+    {% for flight in flights  %}
       <li>
-        <a href="{% url 'voo' voo.id %}">{{ voo }}</a>
+        <a href="{% url 'portifolio:flight' flight.id %}">{{ flight }}</a>
     </li>
     {% endfor %}
 </ul>

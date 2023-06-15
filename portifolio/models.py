@@ -36,7 +36,7 @@ class Flight(models.Model):
 
 class Passenger(models.Model):
     name = models.CharField(max_length=20)
-    flight = models.ManyToManyField(
+    flights = models.ManyToManyField(
         Flight,
         null=True,
         blank=True,
@@ -45,3 +45,5 @@ class Passenger(models.Model):
 
     def __str__(self):
         return self.name
+
+
