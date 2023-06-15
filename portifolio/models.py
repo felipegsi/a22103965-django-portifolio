@@ -47,3 +47,46 @@ class Passenger(models.Model):
         return self.name
 
 
+class Conta(models.Model):
+    repo_github = models.CharField(max_length=100)
+    pythonanywhere = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f"Conta - Repo GitHub: {self.repo_github}, PythonAnywhere: {self.pythonanywhere}"
+
+
+class Area(models.Model):
+    nome = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.nome
+
+
+class Autor(models.Model):
+    nome = models.CharField(max_length=50)
+    areas_interesse = models.ManyToManyField(Area)
+
+    def __str__(self):
+        return self.nome
+
+
+class Artigo(models.Model):
+    data = models.DateField()
+    area = models.ForeignKey(Area, on_delete=models.CASCADE)
+    titulo = models.CharField(max_length=100)
+    texto = models.TextField()
+    imagem = models.ImageField(upload_to='artigos/', null=True, blank=True)
+    link = models.URLField()
+    comentarios = models.ManyToManyField('Comentario', blank=True)
+    likes = models.PositiveIntegerField(default=0)
+
+    def __str__(self):
+        return self.titulo
+
+
+class Comentario(models.Model):
+    titulo = models.CharField(max_length=100)
+    texto = models.TextField()
+
+    def __str__(self):
+        return self.titulo

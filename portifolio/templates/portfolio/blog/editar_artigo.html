@@ -1,0 +1,12 @@
+{% extends 'portfolio/blog/layout_blog.html' %}
+
+
+
+{% block main %}
+     <h2>Editar Artigo</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Salvar</button>
+    </form>
+{% endblock %}

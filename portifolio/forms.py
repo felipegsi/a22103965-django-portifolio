@@ -40,3 +40,18 @@ class FlightForm(ModelForm):
         fields = ['flights']
         labels = {'flights': ''}
         help_texts = {'flights': 'Premir Ctrl para selecionar mais do que um'}
+
+
+class AutorForm(forms.ModelForm):
+    class Meta:
+        model = Autor
+        fields = ['nome', 'areas_interesse']
+
+class ArtigoForm(forms.ModelForm):
+    class Meta:
+        model = Artigo
+        fields = ['data', 'area', 'titulo', 'texto', 'imagem', 'link', 'comentarios']
+
+    def __init__(self, *args, **kwargs):
+        super(ArtigoForm, self).__init__(*args, **kwargs)
+        self.fields['comentarios'].widget = forms.Textarea(attrs={'rows': 3})

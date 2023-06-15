@@ -3,8 +3,9 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
+from .forms import ArtigoForm
 
-from .forms import TarefaForm, PassengerForm, FlightForm
+from .forms import TarefaForm, PassengerForm, FlightForm, AutorForm
 
 from .models import *
 import datetime
@@ -34,8 +35,8 @@ def contacto(request):
     return render(request, 'portfolio/contacto.html')
 
 
-def blog(request):
-    return render(request, 'portfolio/blog.html')
+def layout_blog(request):
+    return render(request, 'portfolio/blog/layout_blog.html')
 
 
 def home_tarefa(request):
@@ -167,3 +168,51 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect('portifolio:flights')
+
+
+def index_blog(request):
+    # Obtenha todos os artigos e renderize o template para exibi-los
+    artigos = Artigo.objects.all()
+    return render(request, 'portfolio/blog/index_blog.html', {'artigos': artigos})
+
+
+def registrar_autor(request):
+    if request.method == 'POST':
+        form = AutorForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    else:
+        form = AutorForm()
+    return render(request, 'portfolio/blog/registrar_autor.html', {'form': form})
+
+
+def criar_artigo(request):
+    if request.method == 'POST':
+        form = ArtigoForm(request.POST)
+        if form.is_valid():
+            novo_artigo = form.save()
+            return redirect('index')
+    else:
+        form = ArtigoForm()
+    return render(request, 'portfolio/blog/criar_artigo.html', {'form': form})
+
+
+def editar_artigo(request, id):
+    artigo = Artigo.objects.get(id=id)
+    if request.method == 'POST':
+        form = ArtigoForm(request.POST, instance=artigo)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    else:
+        form = ArtigoForm(instance=artigo)
+    return render(request, 'portfolio/blog/editar_artigo.html', {'form': form})
+
+
+def apagar_artigo(request, id):
+    artigo = Artigo.objects.get(id=id)
+    if request.method == 'POST':
+        artigo.delete()
+        return redirect('index')
+    return render(request, 'portfolio/blog/apagar_artigo.html', {'artigo': artigo})

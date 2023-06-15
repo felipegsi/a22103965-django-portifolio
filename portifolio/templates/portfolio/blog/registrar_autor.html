@@ -1,0 +1,12 @@
+{% extends 'portfolio/blog/layout_blog.html' %}
+
+
+
+{% block main %}
+    <h2>Registrar Autor</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Registrar</button>
+    </form>
+{% endblock %}

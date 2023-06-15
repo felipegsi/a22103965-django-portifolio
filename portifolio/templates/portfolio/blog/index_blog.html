@@ -1,0 +1,13 @@
+<!-- index.html -->
+{% extends 'portfolio/blog/layout_blog.html' %}
+
+{% block main %}
+   <h2>Artigos</h2>
+    {% for artigo in artigos %}
+        <div class="artigo-card">
+            <h3>{{ artigo.titulo }}</h3>
+            <p>{{ artigo.texto }}</p>
+            <!-- Exibir informações adicionais do artigo -->
+        </div>
+    {% endfor %}
+{% endblock %}
