@@ -1,0 +1,29 @@
+{% extends "portfolio/flights/base.html" %}
+
+{% block main %}
+
+<h3>Passageiros</h3>
+
+<ul>
+    {% for passageiro in passageiros  %}
+      <li> <a href="{% url 'passageiro' passageiro.id %}">{{ passageiro }}</a> </li>
+    {% endfor %}
+</ul>
+
+<br><br>
+
+{% if request.user.is_authenticated %}
+
+<h3>Criar novo passageiro:</h3>
+
+<form action="" method="POST">
+  {% csrf_token %}
+  {{form}}
+  <input type="submit" value="Criar">
+</form>
+<br><br>
+{% endif %}
+
+<a href="{% url 'voos' %}"><button>Voltar à lista de voos</button></a>
+
+{% endblock main %}

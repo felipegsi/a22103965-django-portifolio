@@ -1,0 +1,19 @@
+{% extends "portfolio/flights/base.html" %}
+
+{% block main %}
+  
+<h3>Login</h3>
+
+{% if not request.user.is_authenticated %}
+  {{ message }}
+{% endif %}
+
+<form action="{% url 'login' %}" method="POST">
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="username">
+    <input type="password" name="password" placeholder="password">
+    <input type="submit" value="Login">
+</form>
+
+
+{% endblock main %}

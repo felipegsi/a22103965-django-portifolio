@@ -1,0 +1,33 @@
+{% extends "portfolio/flights/base.html" %}
+
+{% block main %}
+
+<h1>Passageiro {{ passageiro }} </h1>
+
+<h3>Voos:</h3>
+<ul>
+    {% for voo in passageiro.voos.all  %}
+      <li> {{ voo }} </li>
+    {% endfor %}
+</ul>
+
+{% if request.user.is_authenticated %}
+
+<br>
+<h3>Adicionar voo:</h3>
+
+<form action="" method="POST">
+
+  {% csrf_token %}
+  {{form.as_p}}
+  <input type="submit" value="Selecionar">
+
+</form>
+
+{% endif %}
+
+
+<br><br>
+<a href="{% url 'voos' %}"><button>Voltar à lista de voos</button></a>
+
+{% endblock main %}

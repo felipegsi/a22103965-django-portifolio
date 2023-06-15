@@ -1,0 +1,57 @@
+{% extends "portfolio/flights/base.html" %}
+
+{% block main %}
+
+<h3>Voo: {{ flight }}</h3>
+
+<ul>
+  <li>Origem: {{ flight.origin }}</li>
+  <li>Destino: {{ flight.destination }}</li>
+  <li>Duração: {{ flight.duration }} </li>
+</ul>
+
+<h4>Passageiros do voo:</h4>
+
+<ul>
+  {% for passenger in passengers %}
+  <li>
+    <a href="{% url 'portifolio:passenger' passenger.id %}">
+      {{ passageiro }}</a>
+    {% if request.user.is_authenticated %}
+      <a href="{% url 'portifolio:remove' flight.id passenger.id %}">🗑</a>
+
+    {% endif %}
+  </li>
+  {% empty %}
+  <li>voo sem passageiros</li>
+  {% endfor %}
+</ul>
+
+
+{% if request.user.is_authenticated %}
+
+<h4>Adicionar passageiro ao voo:</h4>
+
+<ul>
+  <li>
+
+    <form action="{% url 'portifolio:add' flight.id %}" method="POST">
+      {% csrf_token %}
+      <select name="passageiro">
+        {% for passenger in no_passengers %}
+        <option value="{{ passenger.id }}">{{ passenger }}</option>
+        {% endfor %}
+      </select>
+      <input type="submit" value="Adicionar">
+    </form>
+
+  </li>
+</ul>
+
+{% endif %}
+
+
+<br><br>
+<a href="{% url 'portifolio:flights' %}"><button>Voltar à lista de voos</button></a>
+
+{% endblock main %}

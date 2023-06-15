@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Tarefa
+from .models import *
 
 
 class TarefaForm(ModelForm):
@@ -26,3 +26,17 @@ class TarefaForm(ModelForm):
         help_texts = {
             'prioridade': 'prioridade: baixa=1, media=2, alta=3',
         }
+
+
+class PassengerForm(ModelForm):
+    class Meta:
+        model = Passenger
+        fields = ['name']
+
+
+class FlightForm(ModelForm):
+    class Meta:
+        model = Passenger
+        fields = ['flight']
+        labels = {'flight': ''}
+        help_texts = {'flight': 'Premir Ctrl para selecionar mais do que um'}

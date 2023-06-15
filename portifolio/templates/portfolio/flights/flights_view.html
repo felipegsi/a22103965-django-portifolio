@@ -1,0 +1,14 @@
+{% extends "portfolio/flights/base.html" %}
+
+{% block main %}
+
+<h3>Voos</h3>
+<ul>
+    {% for voo in voos  %}
+      <li>
+        <a href="{% url 'voo' voo.id %}">{{ voo }}</a>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock main %}
