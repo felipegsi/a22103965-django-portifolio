@@ -1,0 +1,29 @@
+{% extends 'portfolio/blog/layout_blog.html' %}
+
+
+
+
+{% block main %}
+
+
+    <h1>Login de Usuário</h1>
+
+
+
+    {% if not request.user.is_authenticated %}
+        {{ message }}
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <label for="username">Usuário:</label>
+        <input type="text" id="username" name="username">
+        <br>
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password">
+        <br>
+        <button type="submit">Entrar</button>
+    </form>
+
+
+
+{% endblock %}

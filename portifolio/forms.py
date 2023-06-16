@@ -1,8 +1,12 @@
 from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 from django.forms import ModelForm
+
+
+from django import forms
+
 from .models import *
-
-
 class TarefaForm(ModelForm):
     class Meta:
         model = Tarefa
@@ -42,16 +46,21 @@ class FlightForm(ModelForm):
         help_texts = {'flights': 'Premir Ctrl para selecionar mais do que um'}
 
 
-class AutorForm(forms.ModelForm):
-    class Meta:
-        model = Autor
-        fields = ['nome', 'areas_interesse']
+
 
 class ArtigoForm(forms.ModelForm):
     class Meta:
         model = Artigo
-        fields = ['data', 'area', 'titulo', 'texto', 'imagem', 'link', 'comentarios']
+        fields = '__all__'
 
-    def __init__(self, *args, **kwargs):
-        super(ArtigoForm, self).__init__(*args, **kwargs)
-        self.fields['comentarios'].widget = forms.Textarea(attrs={'rows': 3})
+
+class AutorForm(forms.ModelForm):
+    class Meta:
+        model = Autor
+        fields = '__all__'
+
+
+class ContaForm(forms.ModelForm):
+    class Meta:
+        model = Conta
+        fields = '__all__'

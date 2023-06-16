@@ -1,14 +1,15 @@
+import datetime
+
+from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
-from .forms import ArtigoForm
+from pyexpat.errors import messages
 
-from .forms import TarefaForm, PassengerForm, FlightForm, AutorForm
-
+from .forms import TarefaForm, PassengerForm, FlightForm, ArtigoForm, AutorForm, ContaForm
 from .models import *
-import datetime
 
 
 # Create your views here.
@@ -170,49 +171,84 @@ def logout_view(request):
     return redirect('portifolio:flights')
 
 
-def index_blog(request):
-    # Obtenha todos os artigos e renderize o template para exibi-los
+
+def home_blog(request):
     artigos = Artigo.objects.all()
-    return render(request, 'portfolio/blog/index_blog.html', {'artigos': artigos})
+    return render(request, 'portfolio/blog/home_blog.html', {'artigos': artigos})
 
-
-def registrar_autor(request):
-    if request.method == 'POST':
-        form = AutorForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('index')
-    else:
-        form = AutorForm()
-    return render(request, 'portfolio/blog/registrar_autor.html', {'form': form})
-
-
+@login_required
 def criar_artigo(request):
     if request.method == 'POST':
         form = ArtigoForm(request.POST)
         if form.is_valid():
-            novo_artigo = form.save()
-            return redirect('index')
+            artigo = form.save(commit=False)
+            artigo.autor = request.user.autor
+            artigo.save()
+            messages.success(request, 'Artigo criado com sucesso.')
+            return redirect('index_blog')
     else:
         form = ArtigoForm()
     return render(request, 'portfolio/blog/criar_artigo.html', {'form': form})
 
-
+@login_required
 def editar_artigo(request, id):
-    artigo = Artigo.objects.get(id=id)
+    artigo = get_object_or_404(Artigo, id=id)
+    if artigo.autor != request.user.autor:
+        messages.error(request, 'Você não tem permissão para editar este artigo.')
+        return redirect('index_blog')
+
     if request.method == 'POST':
         form = ArtigoForm(request.POST, instance=artigo)
         if form.is_valid():
             form.save()
-            return redirect('index')
+            messages.success(request, 'Artigo atualizado com sucesso.')
+            return redirect('index_blog')
     else:
         form = ArtigoForm(instance=artigo)
-    return render(request, 'portfolio/blog/editar_artigo.html', {'form': form})
+    return render(request, 'portfolio/blog/editar_artigo.html', {'form': form, 'artigo': artigo})
 
-
+@login_required
 def apagar_artigo(request, id):
-    artigo = Artigo.objects.get(id=id)
+    artigo = get_object_or_404(Artigo, id=id)
+    if artigo.autor != request.user.autor:
+        messages.error(request, 'Você não tem permissão para apagar este artigo.')
+        return redirect('index_blog')
+
     if request.method == 'POST':
         artigo.delete()
-        return redirect('index')
+        messages.success(request, 'Artigo apagado com sucesso.')
+        return redirect('index_blog')
     return render(request, 'portfolio/blog/apagar_artigo.html', {'artigo': artigo})
+
+@login_required
+def registrar_autor(request):
+    if request.method == 'POST':
+        form = AutorForm(request.POST)
+        if form.is_valid():
+            autor = form.save(commit=False)
+            autor.user = request.user
+            autor.save()
+            messages.success(request, 'Autor registrado com sucesso.')
+            return redirect('index_blog')
+    else:
+        form = AutorForm()
+    return render(request, 'portfolio/blog/registrar_autor.html', {'form': form})
+
+@staff_member_required
+def registrar_conta(request):
+    if request.method == 'POST':
+        form = ContaForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Conta registrada com sucesso.')
+            return redirect('index_blog')
+    else:
+        form = ContaForm()
+    return render(request, 'portfolio/blog/registrar_conta.html', {'form': form})
+
+@login_required
+def area_restrita(request):
+    return render(request, 'portfolio/blog/area_restrita.html')
+
+
+

@@ -6,7 +6,7 @@ app_name = 'portifolio'
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('index', views.index_blog, name='index'),
+    path('index', views.home_blog, name='index'),
     path('sobreMim', views.sobreMim, name='sobreMim'),
     path('projetos', views.projetos, name='projetos'),
     path('contacto', views.contacto, name='contacto'),
@@ -29,10 +29,12 @@ urlpatterns = [
 
 
     path('layout_blog', views.layout_blog, name='layout_blog'),
-    path('index_blog', views.index_blog, name='index_blog'),
-    path('autores/', views.registrar_autor, name='registrar_autor'),
-    path('artigos/novo/', views.criar_artigo, name='criar_artigo'),
-    path('artigos/<int:id>/editar/', views.editar_artigo, name='editar_artigo'),
-    path('artigos/<int:id>/apagar/', views.apagar_artigo, name='apagar_artigo'),
 
+    path('home_blog/', views.home_blog, name='home_blog'),
+    path('criar_artigo/', views.criar_artigo, name='criar_artigo'),
+    path('editar_artigo/<int:id>/', views.editar_artigo, name='editar_artigo'),
+    path('apagar_artigo/<int:id>/', views.apagar_artigo, name='apagar_artigo'),
+    path('registrar_autor/', views.registrar_autor, name='registrar_autor'),
+    path('registrar_conta/', views.registrar_conta, name='registrar_conta'),
+    path('area_restrita/', views.area_restrita, name='area_restrita'),
 ]

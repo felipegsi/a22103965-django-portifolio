@@ -10,7 +10,5 @@ admin.site.register(Flight)
 admin.site.register(Passenger)
 
 admin.site.register(Conta)
-admin.site.register(Area)
-admin.site.register(Autor)
 admin.site.register(Artigo)
 admin.site.register(Comentario)
