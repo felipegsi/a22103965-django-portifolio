@@ -1,43 +1,14 @@
-<!-- index.html -->
-{% extends 'portfolio/blog/layout_blog.html' %}
+{% extends 'portfolio/base/layout_base.html' %}
+
+{% block link %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/home_blog.css' %}">
+{% endblock %}
+
 
 {% block main %}
 
-    <p>
-        <a href="{% url 'portifolio:registrar_conta' %}" class="btn btn-success btn-block">Registar Conta</a>
-    </p>
-
-    <p>
-        <a href="{% url 'portifolio:registrar_autor' %}" class="btn btn-success btn-block">Registar Autor</a>
-    </p>
-
-
-
-
-
-    <h1>Artigos</h1>
-
-    {% for artigo in artigos %}
-        <h2>{{ artigo.titulo }}</h2>
-        <p>{{ artigo.texto }}</p>
-        <p>Autor: {{ artigo.autor.nome }}</p>
-        <p>Data: {{ artigo.data }}</p>
-
-        <a href="{% url 'portifolio:editar_artigo' artigo.id %}" class="btn btn-warning  btn-sm"
-           style="float: left; margin-left: 10px">
-            Editar
-        </a>
-        <br>
-        <hr>
-
-    {% empty %}
-        <p>Nenhum artigo disponível.</p>
-    {% endfor %}
-
-
-
-
-    <a href="{% url 'portifolio:criar_artigo' %}" class="btn btn-success btn-block">+ Novo Artigo</a>
-
+   <h1>BLOG</h1>
 
 {% endblock %}
+

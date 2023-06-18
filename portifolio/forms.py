@@ -1,12 +1,8 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
 from django.forms import ModelForm
-
-
-from django import forms
-
 from .models import *
+
+
 class TarefaForm(ModelForm):
     class Meta:
         model = Tarefa
@@ -44,23 +40,3 @@ class FlightForm(ModelForm):
         fields = ['flights']
         labels = {'flights': ''}
         help_texts = {'flights': 'Premir Ctrl para selecionar mais do que um'}
-
-
-
-
-class ArtigoForm(forms.ModelForm):
-    class Meta:
-        model = Artigo
-        fields = '__all__'
-
-
-class AutorForm(forms.ModelForm):
-    class Meta:
-        model = Autor
-        fields = '__all__'
-
-
-class ContaForm(forms.ModelForm):
-    class Meta:
-        model = Conta
-        fields = '__all__'
