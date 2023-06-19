@@ -13,23 +13,26 @@
 
 {% block main %}
 
-    <h1>Tarefas</h1>
-    <hr>
-    <p class="subtitulo">Aplicação para gerir o seu dia-a-dia</p>
 
+    <section class="hero_tarefa">
+        <div class="content_tarefa">
+            <div class="bloco_tarefa">
 
-    <div class="nova_tarefa">
+                <h1>Adicione uma nova tarefa</h1>
+                <hr>
 
-        <form action="" method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
+                <div class="nova_tarefa">
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        {{ form.as_p }}
 
-            <a href="{% url 'portifolio:home_tarefa' %}" role="button" class="btn btn-warning">Cancelar</a>
-            <input type="submit" value="Gravar" class="btn btn-success">
-        </form>
+                        <a href="{% url 'portifolio:home_tarefa' %}" role="button" class="btn btn-warning">Cancelar</a>
+                        <input type="submit" value="Gravar" class="btn btn-success">
+                    </form>
+                </div>
 
-    </div>
-
-
+            </div>
+        </div>
+    </section>
 
 {% endblock %}

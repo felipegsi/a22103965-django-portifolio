@@ -28,9 +28,6 @@ h1 {
     text-align: center;
 }
 
-.subtitulo {
-    text-align: center;
-}
 
 /*apenas para alinha em baixo od tarefas*/
 hr {
@@ -39,12 +36,51 @@ hr {
     background-color: #333;
     width: 30%;
     margin-bottom: 20px;
+    z-index: 2;
 }
 
-p {
-    color: #ffffff;
-    font-size: 27px;
-    margin-bottom: 20px;
+.hero_tarefa {
+    position: relative;
+    color: white;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+}
+
+.hero_tarefa h1 {
+    position: relative;
+    z-index: 1;
+    font-size: 5vw;
+    margin: 0 0 10px;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.hero_tarefa h2 {
+    position: relative;
+    z-index: 1;
+    font-size: 2vw;
+    margin: 0 0 10px;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.hero_tarefa p {
+    position: relative;
+    z-index: 1;
+    color: #000000;
+    line-height: 1.4;
+    font-family: 'Cherry Swash', cursive;
+    font-size: 16px;
+}
+
+
+.content_tarefa {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .info {
@@ -63,6 +99,7 @@ p {
     cursor: pointer;
     border: 1px solid transparent;
     border-radius: 4px;
+    text-decoration: none; /* Adicionada a propriedade text-decoration */
 }
 
 .btn-warning {
@@ -100,3 +137,77 @@ p {
 .nova_tarefa .btn {
     margin-top: 10px;
 }
+
+
+/*-----bloco_tarefa-----*/
+.bloco_tarefa {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Define 3 colunas de tamanho igual */
+    gap: 20px;
+    justify-items: center;
+    align-items: center;
+    background-color: rgb(51 51 51 / 71%);;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px #000000;
+    margin: 20px auto;
+    max-width: 1200px;
+
+}
+
+.bloco_tarefa > div {
+    display: flex;
+    grid-template-rows: auto 1fr auto;
+    border-radius: 20px;
+    box-shadow: 5px 5px 15px #403e3e;
+    background-color: #f7f7f7;
+    transition: transform 0.3s ease-in-out;
+    justify-content: center;
+}
+
+.bloco_tarefa > div:hover {
+    transform: translateY(-10px);
+}
+
+.bloco_tarefa img {
+    border-radius: 20px 8px 0 28px;
+    width: 100%;
+    height: auto;
+}
+
+.bloco_tarefa > div > div:last-child {
+    padding: 20px;
+    border-radius: 0 20px 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.cards_tarefa {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.cards_tarefa .image-project {
+    margin-bottom: 10px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ou object-fit: contain; */
+}
+
+.cards_tarefa .title_tarefa {
+    width: 100%;
+    color: black;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.cards_tarefa .button-yellow {
+    width: 100%;
+    margin-bottom: 10px;
+}
+

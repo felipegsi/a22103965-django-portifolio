@@ -1,50 +1,53 @@
 {% extends 'portfolio/base/layout_base.html' %}
 
-
-
 {% block link %}
     {% load static %}
     <link rel="stylesheet" href="{% static 'portfolio/css/tarefas/home_tarefa.css' %}">
 {% endblock %}
 
-
-
-
-
 {% block main %}
+    <section class="hero_tarefa">
+        <div class="content_tarefa">
+            <div class="bloco_tarefa">
+                <h1>Tarefas</h1>
+                <hr>
+                <h2>Aplicação para gerir o seu dia-a-dia</h2>
+                {% for tarefa in tarefas %}
+                    <div class="cards_tarefa  {{ tarefa.id }}">
+
+                        <div class="title_tarefa">
+                            <span class="info">
+                                <p>({{ tarefa.criado.day }}/{{ tarefa.criado.month }})</p>
+                                {% if tarefa.prioridade == 1 %}
+                                    <p>🟢</p>
+                                {% elif tarefa.prioridade == 2 %}
+                                    <p>🟡</p>
+                                {% else %}
+                                    <p>🔴</p>
+                                {% endif %}
+                            </span>
+                            {% if tarefa.concluido == True %}
+                                <del>{{ tarefa.titulo }}</del>
+                            {% else %}
+                                <p>{{ tarefa.titulo }}</p>
+                            {% endif %}
+                        </div>
+
+                        <div class="button-yellow_tarefa">
+                            <a href="{% url 'portifolio:edita_tarefa' tarefa.id %}"
+                               class="btn btn-warning btn-sm">
+                                Editar
+                            </a>
+                        </div>
 
 
-        <h1>Tarefas</h1>
-        <hr>
-        <p class="subtitulo">Aplicação para gerir o seu dia-a-dia</p>
+                    </div>
+                {% endfor %}
 
-            {% for tarefa in tarefas %}
-                <p>
-                    <span class="info">
-                        ({{ tarefa.criado.day }}/{{ tarefa.criado.month }})
-                        {% if tarefa.prioridade == 1 %}
-                            🟢
-                        {% elif tarefa.prioridade == 2 %}
-                            🟡
-                        {% else %}
-                            🔴
-                        {% endif %}
-                    </span>
-                    {% if tarefa.concluido == True %}
-                        <del>{{ tarefa.titulo }}</del>
-                    {% else %}
-                        {{ tarefa.titulo }}
-                    {% endif %}
 
-                    <a href="{% url 'portifolio:edita_tarefa' tarefa.id %}" class="btn btn-warning  btn-sm" style="float: right; margin-right: 10px">
-                        Editar
-                    </a>
-                </p>
-            {% endfor %}
-
+            </div>
             <a href="{% url 'portifolio:nova_tarefa' %}" class="btn btn-success btn-block">+ Nova Tarefa</a>
+        </div>
 
-
-
-
+    </section>
 {% endblock %}
