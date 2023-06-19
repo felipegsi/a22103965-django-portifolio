@@ -11,13 +11,14 @@
     <meta name="keywords" content="palavras chave">
 
     {% load static %}
-    <link rel="stylesheet" href="{% static 'portfolio/css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'portfolio/css/base/layout_base.css' %}">
+
     <!-- block link trás o css das outras pages-->
     {% block link %}
     {% endblock %}
+    <!-- //////////////////////////////////////-->
 
     <script src="{% static 'portfolio/JavaScript/dark-mode-button.js' %}"></script>
-
 
 
 </head>
@@ -28,7 +29,7 @@
     <nav>
         <div>
             <a href="{% url 'portifolio:home' %}">Início</a>
-            <a href="{% url 'portifolio:sobreMim' %}">Sobre</a>
+            <a href="{% url 'portifolio:sobreMim_base' %}">Sobre</a>
             <a href="{% url 'portifolio:projetos' %}">Projetos</a>
             <a href="{% url 'portifolio:home_blog' %}">Blog</a>
             <a href="{% url 'portifolio:contacto' %}">Contacto</a>
@@ -41,6 +42,9 @@
     {% block main %}
     {% endblock main %}
 </main>
+<footer>
 
+    <div class="waves"></div>
+</footer>
 </body>
 </html>

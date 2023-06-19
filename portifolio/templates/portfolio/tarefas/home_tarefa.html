@@ -4,7 +4,7 @@
 
 {% block link %}
     {% load static %}
-    <link rel="stylesheet" href="{% static 'portfolio/css/home_tarefa.css' %}">
+    <link rel="stylesheet" href="{% static 'portfolio/css/tarefas/home_tarefa.css' %}">
 {% endblock %}
 
 
@@ -27,7 +27,7 @@
                         {% elif tarefa.prioridade == 2 %}
                             🟡
                         {% else %}
-                             🔴
+                            🔴
                         {% endif %}
                     </span>
                     {% if tarefa.concluido == True %}

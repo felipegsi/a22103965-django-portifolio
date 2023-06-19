@@ -2,7 +2,7 @@
 
 {% block link %}
     {% load static %}
-    <link rel="stylesheet" href="{% static 'portfolio/css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'portfolio/css/base/home_base.css' %}">
 {% endblock %}
 
 
@@ -11,6 +11,7 @@
     <section class="hero">
         <div class="content">
             <h2>Portfólio</h2>
+
             <p>
                 {% if hora >= 5 and hora <= 12%}
                     Bom dia,
@@ -32,10 +33,11 @@
                 </p>
             </div>
 
-            <button class="button-28" onclick="window.location.href = '{% url 'portifolio:sobreMim' %}'">Sobre mim
+            <button class="button-28" onclick="window.location.href = '{% url 'portifolio:sobreMim_base' %}'">Sobre mim
             </button>
         </div>
-        <div class="waves"></div>
+
+      <!--  <div class="waves"></div> -->
     </section>
 
 {% endblock %}

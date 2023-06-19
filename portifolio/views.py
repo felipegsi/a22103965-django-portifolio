@@ -10,24 +10,33 @@ import datetime
 
 # Create your views here.
 
-def home(request):
-    return render(request, 'portfolio/base/home.html')
+
+def testeNav(request):
+    return render(request, 'portfolio/base/testeNav.html')
 
 
-def layout_base(request):
-    return render(request, 'portfolio/base/layout_base.html')
+def home_base(request):
+    return render(request, 'portfolio/base/home_base.html')
 
 
-def sobreMim(request):
-    return render(request, 'portfolio/base/sobreMim.html')
+# def layout_base(request):
+#   return render(request, 'portfolio/base/layout_base.html')
 
 
-def projetos(request):
-    return render(request, 'portfolio/base/projetos.html')
+def sobreMim_base(request):
+    return render(request, 'portfolio/base/sobreMim_base.html')
 
 
-def contacto(request):
-    return render(request, 'portfolio/base/contacto.html')
+def sobreMim_base_2(request):
+    return render(request, 'portfolio/base/sobreMim_base_2.html')
+
+
+def projetos_base(request):
+    return render(request, 'portfolio/base/projetos_base.html')
+
+
+def contacto_base(request):
+    return render(request, 'portfolio/base/contacto_base.html')
 
 
 def home_tarefa(request):
@@ -58,7 +67,7 @@ def edita_tarefa(request, tarefa_id):
 
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect(reverse('portifolio:edita_tarefa'))
+        return HttpResponseRedirect(reverse('portifolio:edita_tarefa', args=[tarefa_id]))
 
     context = {'form': form, 'tarefa_id': tarefa_id}
     return render(request, 'portfolio/tarefas/edita_tarefa.html', context)
