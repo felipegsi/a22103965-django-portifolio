@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from .forms import TarefaForm, PassengerForm, FlightForm
+from .forms import TarefaForm, PassengerForm, FlightForm,SobreMimForm
 from .models import *
 import datetime
 
@@ -28,7 +28,7 @@ def sobreMim_base(request):
 
 
 def sobreMim_base_2(request):
-    return render(request, 'portfolio/base/sobreMim_base_2.html')
+    return render(request, 'portfolio/base/sobreMim_home_2.html')
 
 
 def projetos_base(request):
@@ -172,3 +172,45 @@ def logout_view(request):
 
 def home_blog(request):
     return render(request, 'portfolio/blog/home_blog.html')
+
+
+
+###############################-----sobre_Mim_2------#####################################
+def home_sobreMim(request):
+    topicos = ['HTML', 'Java', 'Kotlin', 'Python', 'Django', 'JavaScript', 'CSS']
+
+    context = {
+        'topicos': topicos,
+        'sobreMim': SobreMim.objects.all()
+    }
+
+    return render(request, 'portfolio/base/sobreMim_home_2.html', context)
+
+
+def novo_sobreMim(request):
+    form = SobreMimForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('portifolio:novo_sobreMim')
+
+    context = {'form': form}
+
+    return render(request, 'portfolio/base/sobreMim_nova_2.html', context)
+
+
+def edita_sobreMim(request, sobreMim_id):
+    sobreMim = SobreMim.objects.get(id=sobreMim_id)
+    form = SobreMimForm(request.POST or None, instance=sobreMim)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portifolio:edita_sobreMim', args=[sobreMim_id]))
+
+    context = {'form': form, 'sobreMim_id': sobreMim_id}
+    return render(request, 'portfolio/base/sobreMim_edita_2.html', context)
+
+
+def apaga_sobreMim(request, sobreMim_id):
+    SobreMim.objects.get(id=sobreMim_id).delete()
+    return HttpResponseRedirect(reverse('portifolio:home_sobreMim'))
+

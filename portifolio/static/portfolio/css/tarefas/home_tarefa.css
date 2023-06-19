@@ -52,7 +52,7 @@ hr {
 .hero_tarefa h1 {
     position: relative;
     z-index: 1;
-    font-size: 5vw;
+    font-size: 3vw;
     margin: 0 0 10px;
     line-height: 1;
     color: rgba(255, 255, 255, 0.9);

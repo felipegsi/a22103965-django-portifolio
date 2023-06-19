@@ -32,4 +32,10 @@ urlpatterns = [
     path('logout', views.logout_view, name='logout'),
 
     path('home_blog', views.home_blog, name='home_blog'),
+
+    path('home_sobreMim', views.home_sobreMim, name='home_sobreMim'),
+    path('novo_sobreMim', views.novo_sobreMim, name='novo_sobreMim'),
+    path('edita_sobreMim/<int:tarefa_id>/', views.edita_sobreMim, name='edita_sobreMim'),
+    path('apaga_sobreMim/<int:tarefa_id>', views.apaga_sobreMim, name='apaga_sobreMim'),
+
 ]

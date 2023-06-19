@@ -1,0 +1,53 @@
+{% extends 'portfolio/base/layout_base.html' %}
+
+{% block link %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/base/sobreMim_base_2.css' %}">
+{% endblock %}
+
+{% block main %}
+    <section class="hero_sobreMim">
+        <div class="content_sobreMim">
+            <div class="bloco_sobreMim">
+                <h1>Competências</h1>
+                <hr>
+                <hr>
+                {% for tarefa in tarefas %}
+                    <div class="cards_sobreMim  {{ tarefa.id }}">
+
+                        <div class="title_sobreMim">
+                            <span class="info">
+                                <p>({{ tarefa.criado.day }}/{{ tarefa.criado.month }})</p>
+                                {% if tarefa.prioridade == 1 %}
+                                    <p>🟢</p>
+                                {% elif tarefa.prioridade == 2 %}
+                                    <p>🟡</p>
+                                {% else %}
+                                    <p>🔴</p>
+                                {% endif %}
+                            </span>
+                            {% if tarefa.concluido == True %}
+                                <del>{{ tarefa.titulo }}</del>
+                            {% else %}
+                                <p>{{ tarefa.titulo }}</p>
+                            {% endif %}
+                        </div>
+
+                        <div class="button-yellow_tarefa">
+                            <a href="{% url 'portifolio:edita_sobreMim' tarefa.id %}"
+                               class="btn btn-warning btn-sm">
+                                Editar
+                            </a>
+                        </div>
+
+
+                    </div>
+                {% endfor %}
+
+
+            </div>
+            <a href="{% url 'portifolio:novo_sobreMim' %}" class="btn btn-success btn-block">+ Nova Tarefa</a>
+        </div>
+
+    </section>
+{% endblock %}
