@@ -1,0 +1,33 @@
+{% extends "portfolio/blog/base_blog.html" %}
+
+{% block main %}
+
+<h1>Artigo: {{ artigo }} </h1>
+
+<h3>Categorias:</h3>
+<ul>
+    {% for categoria in artigo.categoria.all  %}
+      <li> {{ categoria }} </li>
+    {% endfor %}
+</ul>
+
+{% if request.user.is_authenticated %}
+
+<br>
+<h3>Adicionar categoria:</h3>
+
+<form action="" method="POST">
+
+  {% csrf_token %}
+  {{form.as_p}}
+  <input type="submit" value="Selecionar">
+
+</form>
+
+{% endif %}
+
+
+<br><br>
+<a href="{% url 'portifolio:categorias_blog' %}"><button>Voltar à lista de categorias</button></a>
+
+{% endblock main %}

@@ -42,7 +42,7 @@ hr {
 .hero_tarefa {
     position: relative;
     color: white;
-    height: 100vh;
+
     display: flex;
     align-items: center;
     overflow: hidden;

@@ -1,4 +1,4 @@
-{% extends "portfolio/flights/base_flight.html" %}
+{% extends "portfolio/blog/base_blog.html" %}
 
 {% block main %}
   
@@ -8,7 +8,7 @@
   {{ message }}
 {% endif %}
 
-<form action="{% url 'portifolio:login' %}" method="POST">
+<form action="{% url 'portifolio:login_blog' %}" method="POST">
     {% csrf_token %}
     <input type="text" name="username" placeholder="username">
     <input type="password" name="password" placeholder="password">

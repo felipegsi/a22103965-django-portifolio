@@ -4,9 +4,6 @@ from django.db import models
 # Create your models here.
 
 
-
-
-
 class Tarefa(models.Model):
     titulo = models.CharField(max_length=30)
     prioridade = models.IntegerField(default=1)
@@ -50,7 +47,6 @@ class Passenger(models.Model):
         return self.name
 
 
-
 class SobreMim(models.Model):
     titulo = models.CharField(max_length=30)
     prioridade = models.IntegerField(default=1)
@@ -59,3 +55,37 @@ class SobreMim(models.Model):
 
     def __str__(self):
         return self.titulo[:50]
+
+
+class Categoria(models.Model):
+    nome = models.CharField(max_length=30)
+    descricao = models.TextField(blank=False, null=False)
+
+    # imagem
+
+    def __str__(self):
+        return self.nome
+
+
+class Autor(models.Model):
+    nome = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.nome
+
+
+class Artigo(models.Model):
+    titulo = models.CharField(max_length=30)
+    autor = models.ForeignKey(Autor,
+                              on_delete=models.CASCADE,
+                              related_name="artigo_autor")
+    categoria = models.ManyToManyField(Categoria,
+                                  related_name="artigos_categoria"
+                                  )
+
+    descricao = models.TextField(blank=False, null=False)
+    # imagem
+    data = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.titulo

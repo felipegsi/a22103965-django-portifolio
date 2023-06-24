@@ -1,0 +1,14 @@
+{% extends "portfolio/blog/base_blog.html" %}
+
+{% block main %}
+
+<h3>Categorias</h3>
+<ul>
+    {% for categoria in categorias  %}
+      <li>
+        <a href="{% url 'portifolio:categoria_blog' categoria.id %}">{{ categoria }}</a>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock main %}

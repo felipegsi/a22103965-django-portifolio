@@ -12,29 +12,29 @@
                 <h1>Competências</h1>
                 <hr>
                 <hr>
-                {% for tarefa in tarefas %}
-                    <div class="cards_sobreMim  {{ tarefa.id }}">
+                {% for sobreMim in sobreMims %}
+                    <div class="cards_sobreMim  {{ sobreMim.id }}">
 
                         <div class="title_sobreMim">
                             <span class="info">
-                                <p>({{ tarefa.criado.day }}/{{ tarefa.criado.month }})</p>
-                                {% if tarefa.prioridade == 1 %}
+                                <p>({{ sobreMim.criado.day }}/{{ sobreMim.criado.month }})</p>
+                                {% if sobreMim.prioridade == 1 %}
                                     <p>🟢</p>
-                                {% elif tarefa.prioridade == 2 %}
+                                {% elif sobreMim.prioridade == 2 %}
                                     <p>🟡</p>
                                 {% else %}
                                     <p>🔴</p>
                                 {% endif %}
                             </span>
-                            {% if tarefa.concluido == True %}
-                                <del>{{ tarefa.titulo }}</del>
+                            {% if sobreMim.concluido == True %}
+                                <del>{{ sobreMim.titulo }}</del>
                             {% else %}
-                                <p>{{ tarefa.titulo }}</p>
+                                <p>{{ sobreMim.titulo }}</p>
                             {% endif %}
                         </div>
 
                         <div class="button-yellow_tarefa">
-                            <a href="{% url 'portifolio:edita_sobreMim' tarefa.id %}"
+                            <a href="{% url 'portifolio:edita_sobreMim' sobreMim.id %}"
                                class="btn btn-warning btn-sm">
                                 Editar
                             </a>
@@ -46,7 +46,7 @@
 
 
             </div>
-            <a href="{% url 'portifolio:novo_sobreMim' %}" class="btn btn-success btn-block">+ Nova Tarefa</a>
+            <a href="{% url 'portifolio:novo_sobreMim' %}" class="btn btn-success btn-block">+ Adicionar</a>
         </div>
 
     </section>

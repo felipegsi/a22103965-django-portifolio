@@ -21,7 +21,6 @@ class TarefaForm(ModelForm):
             'titulo': 'Título',
             'concluido': 'Concluída',
         }
-
         # o dicionário help_texts contém, para um atributo, um texto auxiliar a apresentar por baixo da janela de inserção
         help_texts = {
             'prioridade': 'prioridade: baixa=1, media=2, alta=3',
@@ -44,7 +43,7 @@ class FlightForm(ModelForm):
 
 class SobreMimForm(ModelForm):
     class Meta:
-        model = Tarefa
+        model = SobreMim
         fields = '__all__'
 
         # Para um conjunto de propriedade da classe (titulo, prioridade, concluido, etc),
@@ -65,3 +64,17 @@ class SobreMimForm(ModelForm):
         help_texts = {
             'prioridade': 'prioridade: baixa=1, media=2, alta=3',
         }
+
+
+class CategoriaForm(forms.ModelForm):
+
+    class Meta:
+        model = Categoria
+        fields = '__all__'
+
+
+class ArtigoForm(forms.ModelForm):
+
+    class Meta:
+        model = Artigo
+        fields = '__all__'  # or specify the desired fields explicitly

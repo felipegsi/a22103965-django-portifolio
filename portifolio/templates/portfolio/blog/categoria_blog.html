@@ -1,0 +1,56 @@
+{% extends "portfolio/blog/base_blog.html" %}
+
+{% block main %}
+
+<h3>Categoria: {{ categoria }}</h3>
+
+<ul>
+  <li>Nome: {{ categoria.nome }}</li>
+  <li>Descrição: {{ categoria.descricao }}</li>
+</ul>
+
+<h4>Artigos na categoria:</h4>
+
+<ul>
+  {% for artigo in artigos %}
+  <li>
+    <a href="{% url 'portifolio:artigo_blog' artigo.id %}">
+      {{ artigo }}</a>
+    {% if request.user.is_authenticated %}
+      <a href="{% url 'portifolio:remove_artigo_blog' categoria.id artigo.id %}">🗑</a>
+
+    {% endif %}
+  </li>
+  {% empty %}
+  <li>Categoria sem artigos</li>
+  {% endfor %}
+</ul>
+
+
+{% if request.user.is_authenticated %}
+
+<h4>Adicionar artigos em categorias:</h4>
+
+<ul>
+  <li>
+
+    <form action="{% url 'portifolio:add_artigo_blog' categoria.id %}" method="POST">
+      {% csrf_token %}
+      <select name="artigo">
+        {% for artigo in sem_artigos %}
+        <option value="{{ artigo.id }}">{{ artigo }}</option>
+        {% endfor %}
+      </select>
+      <input type="submit" value="Adicionar">
+    </form>
+
+  </li>
+</ul>
+
+{% endif %}
+
+
+<br><br>
+<a href="{% url 'portifolio:categorias_blog' %}"><button>Voltar à lista de categorias</button></a>
+
+{% endblock main %}

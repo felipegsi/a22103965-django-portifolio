@@ -1,0 +1,29 @@
+{% extends "portfolio/blog/base_blog.html" %}
+
+{% block main %}
+
+<h3>Artigos</h3>
+
+<ul>
+    {% for artigo in artigos  %}
+      <li> <a href="{% url 'portifolio:artigo_blog' artigo.id %}">{{ artigo }}</a> </li>
+    {% endfor %}
+</ul>
+
+<br><br>
+
+{% if request.user.is_authenticated %}
+
+<h3>Criar novo artigo:</h3>
+
+<form action="" method="POST">
+  {% csrf_token %}
+  {{form}}
+  <input type="submit" value="Criar">
+</form>
+<br><br>
+{% endif %}
+
+<a href="{% url 'portifolio:categorias_blog' %}"><button>Voltar à lista de categorias</button></a>
+
+{% endblock main %}

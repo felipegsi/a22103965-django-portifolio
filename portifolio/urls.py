@@ -35,7 +35,18 @@ urlpatterns = [
 
     path('home_sobreMim', views.home_sobreMim, name='home_sobreMim'),
     path('novo_sobreMim', views.novo_sobreMim, name='novo_sobreMim'),
-    path('edita_sobreMim/<int:tarefa_id>/', views.edita_sobreMim, name='edita_sobreMim'),
-    path('apaga_sobreMim/<int:tarefa_id>', views.apaga_sobreMim, name='apaga_sobreMim'),
+    path('edita_sobreMim/<int:sobreMim_id>/', views.edita_sobreMim, name='edita_sobreMim'),
+    path('apaga_sobreMim/<int:sobreMim_id>', views.apaga_sobreMim, name='apaga_sobreMim'),
+
+
+
+    path('categorias_blog', views.categorias_blog, name='categorias_blog'),
+    path('categoria_blog/<int:categoria_id>', views.categoria_blog, name='categoria_blog'),
+    path('add_artigo_blog/<int:categoria_id>', views.add_artigo_blog, name='add_artigo_blog'),
+    path('remove_artigo_blog/<int:categoria_id>/<int:artigo_id>', views.remove_artigo_blog, name='remove_artigo_blog'),
+    path('artigos_blog', views.artigos_blog, name='artigos_blog'),
+    path('artigo_blog/<int:artigo_id>', views.artigo_blog, name='artigo_blog'),
+    path('login_blog', views.login_blog, name='login_blog'),
+    path('logout_blog', views.logout_blog, name='logout_blog'),
 
 ]

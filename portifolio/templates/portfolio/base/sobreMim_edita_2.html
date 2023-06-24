@@ -25,13 +25,13 @@
                 <div class="novo_sobreMim">
 
 
-                    <form action="{% url 'portifolio:edita_sobreMim' tarefa_id %}" method="POST">
+                    <form action="{% url 'portifolio:edita_sobreMim' sobreMim_id %}" method="POST">
                         {% csrf_token %}
                         {{ form.as_p }}
 
                         <a href="{% url 'portifolio:home_sobreMim' %}" role="button" class="btn btn-warning">Cancelar</a>
                         <input type="submit" value="Gravar" class="btn btn-success">
-                        <a href="{% url 'portifolio:apaga_sobreMim' tarefa_id %}" role="button" class="btn btn-danger">Apagar</a>
+                        <a href="{% url 'portifolio:apaga_sobreMim' sobreMim_id %}" role="button" class="btn btn-danger">Apagar</a>
                     </form>
 
                 </div>
