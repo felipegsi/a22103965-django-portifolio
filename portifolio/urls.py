@@ -6,14 +6,21 @@ app_name = 'portifolio'
 
 urlpatterns = [
 
-
+    #
     path('testeNav', views.testeNav, name='testeNav'),
-
 
     path('', views.home_base, name='home'),
     # path('layout_base', views.layout_base, name='layout_base'),
     path('sobreMim_base', views.sobreMim_base, name='sobreMim_base'),
     path('sobreMim_base_2', views.sobreMim_base_2, name='sobreMim_base_2'),
+
+
+
+    #
+    path('sobreMimFull', views.sobreMimFull, name='sobreMimFull'),
+
+
+
     path('projetos', views.projetos_base, name='projetos'),
     path('contacto', views.contacto_base, name='contacto'),
 
@@ -37,8 +44,6 @@ urlpatterns = [
     path('novo_sobreMim', views.novo_sobreMim, name='novo_sobreMim'),
     path('edita_sobreMim/<int:sobreMim_id>/', views.edita_sobreMim, name='edita_sobreMim'),
     path('apaga_sobreMim/<int:sobreMim_id>', views.apaga_sobreMim, name='apaga_sobreMim'),
-
-
 
     path('categorias_blog', views.categorias_blog, name='categorias_blog'),
     path('categoria_blog/<int:categoria_id>', views.categoria_blog, name='categoria_blog'),

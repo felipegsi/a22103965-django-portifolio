@@ -10,6 +10,8 @@ import datetime
 
 # Create your views here.
 
+def sobreMimFull(request):
+    return render(request, 'portfolio/base/sobreMim_fullPage_base.html')
 
 def testeNav(request):
     return render(request, 'portfolio/base/testeNav.html')

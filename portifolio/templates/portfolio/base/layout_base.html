@@ -3,28 +3,32 @@
 
 <head>
     <title>Portifólio</title>
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <meta name="author" content="Felipe Silva">
     <meta name="description" content="Meu Portifólio">
     <meta name="keywords" content="palavras chave">
 
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'portfolio/css/base/layout_base.css' %}">
-
     <!-- block link trás o css das outras pages-->
     {% block link %}
     {% endblock %}
-    <!-- //////////////////////////////////////-->
+    <!-- ------------------------------------- -->
 
+    <!-- Favicon-->
+    {% load static %}
+    <link rel="icon" type="image/x-icon" href="{% static 'portfolio/images/about/favicon.ico' %}"/>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/base/layout_base.css' %}">
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css"/>
+
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <script src="{% static 'portfolio/JavaScript/dark-mode-button.js' %}"></script>
-
-
 </head>
 
 <body>
-
 <header>
     <nav>
         <div>
