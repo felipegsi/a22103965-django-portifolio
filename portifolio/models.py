@@ -46,7 +46,7 @@ class Passenger(models.Model):
     def __str__(self):
         return self.name
 
-
+############alterar sobre mim para cadeiras##################
 class SobreMim(models.Model):
     titulo = models.CharField(max_length=30)
     prioridade = models.IntegerField(default=1)
@@ -57,6 +57,14 @@ class SobreMim(models.Model):
         return self.titulo[:50]
 
 
+
+
+
+
+
+
+
+########################################################
 class Categoria(models.Model):
     nome = models.CharField(max_length=30)
     descricao = models.TextField(blank=False, null=False)

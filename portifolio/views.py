@@ -5,13 +5,10 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from .forms import *
 from .models import *
-import datetime
 
 
 # Create your views here.
 
-def sobreMimFull(request):
-    return render(request, 'portfolio/base/sobreMim_fullPage_base.html')
 
 def testeNav(request):
     return render(request, 'portfolio/base/testeNav.html')
@@ -19,18 +16,6 @@ def testeNav(request):
 
 def home_base(request):
     return render(request, 'portfolio/base/home_base.html')
-
-
-# def layout_base(request):
-#   return render(request, 'portfolio/base/layout_base.html')
-
-
-def sobreMim_base(request):
-    return render(request, 'portfolio/base/sobreMim_base.html')
-
-
-def sobreMim_base_2(request):
-    return render(request, 'portfolio/base/sobreMim_home_2.html')
 
 
 def projetos_base(request):
@@ -177,7 +162,16 @@ def home_blog(request):
 
 
 ###############################-----sobre_Mim_2------#####################################
-def home_sobreMim(request):
+
+def sobreMim_full(request):
+    return render(request, 'portfolio/sobreMim/sobreMim_full.html')
+
+
+def sobreMim_video(request):
+    return render(request, 'portfolio/sobreMim/sobreMim_video.html')
+
+
+def sobreMim_educacao(request):
     topicos = ['HTML', 'Java', 'Kotlin', 'Python', 'Django', 'JavaScript', 'CSS']
 
     context = {
@@ -185,7 +179,7 @@ def home_sobreMim(request):
         'sobreMims': SobreMim.objects.all()
     }
 
-    return render(request, 'portfolio/base/sobreMim_home_2.html', context)
+    return render(request, 'portfolio/sobreMim/sobreMim_educacao.html', context)
 
 
 def novo_sobreMim(request):
@@ -196,7 +190,7 @@ def novo_sobreMim(request):
 
     context = {'form': form}
 
-    return render(request, 'portfolio/base/sobreMim_nova_2.html', context)
+    return render(request, 'portfolio/sobreMim/sobreMim_nova_2.html', context)
 
 
 def edita_sobreMim(request, sobreMim_id):
@@ -208,12 +202,12 @@ def edita_sobreMim(request, sobreMim_id):
         return HttpResponseRedirect(reverse('portifolio:edita_sobreMim', args=[sobreMim_id]))
 
     context = {'form': form, 'sobreMim_id': sobreMim_id}
-    return render(request, 'portfolio/base/sobreMim_edita_2.html', context)
+    return render(request, 'portfolio/sobreMim/sobreMim_edita_2.html', context)
 
 
 def apaga_sobreMim(request, sobreMim_id):
     SobreMim.objects.get(id=sobreMim_id).delete()
-    return HttpResponseRedirect(reverse('portifolio:home_sobreMim'))
+    return HttpResponseRedirect(reverse('portifolio:sobreMim_educacao'))
 
 
 ########################################################################
@@ -226,7 +220,6 @@ def categorias_blog(request):
     return render(request, 'portfolio/blog/categorias_blog.html', context)
 
 
-
 def categoria_blog(request, categoria_id):
     categoria = Categoria.objects.get(id=categoria_id)
     artigos = Artigo.objects.filter(categoria=categoria)
@@ -235,14 +228,13 @@ def categoria_blog(request, categoria_id):
         'categoria': categoria,
         'artigos': artigos,
     }
-
     return render(request, 'portfolio/blog/categoria_blog.html', context)
+
 
 def artigos_blog(request):
     form = ArtigoForm(request.POST or None)
     if form.is_valid():
         form.save()
-
     context = {
         'artigos': Artigo.objects.all().order_by('titulo'),
         'form': ArtigoForm(None),
@@ -253,10 +245,8 @@ def artigos_blog(request):
 def artigo_blog(request, artigo_id):
     artigo = Artigo.objects.get(id=artigo_id)
     form = CategoriaForm(request.POST or None, instance=artigo)
-
     if form.is_valid():
         form.save()
-
     context = {
         'artigo': artigo,
         'form': form,

@@ -14,37 +14,54 @@
     <section class="page-section" id="services">
         <div class="container">
             <div class="text-center">
-                <h2 class="section-heading text-uppercase">Services</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                <h2 class="section-heading text-uppercase">Competências</h2>
+                <h3 class="section-subheading text-muted">Serão apresentadas diversas áreas da minha vida</h3>
             </div>
             <div class="row text-center">
                 <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
+
+                    <button class="botao_sobreMim"
+                            onclick="window.location.href='{% url 'portifolio:sobreMim_educacao' %}'">
+                           <span class="fa-stack fa-4x">
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
                             <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
                         </span>
-                    <h4 class="my-3">E-Commerce</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
-                        architecto quo inventore harum ex magni, dicta impedit.</p>
+                    </button>
+                    <h4 class="my-3">Educação</h4>
+                    <p class="text-muted">Descrevo todas as licenciaturas, cadeiras e cursos que me graduei com suas
+                        respetivas
+                        cadeiras.</p>
+
+
                 </div>
                 <div class="col-md-4">
+                    <button class="botao_sobreMim"
+                            onclick="window.location.href='{% url 'portifolio:sobreMim_video' %}'">
                         <span class="fa-stack fa-4x">
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
                             <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
                         </span>
-                    <h4 class="my-3">Responsive Design</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
-                        architecto quo inventore harum ex magni, dicta impedit.</p>
+                    </button>
+                    <h4 class="my-3">Apresentação Pessoal(vídeo)</h4>
+                    <p class="text-muted">Neste breve vídeo, compartilho meus hobbies, mostrando minha paixão por
+                        esportes ao ar livre, minha dedicação à música, meu amor pela leitura e meu lado criativo
+                        por
+                        meio de projetos de arte. Conheça um pouco mais sobre mim além do trabalho.</p>
+
                 </div>
                 <div class="col-md-4">
+                    <button class="botao_sobreMim" onclick="window.location.href='{% url 'portifolio:home' %}'">
+
                         <span class="fa-stack fa-4x">
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
                             <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
                         </span>
-                    <h4 class="my-3">Web Security</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
-                        architecto quo inventore harum ex magni, dicta impedit.</p>
+                    </button>
+                    <h4 class="my-3">Programação Web</h4>
+                    <p class="text-muted">Esta secção destina-se a referenciar alguns atributos exigidos pela cadeira, e
+                        mostrar a evoluçao ao longo do semestre.</p>
                 </div>
+
             </div>
         </div>
     </section>
@@ -52,8 +69,8 @@
     <section class="page-section bg-light" id="portfolio">
         <div class="container">
             <div class="text-center">
-                <h2 class="section-heading text-uppercase">Portfolio</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                <h2 class="section-heading text-uppercase">Hobbies e interesses</h2>
+                <h3 class="section-subheading text-muted">Meus interesses fora da vida profissional.</h3>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-sm-6 mb-4">
@@ -67,8 +84,8 @@
                                  alt="..."/>
                         </a>
                         <div class="portfolio-caption">
-                            <div class="portfolio-caption-heading">Threads</div>
-                            <div class="portfolio-caption-subheading text-muted">Illustration</div>
+                            <div class="portfolio-caption-heading">Relógios</div>
+                            <div class="portfolio-caption-subheading text-muted">Grande paixão por IWC's</div>
                         </div>
                     </div>
                 </div>
@@ -83,8 +100,8 @@
                                  alt="..."/>
                         </a>
                         <div class="portfolio-caption">
-                            <div class="portfolio-caption-heading">Explore</div>
-                            <div class="portfolio-caption-subheading text-muted">Graphic Design</div>
+                            <div class="portfolio-caption-heading">Futebol</div>
+                            <div class="portfolio-caption-subheading text-muted">Um amor eterno</div>
                         </div>
                     </div>
                 </div>
@@ -99,8 +116,8 @@
                                  alt="..."/>
                         </a>
                         <div class="portfolio-caption">
-                            <div class="portfolio-caption-heading">Finish</div>
-                            <div class="portfolio-caption-subheading text-muted">Identity</div>
+                            <div class="portfolio-caption-heading">Carros</div>
+                            <div class="portfolio-caption-subheading text-muted">Me identifico com todos</div>
                         </div>
                     </div>
                 </div>
@@ -115,8 +132,8 @@
                                  alt="..."/>
                         </a>
                         <div class="portfolio-caption">
-                            <div class="portfolio-caption-heading">Lines</div>
-                            <div class="portfolio-caption-subheading text-muted">Branding</div>
+                            <div class="portfolio-caption-heading">Comida</div>
+                            <div class="portfolio-caption-subheading text-muted">Experimentar novos sabores</div>
                         </div>
                     </div>
                 </div>
@@ -131,8 +148,8 @@
                                  alt="..."/>
                         </a>
                         <div class="portfolio-caption">
-                            <div class="portfolio-caption-heading">Southwest</div>
-                            <div class="portfolio-caption-subheading text-muted">Website Design</div>
+                            <div class="portfolio-caption-heading">Tecnologia</div>
+                            <div class="portfolio-caption-subheading text-muted">Possibilidade de criar</div>
                         </div>
                     </div>
                 </div>
@@ -147,8 +164,8 @@
                                  alt="..."/>
                         </a>
                         <div class="portfolio-caption">
-                            <div class="portfolio-caption-heading">Window</div>
-                            <div class="portfolio-caption-subheading text-muted">Photography</div>
+                            <div class="portfolio-caption-heading">Perfumes</div>
+                            <div class="portfolio-caption-subheading text-muted">Sentir novas fragrâncias</div>
                         </div>
                     </div>
                 </div>
@@ -159,8 +176,8 @@
     <section class="page-section" id="about">
         <div class="container">
             <div class="text-center">
-                <h2 class="section-heading text-uppercase">About</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                <h2 class="section-heading text-uppercase">Sobre mim</h2>
+                <h3 class="section-subheading text-muted">Histórico de carreira acadêmica/profissional</h3>
             </div>
             <ul class="timeline">
                 <li>
@@ -168,14 +185,12 @@
                                                      src="{% static 'portfolio/images/about/1.jpg' %}" alt="..."/></div>
                     <div class="timeline-panel">
                         <div class="timeline-heading">
-                            <h4>2009-2011</h4>
-                            <h4 class="subheading">Our Humble Beginnings</h4>
+                            <h4>Abril 2017</h4>
+                            <h4 class="subheading">Primeiro contato com a programação</h4>
                         </div>
-                        <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur
-                            adipisicing
-                            elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam,
-                            recusandae
-                            sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                        <div class="timeline-body"><p class="text-muted">Meu primeiro contato com a programação foi com
+                            alguns jogos que permitiam o aprendizado sobre Flexbox do CSS e a criação de algumas funções
+                            com JavaScript</p></div>
                     </div>
                 </li>
                 <li class="timeline-inverted">
@@ -183,14 +198,12 @@
                                                      src="{% static 'portfolio/images/about/2.jpg' %}" alt="..."/></div>
                     <div class="timeline-panel">
                         <div class="timeline-heading">
-                            <h4>March 2011</h4>
-                            <h4 class="subheading">An Agency is Born</h4>
+                            <h4>Setembro 2019</h4>
+                            <h4 class="subheading">Primeiros projetos escolares</h4>
                         </div>
-                        <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur
-                            adipisicing
-                            elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam,
-                            recusandae
-                            sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                        <div class="timeline-body"><p class="text-muted">Um dos meus primeiros projetos com programação
+                            foi a criação de uma calculadora, seguida de um jogo simples de memória, para além da
+                            programação também aprendi conceitos do Gimp e CorelDRAW na edição de fotos</p></div>
                     </div>
                 </li>
                 <li>
@@ -198,14 +211,15 @@
                                                      src="{% static 'portfolio/images/about/3.jpg' %}" alt="..."/></div>
                     <div class="timeline-panel">
                         <div class="timeline-heading">
-                            <h4>December 2015</h4>
-                            <h4 class="subheading">Transition to Full Service</h4>
+                            <h4>Setembro 2021</h4>
+                            <h4 class="subheading">Projetos Acadêmicos</h4>
                         </div>
-                        <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur
-                            adipisicing
-                            elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam,
-                            recusandae
-                            sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                        <div class="timeline-body"><p class="text-muted">No percurso da Universidade fui capaz de
+                            desenvolver diversos projetos complexos, os quais estarão referenciados neste portifolio,
+                            que vão desde um simples print("Hello World!") até um algoritmo de carros autônomos que
+                            visam evitar obstáculos ou um algoritmo capaz de aplicar alterações no pixel de várias
+                            imagens, aplicando filtros, rotações, translações, binarizações, etc, sobre as imagens</p>
+                        </div>
                     </div>
                 </li>
                 <li class="timeline-inverted">
@@ -213,24 +227,22 @@
                                                      src="{% static 'portfolio/images/about/4.jpg' %}" alt="..."/></div>
                     <div class="timeline-panel">
                         <div class="timeline-heading">
-                            <h4>July 2020</h4>
-                            <h4 class="subheading">Phase Two Expansion</h4>
+                            <h4>Atualmente 2023</h4>
+                            <h4 class="subheading">A procura de uma oportunidade de provar minhas competências</h4>
                         </div>
-                        <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur
-                            adipisicing
-                            elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam,
-                            recusandae
-                            sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                        <div class="timeline-body"><p class="text-muted">No presente momento busco uma vaga de emprego
+                            em que possa depositar um voto de confiança em um aprendiz, tendo em conta que ainda estou
+                            no começo da minha carreira e que existem imensos temas que sou leigo</p></div>
                     </div>
                 </li>
                 <li class="timeline-inverted">
                     <div class="timeline-image">
                         <h4>
-                            Be Part
+                            Faça Parte
                             <br/>
-                            Of Our
+                            Dessa
                             <br/>
-                            Story!
+                            História!
                         </h4>
                     </div>
                 </li>
@@ -241,8 +253,8 @@
     <section class="page-section bg-light" id="team">
         <div class="container">
             <div class="text-center">
-                <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                <h2 class="section-heading text-uppercase">Equipe de colegas(entre outros)</h2>
+                <h3 class="section-subheading text-muted">Estes são amigos que caminham comigo na jornada acadêmica</h3>
             </div>
             <div class="row">
                 <div class="col-lg-4">

@@ -11,13 +11,6 @@ urlpatterns = [
 
     path('', views.home_base, name='home'),
     # path('layout_base', views.layout_base, name='layout_base'),
-    path('sobreMim_base', views.sobreMim_base, name='sobreMim_base'),
-    path('sobreMim_base_2', views.sobreMim_base_2, name='sobreMim_base_2'),
-
-
-
-    #
-    path('sobreMimFull', views.sobreMimFull, name='sobreMimFull'),
 
 
 
@@ -40,7 +33,9 @@ urlpatterns = [
 
     path('home_blog', views.home_blog, name='home_blog'),
 
-    path('home_sobreMim', views.home_sobreMim, name='home_sobreMim'),
+    path('sobreMim_video', views.sobreMim_video, name='sobreMim_video'),
+    path('sobreMim_educacao', views.sobreMim_educacao, name='sobreMim_educacao'),
+    path('sobreMim_Full', views.sobreMim_full, name='sobreMim_Full'),
     path('novo_sobreMim', views.novo_sobreMim, name='novo_sobreMim'),
     path('edita_sobreMim/<int:sobreMim_id>/', views.edita_sobreMim, name='edita_sobreMim'),
     path('apaga_sobreMim/<int:sobreMim_id>', views.apaga_sobreMim, name='apaga_sobreMim'),

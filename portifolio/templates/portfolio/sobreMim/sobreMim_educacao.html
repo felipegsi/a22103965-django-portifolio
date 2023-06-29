@@ -9,22 +9,24 @@
     <section class="hero_sobreMim">
         <div class="content_sobreMim">
             <div class="bloco_sobreMim">
-                <h1>Competências</h1>
+
+                <h1>Licenciaturas</h1>
                 <hr>
                 <hr>
                 {% for sobreMim in sobreMims %}
-                    <div class="cards_sobreMim  {{ sobreMim.id }}">
 
+                    <div class="cards_sobreMim {{ sobreMim.id }}"
+                         onclick="window.location.href='{% url 'portifolio:home' %}'">
                         <div class="title_sobreMim">
-                            <span class="info">
-                                <p>({{ sobreMim.criado.day }}/{{ sobreMim.criado.month }})</p>
-                                {% if sobreMim.prioridade == 1 %}
-                                    <p>🟢</p>
-                                {% elif sobreMim.prioridade == 2 %}
-                                    <p>🟡</p>
-                                {% else %}
-                                    <p>🔴</p>
-                                {% endif %}
+                             <span class="info">
+                                 <p>({{ sobreMim.criado.day }}/{{ sobreMim.criado.month }})</p>
+                                 {% if sobreMim.prioridade == 1 %}
+                                     <p>🟢</p>
+                                 {% elif sobreMim.prioridade == 2 %}
+                                     <p>🟡</p>
+                                 {% else %}
+                                     <p>🔴</p>
+                                 {% endif %}
                             </span>
                             {% if sobreMim.concluido == True %}
                                 <del>{{ sobreMim.titulo }}</del>
@@ -34,14 +36,13 @@
                         </div>
 
                         <div class="button-yellow_tarefa">
-                            <a href="{% url 'portifolio:edita_sobreMim' sobreMim.id %}"
-                               class="btn btn-warning btn-sm">
+                            <a href="{% url 'portifolio:edita_sobreMim' sobreMim.id %}" class="btn btn-warning btn-sm">
                                 Editar
                             </a>
                         </div>
-
-
                     </div>
+
+
                 {% endfor %}
 
 
