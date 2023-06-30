@@ -1,15 +1,65 @@
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from .forms import *
 from .models import *
 
+@login_required
+def criar_cadeira(request):
+    if request.method == 'POST':
+        form = CadeiraForm(request.POST)
+        if form.is_valid():
+            cadeira = form.save()
+            return redirect('detalhes_cadeira', pk=cadeira.pk)
+    else:
+        form = CadeiraForm()
+    return render(request, 'portfolio/sobreMim/sobreMim_educacao_folder/criar_cadeira_educacao.html', {'form': form})
 
-# Create your views here.
+@login_required
+def editar_cadeira(request, pk):
+    cadeira = get_object_or_404(Cadeira, pk=pk)
+    if request.method == 'POST':
+        form = CadeiraForm(request.POST, instance=cadeira)
+        if form.is_valid():
+            form.save()
+            return redirect('detalhes_cadeira', pk=cadeira.pk)
+    else:
+        form = CadeiraForm(instance=cadeira)
+    return render(request, 'portfolio/sobreMim/sobreMim_educacao_folder/editar_cadeira_educacao.html', {'form': form, 'cadeira': cadeira})
+
+@login_required
+def apagar_cadeira(request, pk):
+    cadeira = get_object_or_404(Cadeira, pk=pk)
+    if request.method == 'POST':
+        cadeira.delete()
+        return redirect('lista_cadeiras')
+    return render(request, 'portfolio/sobreMim/sobreMim_educacao_folder/apagar_cadeira_educacao.html', {'cadeira': cadeira})
+
+@login_required
+def detalhes_cadeira(request, pk):
+    cadeira = get_object_or_404(Cadeira, pk=pk)
+    return render(request, 'portfolio/sobreMim/sobreMim_educacao_folder/detalhes_cadeira_educacao.html', {'cadeira': cadeira})
+
+@login_required
+def home_educacao(request):
+    cadeiras = Cadeira.objects.all()
+    return render(request, 'portfolio/sobreMim/sobreMim_educacao_folder/home_educacao.html', {'cadeiras': cadeiras})
 
 
+
+
+
+
+
+
+
+
+
+
+
+#######################################
 def testeNav(request):
     return render(request, 'portfolio/base/testeNav.html')
 

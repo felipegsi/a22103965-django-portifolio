@@ -46,8 +46,9 @@ class Passenger(models.Model):
     def __str__(self):
         return self.name
 
+
 ############alterar sobre mim para cadeiras##################
-class SobreMim(models.Model):
+class SobreMim(models.Model):#sera substituido pela cadeira
     titulo = models.CharField(max_length=30)
     prioridade = models.IntegerField(default=1)
     concluida = models.BooleanField(default=False)
@@ -57,11 +58,55 @@ class SobreMim(models.Model):
         return self.titulo[:50]
 
 
+class Pessoa(models.Model):
+    nome = models.CharField(max_length=100)
+    descricao = models.TextField()
+    link_linkedin = models.URLField()
+
+    def __str__(self):
+        return self.nome
 
 
+class Projeto(models.Model):
+    nome = models.CharField(max_length=100)
+    descricao = models.TextField()
+    data_inicio = models.DateField()
+    data_conclusao = models.DateField()
+    imagem = models.ImageField(upload_to='portfolio/', blank=True, null=True)
+    # Outros atributos do projeto aqui
+
+    def __str__(self):
+        return self.nome
 
 
+class Cadeira(models.Model):
+    SEMESTER_CHOICES = (
+        ('1', '1º semestre'),
+        ('2', '2º semestre'),
+        ('3', '3º semestre'),
+        ('4', '4º semestre'),
+        ('5', '5º semestre'),
+        ('6', '6º semestre'),
+    )
 
+    nome = models.CharField(max_length=100)
+    ano_letivo_frequentado = models.PositiveIntegerField()
+    semestre = models.CharField(max_length=1, choices=SEMESTER_CHOICES)
+    creditos_ects = models.PositiveIntegerField()
+    topicos_abordados = models.TextField()
+    ranking = models.PositiveIntegerField(
+        choices=((1, '1 estrela'), (2, '2 estrelas'), (3, '3 estrelas'), (4, '4 estrelas'), (5, '5 estrelas'))
+    )
+    professores = models.ManyToManyField(Pessoa)
+    projetos_realizados = models.ManyToManyField(Projeto)
+    imagem = models.ImageField(upload_to='cadeiras/', blank=True, null=True)
+    nota = models.PositiveIntegerField()
+    departamento = models.CharField(max_length=100)
+    carga_horaria = models.PositiveIntegerField()
+    descricao_cadeira = models.TextField()
+
+    def __str__(self):
+        return self.nome
 
 
 ########################################################
@@ -88,8 +133,8 @@ class Artigo(models.Model):
                               on_delete=models.CASCADE,
                               related_name="artigo_autor")
     categoria = models.ManyToManyField(Categoria,
-                                  related_name="artigos_categoria"
-                                  )
+                                       related_name="artigos_categoria"
+                                       )
 
     descricao = models.TextField(blank=False, null=False)
     # imagem

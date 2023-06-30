@@ -67,14 +67,18 @@ class SobreMimForm(ModelForm):
 
 
 class CategoriaForm(forms.ModelForm):
-
     class Meta:
         model = Categoria
         fields = '__all__'
 
 
 class ArtigoForm(forms.ModelForm):
-
     class Meta:
         model = Artigo
         fields = '__all__'  # or specify the desired fields explicitly
+
+
+class CadeiraForm(forms.ModelForm):
+    class Meta:
+       model = Cadeira
+       fields = '__all__'

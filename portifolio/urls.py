@@ -12,8 +12,6 @@ urlpatterns = [
     path('', views.home_base, name='home'),
     # path('layout_base', views.layout_base, name='layout_base'),
 
-
-
     path('projetos', views.projetos_base, name='projetos'),
     path('contacto', views.contacto_base, name='contacto'),
 
@@ -48,5 +46,11 @@ urlpatterns = [
     path('artigo_blog/<int:artigo_id>', views.artigo_blog, name='artigo_blog'),
     path('login_blog', views.login_blog, name='login_blog'),
     path('logout_blog', views.logout_blog, name='logout_blog'),
+
+    path('criar/', views.criar_cadeira, name='criar_cadeira'),
+    path('editar/<int:pk>/', views.editar_cadeira, name='editar_cadeira'),
+    path('apagar/<int:pk>/', views.apagar_cadeira, name='apagar_cadeira'),
+    path('detalhes/<int:pk>/', views.detalhes_cadeira, name='detalhes_cadeira'),
+    path('home_educacao/', views.home_educacao, name='home_educacao'),
 
 ]
