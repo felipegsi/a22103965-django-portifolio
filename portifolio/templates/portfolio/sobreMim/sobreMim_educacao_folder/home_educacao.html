@@ -1,13 +1,44 @@
-
 <!-- page com todas as licenciaturas, aptidoes e formaçoes, equevalente a um all de tudo. -->
+{% extends 'portfolio/base/layout_base.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
 
-</body>
-</html>
+
+
+{% block main %}
+
+
+    <p>
+        {% if request.user.is_authenticated %}
+            user: {{ request.user }}
+            <a href="{% url 'portifolio:logout_educacao' %}">Logout</a>
+        {% else %}
+            <a href="{% url 'portifolio:login_educacao' %}">Login</a>
+        {% endif %}
+    </p>
+
+    <h2>Lista de Cadeiras</h2>
+    {% if cadeiras %}
+        <ul>
+            {% for cadeira in cadeiras %}
+                <li>
+                    <a href="{% url 'portifolio:detalhes_cadeira_educacao' pk=cadeira.pk %}">{{ cadeira.nome }}</a>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'portifolio:editar_cadeira_educacao' pk=cadeira.pk %}">(Editar)</a>
+                        <a href="{% url 'portifolio:apagar_cadeira_educacao' pk=cadeira.pk %}">(Apagar)</a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nenhuma cadeira encontrada.</p>
+    {% endif %}
+
+
+    <p>
+        {% if request.user.is_authenticated %}
+            <a href="{% url 'portifolio:criar_cadeira_educacao' %}">Criar Cadeira</a>
+        {% endif %}
+    </p>
+
+
+{% endblock %}

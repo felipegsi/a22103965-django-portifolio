@@ -26,8 +26,8 @@ urlpatterns = [
     path('remove/<int:flight_id>/<int:passenger_id>', views.remove_passenger_view, name='remove'),
     path('passengers', views.passengers_view, name='passengers'),
     path('passenger/<int:passenger_id>', views.passenger_view, name='passenger'),
-    path('login', views.login_view, name='login'),
-    path('logout', views.logout_view, name='logout'),
+    path('login_flight', views.login_flight, name='login_flight'),
+    path('logout_flight', views.logout_flight, name='logout_flight'),
 
     path('home_blog', views.home_blog, name='home_blog'),
 
@@ -47,10 +47,12 @@ urlpatterns = [
     path('login_blog', views.login_blog, name='login_blog'),
     path('logout_blog', views.logout_blog, name='logout_blog'),
 
-    path('criar/', views.criar_cadeira, name='criar_cadeira'),
-    path('editar/<int:pk>/', views.editar_cadeira, name='editar_cadeira'),
-    path('apagar/<int:pk>/', views.apagar_cadeira, name='apagar_cadeira'),
-    path('detalhes/<int:pk>/', views.detalhes_cadeira, name='detalhes_cadeira'),
+    path('criar_cadeira_educacao/', views.criar_cadeira_educacao, name='criar_cadeira_educacao'),
+    path('editar_cadeira_educacao/<int:pk>/', views.editar_cadeira_educacao, name='editar_cadeira_educacao'),
+    path('apagar_cadeira_educacao/<int:pk>/', views.apagar_cadeira_educacao, name='apagar_cadeira_educacao'),
+    path('detalhes_cadeira_educacao/<int:pk>/', views.detalhes_cadeira_educacao, name='detalhes_cadeira_educacao'),
     path('home_educacao/', views.home_educacao, name='home_educacao'),
+    path('login_educacao', views.login_educacao, name='login_educacao'),
+    path('logout_educacao', views.logout_educacao, name='logout_educacao'),
 
 ]

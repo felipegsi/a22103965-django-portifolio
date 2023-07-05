@@ -7,47 +7,70 @@ from .forms import *
 from .models import *
 
 @login_required
-def criar_cadeira(request):
+def criar_cadeira_educacao(request):
     if request.method == 'POST':
-        form = CadeiraForm(request.POST)
+        form = CadeiraForm(request.POST, request.FILES)
         if form.is_valid():
             cadeira = form.save()
-            return redirect('detalhes_cadeira', pk=cadeira.pk)
+            return redirect('portifolio:detalhes_cadeira_educacao', pk=cadeira.pk)
     else:
         form = CadeiraForm()
     return render(request, 'portfolio/sobreMim/sobreMim_educacao_folder/criar_cadeira_educacao.html', {'form': form})
 
 @login_required
-def editar_cadeira(request, pk):
+def editar_cadeira_educacao(request, pk):
     cadeira = get_object_or_404(Cadeira, pk=pk)
     if request.method == 'POST':
         form = CadeiraForm(request.POST, instance=cadeira)
         if form.is_valid():
             form.save()
-            return redirect('detalhes_cadeira', pk=cadeira.pk)
+            return redirect('portifolio:detalhes_cadeira_educacao', pk=cadeira.pk)
     else:
         form = CadeiraForm(instance=cadeira)
     return render(request, 'portfolio/sobreMim/sobreMim_educacao_folder/editar_cadeira_educacao.html', {'form': form, 'cadeira': cadeira})
 
 @login_required
-def apagar_cadeira(request, pk):
+def apagar_cadeira_educacao(request, pk):
     cadeira = get_object_or_404(Cadeira, pk=pk)
     if request.method == 'POST':
         cadeira.delete()
-        return redirect('lista_cadeiras')
+        return redirect('portifolio:home_educacao')
     return render(request, 'portfolio/sobreMim/sobreMim_educacao_folder/apagar_cadeira_educacao.html', {'cadeira': cadeira})
 
-@login_required
-def detalhes_cadeira(request, pk):
+
+def detalhes_cadeira_educacao(request, pk):
     cadeira = get_object_or_404(Cadeira, pk=pk)
     return render(request, 'portfolio/sobreMim/sobreMim_educacao_folder/detalhes_cadeira_educacao.html', {'cadeira': cadeira})
 
-@login_required
+
 def home_educacao(request):
     cadeiras = Cadeira.objects.all()
     return render(request, 'portfolio/sobreMim/sobreMim_educacao_folder/home_educacao.html', {'cadeiras': cadeiras})
 
 
+def login_educacao(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = authenticate(request,
+                            username=username,
+                            password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('portifolio:home_educacao')
+        else:
+            #aqui
+            return render(request, 'portfolio/sobreMim/sobreMim_educacao_folder/login_educacao.html', {
+                'message': 'Credenciais invalidas'
+            })
+    return render(request, 'portfolio/sobreMim/sobreMim_educacao_folder/login_educacao.html')
+
+
+def logout_educacao(request):
+    logout(request)
+    return redirect('portifolio:home_educacao')
 
 
 
@@ -183,7 +206,7 @@ def remove_passenger_view(request, flight_id, passenger_id):
     return redirect('portifolio:flights', flight_id=flight_id)
 
 
-def login_view(request):
+def login_flight(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -196,13 +219,13 @@ def login_view(request):
             login(request, user)
             return redirect('portifolio:flights')
         else:
-            return render(request, 'portfolio/flights/login.html', {
+            return render(request, 'portfolio/flights/login_flight.html', {
                 'message': 'Credenciais invalidas'
             })
-    return render(request, 'portfolio/flights/login.html')
+    return render(request, 'portfolio/flights/login_flight.html')
 
 
-def logout_view(request):
+def logout_flight(request):
     logout(request)
     return redirect('portifolio:flights')
 
@@ -229,7 +252,7 @@ def sobreMim_educacao(request):
         'sobreMims': SobreMim.objects.all()
     }
 
-    return render(request, 'portfolio/sobreMim/sobreMim_educacao.html', context)
+    return render(request, 'portfolio/sobreMim/sobreMim_educacao_folder/sobreMim_educacao.html', context)
 
 
 def novo_sobreMim(request):

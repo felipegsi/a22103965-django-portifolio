@@ -100,6 +100,7 @@ class Cadeira(models.Model):
     professores = models.ManyToManyField(Pessoa)
     projetos_realizados = models.ManyToManyField(Projeto)
     imagem = models.ImageField(upload_to='cadeiras/', blank=True, null=True)
+
     nota = models.PositiveIntegerField()
     departamento = models.CharField(max_length=100)
     carga_horaria = models.PositiveIntegerField()

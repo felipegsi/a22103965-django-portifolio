@@ -12,3 +12,10 @@ admin.site.register(Passenger)
 admin.site.register(Categoria)
 admin.site.register(Autor)
 admin.site.register(Artigo)
+
+admin.site.register(Pessoa)
+admin.site.register(Projeto)
+admin.site.register(Cadeira)
+admin.site.register(SobreMim)
+
+

@@ -1,10 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'portfolio/base/layout_base.html' %}
 
-</body>
-</html>
+
+
+
+
+
+{% block main %}
+
+
+
+  <h1>Editar Cadeira</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Salvar</button>
+  </form>
+
+{% endblock %}

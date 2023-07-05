@@ -1,10 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'portfolio/base/layout_base.html' %}
 
-</body>
-</html>
+{% block main %}
+<h2>Detalhes da Cadeira: {{ cadeira.nome }}</h2>
+
+<p>Ano Letivo: {{ cadeira.ano_letivo_frequentado }}</p>
+<p>Semestre: {{ cadeira.get_semestre_display }}</p>
+<p>Créditos ECTS: {{ cadeira.creditos_ects }}</p>
+<p>Ranking: {{ cadeira.get_ranking_display }}</p>
+<p>Tópicos Abordados: {{ cadeira.topicos_abordados }}</p>
+<p>Professores:</p>
+<ul>
+    {% for professor in cadeira.professores.all %}
+        <li>{{ professor.nome }}</li>
+    {% endfor %}
+</ul>
+
+<p>Projetos Realizados:</p>
+<ul>
+    {% for projeto in cadeira.projetos_realizados.all %}
+        <li>{{ projeto.nome }}</li>
+    {% endfor %}
+</ul>
+
+<p>Imagem:</p>
+{% if cadeira.imagem %}
+    <img src="{{ cadeira.imagem.url }}" alt="Imagem da Cadeira">
+{% else %}
+    <p>Nenhuma imagem disponível</p>
+{% endif %}
+
+<p>Nota: {{ cadeira.nota }}</p>
+<p>Departamento: {{ cadeira.departamento }}</p>
+<p>Carga Horária: {{ cadeira.carga_horaria }}</p>
+<p>Descrição: {{ cadeira.descricao_cadeira }}</p>
+
+<!-- Adicione aqui mais informações sobre a cadeira, conforme necessário -->
+
+{% if user.is_authenticated %}
+    <a href="{% url 'portifolio:editar_cadeira_educacao' pk=cadeira.pk %}">Editar</a>
+    <a href="{% url 'portifolio:apagar_cadeira_educacao' pk=cadeira.pk %}">Apagar</a>
+{% endif %}
+
+<a href="{% url 'portifolio:home_educacao' %}">Voltar à lista de cadeiras</a>
+
+{% endblock %}
