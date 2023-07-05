@@ -241,7 +241,7 @@ def sobreMim_full(request):
 
 
 def sobreMim_video(request):
-    return render(request, 'portfolio/sobreMim/sobreMim_video.html')
+    return render(request, 'portfolio/sobreMim/sobreMim_licencituras_folder/sobreMim_video.html')
 
 
 def sobreMim_educacao(request):
@@ -252,7 +252,8 @@ def sobreMim_educacao(request):
         'sobreMims': SobreMim.objects.all()
     }
 
-    return render(request, 'portfolio/sobreMim/sobreMim_educacao_folder/sobreMim_educacao.html', context)
+    return render(request,
+                  'portfolio/sobreMim/sobreMim_educacao_folder/templates/portfolio/sobreMim/sobreMim_educacao.html', context)
 
 
 def novo_sobreMim(request):
@@ -263,7 +264,7 @@ def novo_sobreMim(request):
 
     context = {'form': form}
 
-    return render(request, 'portfolio/sobreMim/sobreMim_nova_2.html', context)
+    return render(request, 'portfolio/sobreMim/sobreMim_licencituras_folder/sobreMim_nova_2.html', context)
 
 
 def edita_sobreMim(request, sobreMim_id):
@@ -275,7 +276,7 @@ def edita_sobreMim(request, sobreMim_id):
         return HttpResponseRedirect(reverse('portifolio:edita_sobreMim', args=[sobreMim_id]))
 
     context = {'form': form, 'sobreMim_id': sobreMim_id}
-    return render(request, 'portfolio/sobreMim/sobreMim_edita_2.html', context)
+    return render(request, 'portfolio/sobreMim/sobreMim_licencituras_folder/sobreMim_edita_2.html', context)
 
 
 def apaga_sobreMim(request, sobreMim_id):

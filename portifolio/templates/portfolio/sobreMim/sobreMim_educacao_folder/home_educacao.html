@@ -2,10 +2,12 @@
 {% extends 'portfolio/base/layout_base.html' %}
 
 
-
+{% block link %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/sobreMim/home_educacao/home_educacao.css' %}">
+{% endblock %}
 
 {% block main %}
-
 
     <p>
         {% if request.user.is_authenticated %}
@@ -16,29 +18,58 @@
         {% endif %}
     </p>
 
-    <h2>Lista de Cadeiras</h2>
-    {% if cadeiras %}
-        <ul>
-            {% for cadeira in cadeiras %}
-                <li>
-                    <a href="{% url 'portifolio:detalhes_cadeira_educacao' pk=cadeira.pk %}">{{ cadeira.nome }}</a>
-                    {% if user.is_authenticated %}
-                        <a href="{% url 'portifolio:editar_cadeira_educacao' pk=cadeira.pk %}">(Editar)</a>
-                        <a href="{% url 'portifolio:apagar_cadeira_educacao' pk=cadeira.pk %}">(Apagar)</a>
-                    {% endif %}
-                </li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>Nenhuma cadeira encontrada.</p>
-    {% endif %}
+    <section class="hero_educacao">
+        <div class="content_educacao">
+            <div class="bloco_educacao">
+                <h2>Lista de Cadeiras</h2>
+                {% if cadeiras %}
+                    {% for cadeira in cadeiras %}
 
+                        <div class="cards_educacao  {{ cadeira.id }}"
+                             onclick="window.location.href='{% url 'portifolio:detalhes_cadeira_educacao' pk=cadeira.pk %}'">
+                            <div class="title_educacao">
+                                     <span class="info">
+                                        <img src="{{ cadeira.imagem.url }}" alt="Imagem da Cadeira">
+                                         <p>{{ cadeira.nome }}</p>
+                                         {% if cadeira.ranking == 1 %}
+                                             <p>⭐</p>
+                                         {% elif cadeira.ranking == 2 %}
+                                             <p>⭐⭐</p>
+                                         {% elif cadeira.ranking == 3 %}
+                                             <p>⭐⭐⭐</p>
+                                         {% elif cadeira.ranking == 4 %}
+                                             <p>⭐⭐⭐⭐</p>
+                                         {% elif cadeira.ranking == 5 %}
+                                             <p>⭐⭐⭐⭐⭐</p>
+                                         {% else %}
+                                             <p>⭐ - erro</p>
+                                         {% endif %}
+                                     </span>
+                            </div>
 
-    <p>
-        {% if request.user.is_authenticated %}
-            <a href="{% url 'portifolio:criar_cadeira_educacao' %}">Criar Cadeira</a>
-        {% endif %}
-    </p>
+                            <div class="button-yellow_tarefa">
+                                {% if user.is_authenticated %}
+                                    <a href="{% url 'portifolio:editar_cadeira_educacao' pk=cadeira.pk %}"
+                                       class="btn btn-warning btn-sm">Editar</a>
+                                    <a href="{% url 'portifolio:apagar_cadeira_educacao' pk=cadeira.pk %}"
+                                       class="btn btn-warning btn-sm">Apagar</a>
+                                {% endif %}
+                            </div>
 
+                        </div>
+                    {% endfor %}
 
+                {% else %}
+                    <p>Nenhuma cadeira encontrada.</p>
+                {% endif %}
+
+            </div>
+            <p>
+                {% if request.user.is_authenticated %}
+                    <a href="{% url 'portifolio:criar_cadeira_educacao' %}" class="btn btn-success btn-block">
+                        Criar Cadeira</a>
+                {% endif %}
+            </p>
+        </div>
+    </section>
 {% endblock %}

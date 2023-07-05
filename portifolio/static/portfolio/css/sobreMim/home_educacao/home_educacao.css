@@ -1,0 +1,200 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    position: relative;
+}
+
+.page-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #efefef; /* Cor do background da página */
+    opacity: 0.2; /* Opacidade do background da página */
+    z-index: -1;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/*apenas para alinha em baixo od tarefas*/
+hr {
+    border: none;
+    height: 1px;
+    background-color: #333;
+    width: 30%;
+    margin-bottom: 20px;
+    z-index: 2;
+}
+
+.hero_educacao {
+    position: relative;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+}
+
+.hero_educacao h1 {
+    position: relative;
+    z-index: 1;
+    font-size: 3vw;
+    margin: 0 0 10px;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.hero_educacao h2 {
+    position: relative;
+    z-index: 1;
+    font-size: 2vw;
+    margin: 0 0 10px;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.hero_educacao p {
+    position: relative;
+    z-index: 1;
+    color: #000000;
+    line-height: 1.4;
+    font-family: 'Cherry Swash', cursive;
+    font-size: 16px;
+}
+
+
+.content_educacao {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.info {
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    text-decoration: none; /* Adicionada a propriedade text-decoration */
+}
+
+.btn-warning {
+    color: #ffffff;
+    background-color: #f0ad4e;
+    border-color: #eea236;
+}
+
+.btn-delete {
+    color: #ffffff;
+    background-color: #f34646;
+    border-color: #ff0505;
+}
+
+
+.btn-success {
+    color: #ffffff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+
+/*-----bloco_tarefa-----*/
+.bloco_educacao {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Define 3 colunas de tamanho igual */
+    gap: 20px;
+    justify-items: center;
+    align-items: center;
+    background-color: rgb(51 51 51 / 71%);;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px #000000;
+    margin: 20px auto;
+    max-width: 1200px;
+
+}
+
+.bloco_educacao > div {
+    display: flex;
+    grid-template-rows: auto 1fr auto;
+    border-radius: 20px;
+    box-shadow: 5px 5px 15px #403e3e;
+    background-color: #f7f7f7;
+    transition: transform 0.3s ease-in-out;
+    justify-content: center;
+}
+
+.bloco_educacao > div:hover {
+    transform: translateY(-10px);
+}
+
+.bloco_educacao img {
+    border-radius: 20px 8px 0 28px;
+    width: 100%;
+    height: auto;
+}
+
+.bloco_educacao > div > div:last-child {
+    padding: 5px 5px 10px 5px;
+    border-radius: 0 20px 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+
+.cards_educacao {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.cards_educacao .image-project {
+    margin-bottom: 10px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ou object-fit: contain; */
+}
+
+.cards_educacao .title_educacao {
+    width: 100%;
+    color: black;
+    margin-bottom: -30px;
+    text-align: center;
+}
+
+.cards_educacao .button-yellow {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
