@@ -1,0 +1,22 @@
+{% extends 'portfolio/base/layout_base.html' %}
+
+
+{% block main %}
+  <h1>Categorias:</h1>
+  <ul>
+    {% for categoria in categorias %}
+      <li>{{ categoria.nome }}</li>
+    {% empty %}
+      <li>Nenhuma categoria encontrada.</li>
+    {% endfor %}
+  </ul>
+
+  <h1>Artigos Destacados:</h1>
+  <ul>
+    {% for artigo in artigos_destaque %}
+      <li><a href="{% url 'portifolio:artigo_blog' artigo.id %}">{{ artigo.titulo }}</a></li>
+    {% empty %}
+      <li>Nenhum artigo em destaque encontrado.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

@@ -1,19 +1,32 @@
-{% extends "portfolio/blog/base_blog.html" %}
-
+{% extends 'portfolio/base/layout_base.html' %}
 {% block main %}
-  
-<h3>Login</h3>
 
-{% if not request.user.is_authenticated %}
-  {{ message }}
-{% endif %}
+    <h1>
+        <a href="{% url 'portifolio:categorias_blog' %}">Categorias</a>
+        -
+        <a href="{% url 'portifolio:artigos_blog' %}">Artigos</a>
+    </h1>
+    <p>
+        {% if request.user.is_authenticated %}
+            user: {{ request.user }}
+            <a href="{% url 'portifolio:logout_blog' %}">Logout</a>
+        {% else %}
+            <a href="{% url 'portifolio:login_blog' %}">Login</a>
+        {% endif %}
+    </p>
 
-<form action="{% url 'portifolio:login_blog' %}" method="POST">
-    {% csrf_token %}
-    <input type="text" name="username" placeholder="username">
-    <input type="password" name="password" placeholder="password">
-    <input type="submit" value="Login">
-</form>
+    <h3>Login</h3>
+
+    {% if not request.user.is_authenticated %}
+        {{ message }}
+    {% endif %}
+
+    <form action="{% url 'portifolio:login_blog' %}" method="POST">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="username">
+        <input type="password" name="password" placeholder="password">
+        <input type="submit" value="Login">
+    </form>
 
 
 {% endblock main %}

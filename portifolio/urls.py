@@ -29,7 +29,7 @@ urlpatterns = [
     path('login_flight', views.login_flight, name='login_flight'),
     path('logout_flight', views.logout_flight, name='logout_flight'),
 
-    path('home_blog', views.home_blog, name='home_blog'),
+
 
     path('sobreMim_video', views.sobreMim_video, name='sobreMim_video'),
     path('sobreMim_educacao', views.sobreMim_educacao, name='sobreMim_educacao'),
@@ -38,14 +38,16 @@ urlpatterns = [
     path('edita_sobreMim/<int:sobreMim_id>/', views.edita_sobreMim, name='edita_sobreMim'),
     path('apaga_sobreMim/<int:sobreMim_id>', views.apaga_sobreMim, name='apaga_sobreMim'),
 
-    path('categorias_blog', views.categorias_blog, name='categorias_blog'),
-    path('categoria_blog/<int:categoria_id>', views.categoria_blog, name='categoria_blog'),
-    path('add_artigo_blog/<int:categoria_id>', views.add_artigo_blog, name='add_artigo_blog'),
-    path('remove_artigo_blog/<int:categoria_id>/<int:artigo_id>', views.remove_artigo_blog, name='remove_artigo_blog'),
-    path('artigos_blog', views.artigos_blog, name='artigos_blog'),
-    path('artigo_blog/<int:artigo_id>', views.artigo_blog, name='artigo_blog'),
-    path('login_blog', views.login_blog, name='login_blog'),
-    path('logout_blog', views.logout_blog, name='logout_blog'),
+    path('categorias_blog/', views.categorias_blog, name='categorias_blog'),
+    path('categoria_blog/<int:categoria_id>/', views.categoria_blog, name='categoria_blog'),
+    path('artigos_blog/', views.artigos_blog, name='artigos_blog'),
+    path('artigo_blog/<int:artigo_id>/', views.artigo_blog, name='artigo_blog'),
+    path('add_artigo_blog/', views.add_artigo_blog, name='add_artigo_blog'),
+    path('editar_artigo_blog/<int:artigo_id>/', views.editar_artigo_blog, name='editar_artigo_blog'),
+    path('apagar_artigo_blog/<int:artigo_id>/', views.apagar_artigo_blog, name='apagar_artigo_blog'),
+    path('add_categoria_blog/', views.add_categoria_blog, name='add_categoria_blog'),
+    path('editar_categoria_blog/<int:categoria_id>/', views.editar_categoria_blog, name='editar_categoria_blog'),
+    path('home_blog_full/', views.home_blog_full, name='home_blog_full'),
 
     path('criar_cadeira_educacao/', views.criar_cadeira_educacao, name='criar_cadeira_educacao'),
     path('editar_cadeira_educacao/<int:pk>/', views.editar_cadeira_educacao, name='editar_cadeira_educacao'),

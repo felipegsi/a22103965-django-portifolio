@@ -1,0 +1,11 @@
+{% extends 'portfolio/base/layout_base.html' %}
+
+{% block main %}
+
+ <h1>Apagar Artigo</h1>
+  <p>Tem certeza de que deseja apagar o artigo "{{ artigo.titulo }}"?</p>
+  <form method="POST">
+    {% csrf_token %}
+    <button type="submit">Apagar</button>
+  </form>
+{% endblock main %}

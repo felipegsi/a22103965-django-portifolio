@@ -1,0 +1,10 @@
+{% extends 'portfolio/base/layout_base.html' %}
+
+{% block main %}
+  <h1>Editar Categoria</h1>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Salvar</button>
+  </form>
+{% endblock main %}

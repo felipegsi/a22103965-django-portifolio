@@ -48,7 +48,7 @@ class Passenger(models.Model):
 
 
 ############alterar sobre mim para cadeiras##################
-class SobreMim(models.Model):#sera substituido pela cadeira
+class SobreMim(models.Model):  # sera substituido pela cadeira
     titulo = models.CharField(max_length=30)
     prioridade = models.IntegerField(default=1)
     concluida = models.BooleanField(default=False)
@@ -73,6 +73,7 @@ class Projeto(models.Model):
     data_inicio = models.DateField()
     data_conclusao = models.DateField()
     imagem = models.ImageField(upload_to='portfolio/', blank=True, null=True)
+
     # Outros atributos do projeto aqui
 
     def __str__(self):
@@ -110,11 +111,12 @@ class Cadeira(models.Model):
 
 
 ########################################################
+
 class Categoria(models.Model):
     nome = models.CharField(max_length=30)
     descricao = models.TextField(blank=False, null=False)
-
-    # imagem
+    imagem = models.ImageField(upload_to='categorias/', blank=True, null=True)
+    data_criacao = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.nome
@@ -122,6 +124,10 @@ class Categoria(models.Model):
 
 class Autor(models.Model):
     nome = models.CharField(max_length=30)
+    biografia = models.TextField(blank=True, null=True)
+    foto = models.ImageField(upload_to='autores/', blank=True, null=True)
+    data_nascimento = models.DateField(blank=True, null=True)
+    website = models.URLField(blank=True, null=True)
 
     def __str__(self):
         return self.nome
@@ -129,16 +135,13 @@ class Autor(models.Model):
 
 class Artigo(models.Model):
     titulo = models.CharField(max_length=30)
-    autor = models.ForeignKey(Autor,
-                              on_delete=models.CASCADE,
-                              related_name="artigo_autor")
-    categoria = models.ManyToManyField(Categoria,
-                                       related_name="artigos_categoria"
-                                       )
-
+    autor = models.ForeignKey(Autor, on_delete=models.CASCADE)
+    categoria = models.ManyToManyField(Categoria, related_name="artigos")
     descricao = models.TextField(blank=False, null=False)
-    # imagem
     data = models.DateTimeField(auto_now_add=True)
+    destaque = models.BooleanField(default=False)
+    imagem = models.ImageField(upload_to='artigos/', blank=True, null=True)
+    visitas = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return self.titulo

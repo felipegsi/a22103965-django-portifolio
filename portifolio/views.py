@@ -230,8 +230,6 @@ def logout_flight(request):
     return redirect('portifolio:flights')
 
 
-def home_blog(request):
-    return render(request, 'portfolio/blog/base_blog.html')
 
 
 ###############################-----sobre_Mim_2------#####################################
@@ -285,89 +283,108 @@ def apaga_sobreMim(request, sobreMim_id):
 
 
 ########################################################################
+
+
 def categorias_blog(request):
-    print(request.user.username)
-    categorias = Categoria.objects.all().order_by('nome')
+    categorias = Categoria.objects.all()
     context = {
         'categorias': categorias
     }
     return render(request, 'portfolio/blog/categorias_blog.html', context)
 
-
 def categoria_blog(request, categoria_id):
-    categoria = Categoria.objects.get(id=categoria_id)
-    artigos = Artigo.objects.filter(categoria=categoria)
-
+    categoria = get_object_or_404(Categoria, id=categoria_id)
+    artigos = categoria.artigos.all()
     context = {
         'categoria': categoria,
-        'artigos': artigos,
+        'artigos': artigos
     }
     return render(request, 'portfolio/blog/categoria_blog.html', context)
 
-
 def artigos_blog(request):
-    form = ArtigoForm(request.POST or None)
-    if form.is_valid():
-        form.save()
+    artigos = Artigo.objects.all()
     context = {
-        'artigos': Artigo.objects.all().order_by('titulo'),
-        'form': ArtigoForm(None),
+        'artigos': artigos
     }
     return render(request, 'portfolio/blog/artigos_blog.html', context)
 
-
 def artigo_blog(request, artigo_id):
-    artigo = Artigo.objects.get(id=artigo_id)
-    form = CategoriaForm(request.POST or None, instance=artigo)
-    if form.is_valid():
-        form.save()
+    artigo = get_object_or_404(Artigo, id=artigo_id)
     context = {
-        'artigo': artigo,
-        'form': form,
+        'artigo': artigo
     }
     return render(request, 'portfolio/blog/artigo_blog.html', context)
 
-
-@login_required
-def add_artigo_blog(request, categoria_id):
-    categoria = Categoria.objects.get(id=categoria_id)
-
+def add_artigo_blog(request):
     if request.method == 'POST':
-        artigo = Artigo.objects.get(id=request.POST['artigo'])
-        categoria.artigos_categoria.add(artigo)
+        form = ArtigoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('portifolio:artigos_blog')
+    else:
+        form = ArtigoForm()
+    context = {
+        'form': form
+    }
+    return render(request, 'portfolio/blog/add_artigo_blog.html', context)
 
-    return redirect('portifolio:categoria_blog', categoria_id=categoria_id)
-
-
-@login_required
-def remove_artigo_blog(request, categoria_id, artigo_id):
-    categoria = Categoria.objects.get(id=categoria_id)
-    artigo = Artigo.objects.get(id=artigo_id)
-
-    categoria.artigos_categoria.remove(artigo)
-
-    return redirect('portifolio:categorias_blog', categoria_id=categoria_id)
-
-
-def login_blog(request):
+def editar_artigo_blog(request, artigo_id):
+    artigo = get_object_or_404(Artigo, id=artigo_id)
     if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
+        form = ArtigoForm(request.POST, instance=artigo)
+        if form.is_valid():
+            form.save()
+            return redirect('portifolio:artigos_blog')
+    else:
+        form = ArtigoForm(instance=artigo)
+    context = {
+        'form': form
+    }
+    return render(request, 'portfolio/blog/editar_artigo_blog.html', context)
 
-        user = authenticate(request,
-                            username=username,
-                            password=password)
+def apagar_artigo_blog(request, artigo_id):
+    artigo = get_object_or_404(Artigo, id=artigo_id)
+    if request.method == 'POST':
+        artigo.delete()
+        return redirect('portifolio:artigos_blog')
+    context = {
+        'artigo': artigo
+    }
+    return render(request, 'portfolio/blog/apagar_artigo_blog.html', context)
 
-        if user is not None:
-            login(request, user)
+def add_categoria_blog(request):
+    if request.method == 'POST':
+        form = CategoriaForm(request.POST)
+        if form.is_valid():
+            form.save()
             return redirect('portifolio:categorias_blog')
-        else:
-            return render(request, 'portfolio/blog/login_blog.html', {
-                'message': 'Credenciais invalidas'
-            })
-    return render(request, 'portfolio/blog/login_blog.html')
+    else:
+        form = CategoriaForm()
+    context = {
+        'form': form
+    }
+    return render(request, 'portfolio/blog/add_categoria_blog.html', context)
+
+def editar_categoria_blog(request, categoria_id):
+    categoria = get_object_or_404(Categoria, id=categoria_id)
+    if request.method == 'POST':
+        form = CategoriaForm(request.POST, instance=categoria)
+        if form.is_valid():
+            form.save()
+            return redirect('portifolio:categorias_blog')
+    else:
+        form = CategoriaForm(instance=categoria)
+    context = {
+        'form': form
+    }
+    return render(request, 'portfolio/blog/editar_categoria_blog.html', context)
 
 
-def logout_blog(request):
-    logout(request)
-    return redirect('portifolio:categorias_blog')
+def home_blog_full(request):
+    categorias = Categoria.objects.all()
+    artigos_destaque = Artigo.objects.filter(destaque=True)
+    context = {
+        'categorias' : categorias,
+        'artigos_destaque' : artigos_destaque
+    }
+    return render(request, 'portfolio/blog/home_blog_full.html', context)
