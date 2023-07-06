@@ -6,6 +6,7 @@ from django.urls import reverse
 from .forms import *
 from .models import *
 
+
 @login_required
 def criar_cadeira_educacao(request):
     if request.method == 'POST':
@@ -17,6 +18,7 @@ def criar_cadeira_educacao(request):
         form = CadeiraForm()
     return render(request, 'portfolio/sobreMim/sobreMim_educacao_folder/criar_cadeira_educacao.html', {'form': form})
 
+
 @login_required
 def editar_cadeira_educacao(request, pk):
     cadeira = get_object_or_404(Cadeira, pk=pk)
@@ -27,7 +29,9 @@ def editar_cadeira_educacao(request, pk):
             return redirect('portifolio:detalhes_cadeira_educacao', pk=cadeira.pk)
     else:
         form = CadeiraForm(instance=cadeira)
-    return render(request, 'portfolio/sobreMim/sobreMim_educacao_folder/editar_cadeira_educacao.html', {'form': form, 'cadeira': cadeira})
+    return render(request, 'portfolio/sobreMim/sobreMim_educacao_folder/editar_cadeira_educacao.html',
+                  {'form': form, 'cadeira': cadeira})
+
 
 @login_required
 def apagar_cadeira_educacao(request, pk):
@@ -35,12 +39,14 @@ def apagar_cadeira_educacao(request, pk):
     if request.method == 'POST':
         cadeira.delete()
         return redirect('portifolio:home_educacao')
-    return render(request, 'portfolio/sobreMim/sobreMim_educacao_folder/apagar_cadeira_educacao.html', {'cadeira': cadeira})
+    return render(request, 'portfolio/sobreMim/sobreMim_educacao_folder/apagar_cadeira_educacao.html',
+                  {'cadeira': cadeira})
 
 
 def detalhes_cadeira_educacao(request, pk):
     cadeira = get_object_or_404(Cadeira, pk=pk)
-    return render(request, 'portfolio/sobreMim/sobreMim_educacao_folder/detalhes_cadeira_educacao.html', {'cadeira': cadeira})
+    return render(request, 'portfolio/sobreMim/sobreMim_educacao_folder/detalhes_cadeira_educacao.html',
+                  {'cadeira': cadeira})
 
 
 def home_educacao(request):
@@ -61,7 +67,7 @@ def login_educacao(request):
             login(request, user)
             return redirect('portifolio:home_educacao')
         else:
-            #aqui
+            # aqui
             return render(request, 'portfolio/sobreMim/sobreMim_educacao_folder/login_educacao.html', {
                 'message': 'Credenciais invalidas'
             })
@@ -71,15 +77,6 @@ def login_educacao(request):
 def logout_educacao(request):
     logout(request)
     return redirect('portifolio:home_educacao')
-
-
-
-
-
-
-
-
-
 
 
 #######################################
@@ -230,8 +227,6 @@ def logout_flight(request):
     return redirect('portifolio:flights')
 
 
-
-
 ###############################-----sobre_Mim_2------#####################################
 
 def sobreMim_full(request):
@@ -251,7 +246,8 @@ def sobreMim_educacao(request):
     }
 
     return render(request,
-                  'portfolio/sobreMim/sobreMim_educacao_folder/templates/portfolio/sobreMim/sobreMim_educacao.html', context)
+                  'portfolio/sobreMim/sobreMim_educacao_folder/templates/portfolio/sobreMim/sobreMim_educacao.html',
+                  context)
 
 
 def novo_sobreMim(request):
@@ -292,6 +288,7 @@ def categorias_blog(request):
     }
     return render(request, 'portfolio/blog/categorias_blog.html', context)
 
+
 def categoria_blog(request, categoria_id):
     categoria = get_object_or_404(Categoria, id=categoria_id)
     artigos = categoria.artigos.all()
@@ -301,6 +298,7 @@ def categoria_blog(request, categoria_id):
     }
     return render(request, 'portfolio/blog/categoria_blog.html', context)
 
+
 def artigos_blog(request):
     artigos = Artigo.objects.all()
     context = {
@@ -308,12 +306,14 @@ def artigos_blog(request):
     }
     return render(request, 'portfolio/blog/artigos_blog.html', context)
 
+
 def artigo_blog(request, artigo_id):
     artigo = get_object_or_404(Artigo, id=artigo_id)
     context = {
         'artigo': artigo
     }
     return render(request, 'portfolio/blog/artigo_blog.html', context)
+
 
 def add_artigo_blog(request):
     if request.method == 'POST':
@@ -327,6 +327,7 @@ def add_artigo_blog(request):
         'form': form
     }
     return render(request, 'portfolio/blog/add_artigo_blog.html', context)
+
 
 def editar_artigo_blog(request, artigo_id):
     artigo = get_object_or_404(Artigo, id=artigo_id)
@@ -342,6 +343,7 @@ def editar_artigo_blog(request, artigo_id):
     }
     return render(request, 'portfolio/blog/editar_artigo_blog.html', context)
 
+
 def apagar_artigo_blog(request, artigo_id):
     artigo = get_object_or_404(Artigo, id=artigo_id)
     if request.method == 'POST':
@@ -351,6 +353,7 @@ def apagar_artigo_blog(request, artigo_id):
         'artigo': artigo
     }
     return render(request, 'portfolio/blog/apagar_artigo_blog.html', context)
+
 
 def add_categoria_blog(request):
     if request.method == 'POST':
@@ -364,6 +367,7 @@ def add_categoria_blog(request):
         'form': form
     }
     return render(request, 'portfolio/blog/add_categoria_blog.html', context)
+
 
 def editar_categoria_blog(request, categoria_id):
     categoria = get_object_or_404(Categoria, id=categoria_id)
@@ -384,7 +388,7 @@ def home_blog_full(request):
     categorias = Categoria.objects.all()
     artigos_destaque = Artigo.objects.filter(destaque=True)
     context = {
-        'categorias' : categorias,
-        'artigos_destaque' : artigos_destaque
+        'categorias': categorias,
+        'artigos_destaque': artigos_destaque
     }
     return render(request, 'portfolio/blog/home_blog_full.html', context)
