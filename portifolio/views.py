@@ -315,46 +315,7 @@ def artigo_blog(request, artigo_id):
     return render(request, 'portfolio/blog/artigo_blog.html', context)
 
 
-def add_artigo_blog(request):
-    if request.method == 'POST':
-        form = ArtigoForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('portifolio:artigos_blog')
-    else:
-        form = ArtigoForm()
-    context = {
-        'form': form
-    }
-    return render(request, 'portfolio/blog/add_artigo_blog.html', context)
-
-
-def editar_artigo_blog(request, artigo_id):
-    artigo = get_object_or_404(Artigo, id=artigo_id)
-    if request.method == 'POST':
-        form = ArtigoForm(request.POST, instance=artigo)
-        if form.is_valid():
-            form.save()
-            return redirect('portifolio:artigos_blog')
-    else:
-        form = ArtigoForm(instance=artigo)
-    context = {
-        'form': form
-    }
-    return render(request, 'portfolio/blog/editar_artigo_blog.html', context)
-
-
-def apagar_artigo_blog(request, artigo_id):
-    artigo = get_object_or_404(Artigo, id=artigo_id)
-    if request.method == 'POST':
-        artigo.delete()
-        return redirect('portifolio:artigos_blog')
-    context = {
-        'artigo': artigo
-    }
-    return render(request, 'portfolio/blog/apagar_artigo_blog.html', context)
-
-
+@login_required
 def add_categoria_blog(request):
     if request.method == 'POST':
         form = CategoriaForm(request.POST)
@@ -369,6 +330,22 @@ def add_categoria_blog(request):
     return render(request, 'portfolio/blog/add_categoria_blog.html', context)
 
 
+@login_required
+def add_artigo_blog(request):
+    if request.method == 'POST':
+        form = ArtigoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('portifolio:artigos_blog')
+    else:
+        form = ArtigoForm()
+    context = {
+        'form': form
+    }
+    return render(request, 'portfolio/blog/add_artigo_blog.html', context)
+
+
+@login_required
 def editar_categoria_blog(request, categoria_id):
     categoria = get_object_or_404(Categoria, id=categoria_id)
     if request.method == 'POST':
@@ -384,6 +361,46 @@ def editar_categoria_blog(request, categoria_id):
     return render(request, 'portfolio/blog/editar_categoria_blog.html', context)
 
 
+@login_required
+def editar_artigo_blog(request, artigo_id):
+    artigo = get_object_or_404(Artigo, id=artigo_id)
+    if request.method == 'POST':
+        form = ArtigoForm(request.POST, instance=artigo)
+        if form.is_valid():
+            form.save()
+            return redirect('portifolio:artigos_blog')
+    else:
+        form = ArtigoForm(instance=artigo)
+    context = {
+        'form': form
+    }
+    return render(request, 'portfolio/blog/editar_artigo_blog.html', context)
+
+
+@login_required
+def apagar_categoria_blog(request, categoria_id):
+    categoria = get_object_or_404(Artigo, id=categoria_id)
+    if request.method == 'POST':
+        categoria.delete()
+        return redirect('portifolio:categorias_blog')
+    context = {
+        'categoria': categoria
+    }
+    return render(request, 'portfolio/blog/apagar_categoria_blog.html', context)
+
+
+@login_required
+def apagar_artigo_blog(request, artigo_id):
+    artigo = get_object_or_404(Artigo, id=artigo_id)
+    if request.method == 'POST':
+        artigo.delete()
+        return redirect('portifolio:artigos_blog')
+    context = {
+        'artigo': artigo
+    }
+    return render(request, 'portfolio/blog/apagar_artigo_blog.html', context)
+
+
 def home_blog_full(request):
     categorias = Categoria.objects.all()
     artigos_destaque = Artigo.objects.filter(destaque=True)
@@ -392,3 +409,28 @@ def home_blog_full(request):
         'artigos_destaque': artigos_destaque
     }
     return render(request, 'portfolio/blog/home_blog_full.html', context)
+
+
+def login_blog(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = authenticate(request,
+                            username=username,
+                            password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('portifolio:home_blog_full')
+        else:
+            # aqui
+            return render(request, 'portfolio/blog/login_blog.html', {
+                'message': 'Credenciais invalidas'
+            })
+    return render(request, 'portfolio/blog/login_blog.html')
+
+
+def logout_blog(request):
+    logout(request)
+    return redirect('portifolio:home_blog_full')

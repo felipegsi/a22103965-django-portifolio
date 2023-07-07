@@ -2,23 +2,63 @@
 
 
 {% block main %}
+    <p>
+        {% if request.user.is_authenticated %}
+            user: {{ request.user }}
+            <a href="{% url 'portifolio:logout_blog' %}">Logout</a>
+        {% else %}
+            <a href="{% url 'portifolio:login_blog' %}">Login</a>
+        {% endif %}
+    </p>
+
     <h1>Categorias:</h1>
     <ul>
         {% for categoria in categorias %}
-            <li><a href="{% url 'portifolio:categoria_blog' categoria.id %}">{{ categoria.nome }}</a></li>
+            <li><a href="{% url 'portifolio:categoria_blog' categoria.id %}">{{ categoria.nome }}</a>
+
+            {% if user.is_authenticated %}
+                <a href="{% url 'portifolio:editar_categoria_blog' categoria.id %}"
+                   class="btn btn-warning btn-sm">(Editar)</a>
+                <a href="{% url 'portifolio:apagar_categoria_blog' categoria.id %}"
+                   class="btn btn-warning btn-sm">(Apagar)</a>
+            {% endif %}
+            </li>
         {% empty %}
             <li>Nenhuma categoria encontrada.</li>
+
+
         {% endfor %}
     </ul>
+
+    <p>
+        {% if request.user.is_authenticated %}
+            <a href="{% url 'portifolio:add_categoria_blog' %}" class="btn btn-success btn-block">
+                Adicionar Categoria</a>
+        {% endif %}
+    </p>
 
     <h1>Artigos Destacados:</h1>
     <ul>
         {% for artigo in artigos_destaque %}
-            <li><a href="{% url 'portifolio:artigo_blog' artigo.id %}">{{ artigo.titulo }}</a></li>
+            <li><a href="{% url 'portifolio:artigo_blog' artigo.id %}">{{ artigo.titulo }}</a>
+
+            {% if user.is_authenticated %}
+                <a href="{% url 'portifolio:editar_artigo_blog' artigo.id %}"
+                   class="btn btn-warning btn-sm">(Editar)</a>
+                <a href="{% url 'portifolio:apagar_artigo_blog' artigo.id %}"
+                   class="btn btn-warning btn-sm">(Apagar)</a>
+            {% endif %}
+            </li>
         {% empty %}
             <li>Nenhum artigo em destaque encontrado.</li>
         {% endfor %}
         <li><a href="{% url 'portifolio:artigos_blog' %}">Todos Artigos</a></li>
 
     </ul>
+    <p>
+        {% if request.user.is_authenticated %}
+            <a href="{% url 'portifolio:add_artigo_blog' %}" class="btn btn-success btn-block">
+                Adicionar Artigo</a>
+        {% endif %}
+    </p>
 {% endblock %}

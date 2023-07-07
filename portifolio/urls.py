@@ -45,9 +45,12 @@ urlpatterns = [
     path('add_artigo_blog/', views.add_artigo_blog, name='add_artigo_blog'),
     path('editar_artigo_blog/<int:artigo_id>/', views.editar_artigo_blog, name='editar_artigo_blog'),
     path('apagar_artigo_blog/<int:artigo_id>/', views.apagar_artigo_blog, name='apagar_artigo_blog'),
+    path('apagar_categoria_blog/<int:categoria_id>/', views.apagar_categoria_blog, name='apagar_categoria_blog'),
     path('add_categoria_blog/', views.add_categoria_blog, name='add_categoria_blog'),
     path('editar_categoria_blog/<int:categoria_id>/', views.editar_categoria_blog, name='editar_categoria_blog'),
     path('home_blog_full/', views.home_blog_full, name='home_blog_full'),
+    path('login_blog', views.login_blog, name='login_blog'),
+    path('logout_blog', views.logout_blog, name='logout_blog'),
 
     path('criar_cadeira_educacao/', views.criar_cadeira_educacao, name='criar_cadeira_educacao'),
     path('editar_cadeira_educacao/<int:pk>/', views.editar_cadeira_educacao, name='editar_cadeira_educacao'),
