@@ -1,7 +1,9 @@
 {% extends 'portfolio/base/layout_base.html' %}
 {% block main %}
-    <h1>{{ categoria.nome }}</h1>
-    <p>{{ categoria.descricao }}</p>
+    <h1>Detalhes da Categoria</h1>
+    <h2>{{ categoria.nome }}</h2>
+    <p><strong>Descrição:</strong> {{ categoria.descricao }}</p>
+    <p><strong>Data de Criação:</strong> {{ categoria.data_criacao }}</p>
     <h2>Artigos:</h2>
     <ul>
         {% for artigo in artigos %}
@@ -10,5 +12,6 @@
             <li>Nenhum artigo nesta categoria.</li>
         {% endfor %}
     </ul>
+    <img src="{{ categoria.imagem.url }}" alt="Imagem da Categoria">
 
 {% endblock main %}

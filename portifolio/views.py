@@ -281,6 +281,102 @@ def apaga_sobreMim(request, sobreMim_id):
 ########################################################################
 
 
+@login_required
+def add_categoria_blog(request):
+    if request.method == 'POST':
+        form = CategoriaForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('portifolio:home_blog_full')
+    else:
+        form = CategoriaForm()
+    context = {
+        'form': form
+    }
+    return render(request, 'portfolio/blog/add_categoria_blog.html', context)
+
+
+@login_required
+def add_artigo_blog(request):
+    if request.method == 'POST':
+        form = ArtigoForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('portifolio:home_blog_full')
+    else:
+        form = ArtigoForm()
+    context = {
+        'form': form
+    }
+    return render(request, 'portfolio/blog/add_artigo_blog.html', context)
+
+
+@login_required
+def editar_categoria_blog(request, categoria_id):
+    categoria = get_object_or_404(Categoria, id=categoria_id)
+    if request.method == 'POST':
+        form = CategoriaForm(request.POST, request.FILES, instance=categoria)
+        if form.is_valid():
+            form.save()
+            return redirect('portifolio:home_blog_full')
+    else:
+        form = CategoriaForm(instance=categoria)
+    context = {
+        'form': form
+    }
+    return render(request, 'portfolio/blog/editar_categoria_blog.html', context)
+
+
+@login_required
+def editar_artigo_blog(request, artigo_id):
+    artigo = get_object_or_404(Artigo, id=artigo_id)
+    if request.method == 'POST':
+        form = ArtigoForm(request.POST, request.FILES, instance=artigo)
+        if form.is_valid():
+            form.save()
+            return redirect('portifolio:home_blog_full')
+    else:
+        form = ArtigoForm(instance=artigo)
+    context = {
+        'form': form
+    }
+    return render(request, 'portfolio/blog/editar_artigo_blog.html', context)
+
+
+@login_required
+def apagar_categoria_blog(request, categoria_id):
+    categoria = get_object_or_404(Categoria, id=categoria_id)
+    if request.method == 'POST':
+        categoria.delete()
+        return redirect('portifolio:home_blog_full')
+    context = {
+        'categoria': categoria
+    }
+    return render(request, 'portfolio/blog/apagar_categoria_blog.html', context)
+
+
+@login_required
+def apagar_artigo_blog(request, artigo_id):
+    artigo = get_object_or_404(Artigo, id=artigo_id)
+    if request.method == 'POST':
+        artigo.delete()
+        return redirect('portifolio:home_blog_full')
+    context = {
+        'artigo': artigo
+    }
+    return render(request, 'portfolio/blog/apagar_artigo_blog.html', context)
+
+
+def home_blog_full(request):
+    categorias = Categoria.objects.all()
+    artigos_destaque = Artigo.objects.filter(destaque=True)
+    context = {
+        'categorias': categorias,
+        'artigos_destaque': artigos_destaque
+    }
+    return render(request, 'portfolio/blog/home_blog_full.html', context)
+
+
 def categorias_blog(request):
     categorias = Categoria.objects.all()
     context = {
@@ -313,102 +409,6 @@ def artigo_blog(request, artigo_id):
         'artigo': artigo
     }
     return render(request, 'portfolio/blog/artigo_blog.html', context)
-
-
-@login_required
-def add_categoria_blog(request):
-    if request.method == 'POST':
-        form = CategoriaForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('portifolio:categorias_blog')
-    else:
-        form = CategoriaForm()
-    context = {
-        'form': form
-    }
-    return render(request, 'portfolio/blog/add_categoria_blog.html', context)
-
-
-@login_required
-def add_artigo_blog(request):
-    if request.method == 'POST':
-        form = ArtigoForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('portifolio:artigos_blog')
-    else:
-        form = ArtigoForm()
-    context = {
-        'form': form
-    }
-    return render(request, 'portfolio/blog/add_artigo_blog.html', context)
-
-
-@login_required
-def editar_categoria_blog(request, categoria_id):
-    categoria = get_object_or_404(Categoria, id=categoria_id)
-    if request.method == 'POST':
-        form = CategoriaForm(request.POST, instance=categoria)
-        if form.is_valid():
-            form.save()
-            return redirect('portifolio:categorias_blog')
-    else:
-        form = CategoriaForm(instance=categoria)
-    context = {
-        'form': form
-    }
-    return render(request, 'portfolio/blog/editar_categoria_blog.html', context)
-
-
-@login_required
-def editar_artigo_blog(request, artigo_id):
-    artigo = get_object_or_404(Artigo, id=artigo_id)
-    if request.method == 'POST':
-        form = ArtigoForm(request.POST, instance=artigo)
-        if form.is_valid():
-            form.save()
-            return redirect('portifolio:artigos_blog')
-    else:
-        form = ArtigoForm(instance=artigo)
-    context = {
-        'form': form
-    }
-    return render(request, 'portfolio/blog/editar_artigo_blog.html', context)
-
-
-@login_required
-def apagar_categoria_blog(request, categoria_id):
-    categoria = get_object_or_404(Artigo, id=categoria_id)
-    if request.method == 'POST':
-        categoria.delete()
-        return redirect('portifolio:categorias_blog')
-    context = {
-        'categoria': categoria
-    }
-    return render(request, 'portfolio/blog/apagar_categoria_blog.html', context)
-
-
-@login_required
-def apagar_artigo_blog(request, artigo_id):
-    artigo = get_object_or_404(Artigo, id=artigo_id)
-    if request.method == 'POST':
-        artigo.delete()
-        return redirect('portifolio:artigos_blog')
-    context = {
-        'artigo': artigo
-    }
-    return render(request, 'portfolio/blog/apagar_artigo_blog.html', context)
-
-
-def home_blog_full(request):
-    categorias = Categoria.objects.all()
-    artigos_destaque = Artigo.objects.filter(destaque=True)
-    context = {
-        'categorias': categorias,
-        'artigos_destaque': artigos_destaque
-    }
-    return render(request, 'portfolio/blog/home_blog_full.html', context)
 
 
 def login_blog(request):

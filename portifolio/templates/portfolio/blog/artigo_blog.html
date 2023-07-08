@@ -1,7 +1,21 @@
 {% extends 'portfolio/base/layout_base.html' %}
 
 {% block main %}
-  <h1>{{ artigo.titulo }}</h1>
-  <p>{{ artigo.descricao }}</p>
+
+    <h1>Detalhes do Artigo</h1>
+    <h2>{{ artigo.titulo }}</h2>
+    <p><strong>Autor:</strong> {{ artigo.autor }}</p>
+    <p><strong>Categoria:</strong> {{ artigo.categoria }}</p>
+    <p><strong>Descrição:</strong> {{ artigo.descricao }}</p>
+    <p><strong>Data:</strong> {{ artigo.data }}</p>
+    <p><strong>Destaque:</strong> {{ artigo.destaque }}</p>
+    <p><strong>Visitas:</strong> {{ artigo.visitas }}</p>
+    <p>Imagem:</p>
+    {% if artigo.imagem %}
+        <img src="{{ artigo.imagem.url }}" alt="Imagem da Artigo">
+    {% else %}
+        <p>Nenhuma imagem disponível</p>
+    {% endif %}
+
 
 {% endblock main %}
