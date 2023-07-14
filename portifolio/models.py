@@ -142,6 +142,7 @@ class Artigo(models.Model):
     destaque = models.BooleanField(default=False)
     imagem = models.ImageField(upload_to='artigos/', blank=True, null=True)
     visitas = models.PositiveIntegerField(default=0)
+    conteudo = models.TextField(default='your_default_value', blank=False, null=False)  # Add the default parameter
 
     def __str__(self):
         return self.titulo

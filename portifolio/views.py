@@ -7,6 +7,8 @@ from .forms import *
 from .models import *
 
 
+
+###############################################################
 @login_required
 def criar_cadeira_educacao(request):
     if request.method == 'POST':
@@ -280,6 +282,18 @@ def apaga_sobreMim(request, sobreMim_id):
 
 ########################################################################
 
+def home_full_template(request):
+    categorias = Categoria.objects.all()
+    artigos_destaque = Artigo.objects.filter(destaque=True)
+    autores = Autor.objects.all()
+    context = {
+        'categorias': categorias,
+        'artigos_destaque': artigos_destaque,
+        'autores': autores
+    }
+    return render(request, 'portfolio/blog/blog_template_folder/home_full_template.html', context)
+
+
 
 @login_required
 def add_categoria_blog(request):
@@ -293,7 +307,7 @@ def add_categoria_blog(request):
     context = {
         'form': form
     }
-    return render(request, 'portfolio/blog/add_categoria_blog.html', context)
+    return render(request, 'portfolio/blog/blog_template_folder/add_categoria_blog.html', context)
 
 
 @login_required
@@ -308,7 +322,7 @@ def add_artigo_blog(request):
     context = {
         'form': form
     }
-    return render(request, 'portfolio/blog/add_artigo_blog.html', context)
+    return render(request, 'portfolio/blog/blog_template_folder/add_artigo_blog.html', context)
 
 
 @login_required
@@ -324,7 +338,7 @@ def editar_categoria_blog(request, categoria_id):
     context = {
         'form': form
     }
-    return render(request, 'portfolio/blog/editar_categoria_blog.html', context)
+    return render(request, 'portfolio/blog/blog_template_folder/editar_categoria_blog.html', context)
 
 
 @login_required
@@ -340,7 +354,7 @@ def editar_artigo_blog(request, artigo_id):
     context = {
         'form': form
     }
-    return render(request, 'portfolio/blog/editar_artigo_blog.html', context)
+    return render(request, 'portfolio/blog/blog_template_folder/editar_artigo_blog.html', context)
 
 
 @login_required
@@ -352,7 +366,7 @@ def apagar_categoria_blog(request, categoria_id):
     context = {
         'categoria': categoria
     }
-    return render(request, 'portfolio/blog/apagar_categoria_blog.html', context)
+    return render(request, 'portfolio/blog/blog_template_folder/apagar_categoria_blog.html', context)
 
 
 @login_required
@@ -364,7 +378,7 @@ def apagar_artigo_blog(request, artigo_id):
     context = {
         'artigo': artigo
     }
-    return render(request, 'portfolio/blog/apagar_artigo_blog.html', context)
+    return render(request, 'portfolio/blog/blog_template_folder/apagar_artigo_blog.html', context)
 
 
 def home_blog_full(request):
@@ -374,7 +388,7 @@ def home_blog_full(request):
         'categorias': categorias,
         'artigos_destaque': artigos_destaque
     }
-    return render(request, 'portfolio/blog/home_blog_full.html', context)
+    return render(request, 'portfolio/blog/blog_template_folder/home_blog_full.html', context)
 
 
 def categorias_blog(request):
@@ -382,33 +396,49 @@ def categorias_blog(request):
     context = {
         'categorias': categorias
     }
-    return render(request, 'portfolio/blog/categorias_blog.html', context)
+    return render(request, 'portfolio/blog/blog_template_folder/categorias_blog.html', context)
 
 
 def categoria_blog(request, categoria_id):
     categoria = get_object_or_404(Categoria, id=categoria_id)
     artigos = categoria.artigos.all()
+    artigos_destaque = Artigo.objects.filter(destaque=True)
+    autores = Autor.objects.all()
+
     context = {
         'categoria': categoria,
-        'artigos': artigos
+        'artigos': artigos,
+        'artigos_destaque': artigos_destaque,
+        'autores': autores
+
     }
-    return render(request, 'portfolio/blog/categoria_blog.html', context)
+    return render(request, 'portfolio/blog/blog_template_folder/categoria_blog.html', context)
 
 
 def artigos_blog(request):
+    categorias = Categoria.objects.all()
     artigos = Artigo.objects.all()
+    autores = Autor.objects.all()
     context = {
-        'artigos': artigos
+        'categorias': categorias,
+        'artigos': artigos,
+        'autores': autores
     }
-    return render(request, 'portfolio/blog/artigos_blog.html', context)
+    return render(request, 'portfolio/blog/blog_template_folder/artigos_blog.html', context)
 
 
 def artigo_blog(request, artigo_id):
     artigo = get_object_or_404(Artigo, id=artigo_id)
+    categorias = Categoria.objects.all()
+    artigos_destaque = Artigo.objects.filter(destaque=True)
+    autores = Autor.objects.all()
     context = {
+        'categorias': categorias,
+        'artigos_destaque': artigos_destaque,
+        'autores': autores,
         'artigo': artigo
     }
-    return render(request, 'portfolio/blog/artigo_blog.html', context)
+    return render(request, 'portfolio/blog/blog_template_folder/artigo_blog.html', context)
 
 
 def login_blog(request):
@@ -422,15 +452,15 @@ def login_blog(request):
 
         if user is not None:
             login(request, user)
-            return redirect('portifolio:home_blog_full')
+            return redirect('portifolio:home_full_template')
         else:
             # aqui
-            return render(request, 'portfolio/blog/login_blog.html', {
+            return render(request, 'portfolio/blog/blog_template_folder/login_blog.html', {
                 'message': 'Credenciais invalidas'
             })
-    return render(request, 'portfolio/blog/login_blog.html')
+    return render(request, 'portfolio/blog/blog_template_folder/login_blog.html')
 
 
 def logout_blog(request):
     logout(request)
-    return redirect('portifolio:home_blog_full')
+    return redirect('portifolio:home_full_template')

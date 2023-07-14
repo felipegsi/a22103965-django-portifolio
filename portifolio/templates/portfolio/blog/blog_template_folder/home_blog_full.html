@@ -11,7 +11,7 @@
         {% endif %}
     </p>
 
-    <h1>Categorias:</h1>
+
     <ul>
         {% for categoria in categorias %}
             <li><a href="{% url 'portifolio:categoria_blog' categoria.id %}">{{ categoria.nome }}</a>

@@ -6,11 +6,11 @@ app_name = 'portifolio'
 
 urlpatterns = [
 
-    #
+    # path('layout_base', views.layout_base, name='layout_base'),
     path('testeNav', views.testeNav, name='testeNav'),
+    path('home_full_template', views.home_full_template, name='home_full_template'),
 
     path('', views.home_base, name='home'),
-    # path('layout_base', views.layout_base, name='layout_base'),
 
     path('projetos', views.projetos_base, name='projetos'),
     path('contacto', views.contacto_base, name='contacto'),
@@ -28,8 +28,6 @@ urlpatterns = [
     path('passenger/<int:passenger_id>', views.passenger_view, name='passenger'),
     path('login_flight', views.login_flight, name='login_flight'),
     path('logout_flight', views.logout_flight, name='logout_flight'),
-
-
 
     path('sobreMim_video', views.sobreMim_video, name='sobreMim_video'),
     path('sobreMim_educacao', views.sobreMim_educacao, name='sobreMim_educacao'),

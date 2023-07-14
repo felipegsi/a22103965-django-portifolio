@@ -1,0 +1,201 @@
+{% extends 'portfolio/base/layout_base.html' %}
+
+{% block link %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/blog/blog_template_folder/home_full_template.css' %}">
+{% endblock %}
+
+
+{% block main %}
+
+
+
+
+    <!-- Top Background Image Wrapper -->
+    <div class="bgded overlay" style="background-image:url('{% static 'portfolio/images/about/header-bg.jpg' %}');">
+
+        <div id="pageintro" class="hoc clear">
+            <article>
+                <h3 class="heading">Categoria: {{ categoria.nome }}</h3>
+                <p>{{ categoria.descricao}}</p>
+            </article>
+        </div>
+    </div>
+    <!-- End Top Background Image Wrapper -->
+    <div class="wrapper row3">
+        <main class="hoc container clear">
+            <!-- main body -->
+            <section id="introblocks">
+
+                <ul class="nospace group">
+
+                    {% for artigo in artigos %}
+
+
+                        <li class="one_third">
+                            <figure><a class="imgover" href="{% url 'portifolio:artigo_blog' artigo.id %}"> <img
+                                    src="{{ artigo.imagem.url }}"
+                                    alt="Imagem da Categoria"></a>
+                                <figcaption>
+                                    <h6 class="heading">{{ artigo.titulo }}</h6>
+                                    <p>{{ artigo.descricao }}</p>
+
+                                    {% if user.is_authenticated %}
+                                        <a href="{% url 'portifolio:editar_artigo_blog' artigo.id %}"
+                                           class="btn btn-warning btn-sm">Editar</a>
+                                        <a href="{% url 'portifolio:apagar_artigo_blog' artigo.id %}"
+                                           class="btn btn-warning btn-sm">Apagar</a>
+                                    {% endif %}
+
+                                </figcaption>
+                            </figure>
+                        </li>
+
+
+
+
+
+                    {% endfor %}
+
+
+                </ul>
+            </section>
+            <!-- / main body -->
+            <div class="clear"></div>
+        </main>
+    </div>
+
+    <div class="wrapper row3">
+        <main class="hoc container clear">
+            <!-- main body -->
+            <section id="introblocks">
+                <h1 style="padding: 60px; text-align: center; font-size: 40px;">Artigos Destacados</h1>
+                <ul class="nospace group">
+                    {% for artigo in artigos_destaque %}
+                        <li class="one_third">
+                            <figure><a class="imgover" href="{% url 'portifolio:artigo_blog' artigo.id %}"> <img
+                                    src="{{ artigo.imagem.url }}"
+                                    alt="Imagem do Artigo"></a>
+                                <figcaption>
+                                    <h6 class="heading">{{ artigo.titulo }}</h6>
+                                    <p>{{ artigo.descricao }}</p>
+
+                                    {% if user.is_authenticated %}
+                                        <a href="{% url 'portifolio:editar_artigo_blog' artigo.id %}"
+                                           class="btn btn-warning btn-sm">Editar</a>
+                                        <a href="{% url 'portifolio:apagar_artigo_blog' artigo.id %}"
+                                           class="btn btn-warning btn-sm">Apagar</a>
+                                    {% endif %}
+
+                                </figcaption>
+                            </figure>
+                        </li>
+                    {% endfor %}
+
+
+                </ul>
+            </section>
+            <!-- / main body -->
+            <div class="clear"></div>
+        </main>
+    </div>
+
+    <div class="wrapper row2">
+        <section class="hoc container clear">
+            <div class="sectiontitle">
+                <p class="nospace font-xs">Saiba quais categorias mais relevantes do momento</p>
+                <h6 class="heading">As categorias mais procuradas</h6>
+            </div>
+            <ul class="nospace group center">
+                <li class="one_third first">
+                    <article><a href="#"><i class="fas fa-eraser fa-5x btmspace-50"></i></a>
+                        <h6 class="heading">Escolar</h6>
+                        <p class="btmspace-30">Entenda os fatores principais para o sucesso acadêmico do seu filho [&hellip;]</p>
+                        <footer><a class="btn" href="#">Saiba Mais</a></footer>
+                    </article>
+                </li>
+                <li class="one_third">
+                    <article><a href="#"><i class="fas fa-chess-bishop fa-5x btmspace-50"></i></a>
+                        <h6 class="heading">Gestão do Tempo</h6>
+                        <p class="btmspace-30">Com o crescimento exponencial da tecnologia, um dia normal passa a ser
+                            curto diante das ofertas [&hellip;]</p>
+                        <footer><a class="btn" href="#">Saiba Mais</a></footer>
+                    </article>
+                </li>
+                <li class="one_third">
+                    <article><a href="#"><i class="fas fa-coins fa-5x btmspace-50"></i></a>
+                        <h6 class="heading">Financias</h6>
+                        <p class="btmspace-30">Um tema extremamente importante para o nosso cotiadiano, algo que pode
+                            nos afastar das dividas [&hellip;]</p>
+                        <footer><a class="btn" href="#">Saiba Mais</a></footer>
+                    </article>
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="wrapper row3">
+        <section class="hoc container clear">
+            <div class="sectiontitle">
+                <p class="nospace font-xs">Alguns números que este blog armazena</p>
+                <h6 class="heading">Estatísticas</h6>
+            </div>
+            <ul id="stats" class="nospace group">
+                <li><i class="fas fa-id-badge"></i>
+                    <p><a href="#">123</a></p>
+                    <p>Visualizações</p>
+                </li>
+                <li><i class="fas fa-skull"></i>
+                    <p><a href="#">1234</a></p>
+                    <p>Número de óbitos anuais</p>
+                </li>
+                <li><i class="fas fa-umbrella"></i>
+                    <p><a href="#">12345</a></p>
+                    <p>Volume de precipitação deste ano</p>
+                </li>
+                <li><i class="fas fa-store-alt"></i>
+                    <p><a href="#">6789</a></p>
+                    <p>E-commerce's associados</p>
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="wrapper coloured">
+        <section id="testimonials" class="hoc container clear">
+            <!-- ################################################################################################ -->
+            <div class="sectiontitle">
+                <p class="nospace font-xs">Principais autores deste blog</p>
+                <h6 class="heading">Autores</h6>
+            </div>
+
+            {% for autor in autores %}
+
+                <article class="one_half first"><img src="{{ autor.foto.url }}" alt="Imagem do Autor">
+                    <blockquote>{{ autor.biografia }} </blockquote>
+                    <h6 class="heading">{{ autor.nome }}</h6>
+                    <em>{{ autor.data_nascimento }}</em></article>
+
+            {% endfor %}
+
+        </section>
+    </div>
+
+    <div class="wrapper row5">
+        <div id="copyright" class="hoc clear">
+            <!-- ################################################################################################ -->
+            <p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a href="#">Domain Name</a></p>
+            <p class="fl_right">Template by <a target="_blank" href="https://www.os-templates.com/"
+                                               title="Free Website Templates">OS Templates</a></p>
+            <!-- ################################################################################################ -->
+        </div>
+    </div>
+
+
+    <a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
+    <!-- JAVASCRIPTS -->
+    <script src="{% static 'portfolio/JavaScript/jquery.min.js' %}"></script>
+    <script src="{% static 'portfolio/JavaScript/jquery.backtotop.js' %}"></script>
+    <script src="{% static 'portfolio/JavaScript/jquery.mobilemenu.js' %}"></script>
+
+{% endblock main %}
