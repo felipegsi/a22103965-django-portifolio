@@ -1,10 +1,13 @@
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
+import requests
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from .forms import *
 from .models import *
+from bs4 import BeautifulSoup
+
 
 
 ###############################################################
@@ -504,15 +507,7 @@ def web_javaScript_playground(request):
 
 
 def web_scrapping(request):
-    categorias = Categoria.objects.all()
-    artigos_destaque = Artigo.objects.filter(destaque=True)
-    autores = Autor.objects.all()
-    context = {
-        'categorias': categorias,
-        'artigos_destaque': artigos_destaque,
-        'autores': autores
-    }
-    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_scrapping.html', context)
+    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_scrapping.html')
 
 def index_lab_1(request):
     return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/index.html')
@@ -591,3 +586,28 @@ def web_tecnologias_existentes(request):
 
 def web_video_tecnico(request):
     return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_video_tecnico.html')
+
+
+def scraping_previsao_tempo(request):
+    url = 'https://www.climatempo.com.br/previsao-do-tempo/15-dias/cidade/558/saopaulo-sp'
+
+    # Realize a requisição HTTP
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+
+    # Extraia os dados de meteorologia da página
+    forecast_cards = soup.find_all('li', {'class': 'forecast-card'})
+
+    forecast_data = []
+    for card in forecast_cards:
+        day = card.find('p', {'class': 'date'}).text
+        temperature = card.find('span', {'class': 'temperature'}).text.strip()
+        description = card.find('p', {'class': 'description'}).text.strip()
+
+        forecast_data.append({
+            'day': day,
+            'temperature': temperature,
+            'description': description
+        })
+    # Renderize o template HTML com os dados obtidos
+    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/scraping_previsao_tempo.html',  {'forecast_data': forecast_data})

@@ -1,0 +1,29 @@
+{% extends 'portfolio/base/layout_base.html' %}
+
+
+{% block main %}
+
+    <section class="hero-projetos">
+        <div class="content">
+            <div class="capitais">
+
+                <h1>Previsão do Tempo</h1>
+
+                <ul>
+                    {% for forecast in forecast_data %}
+                        <li>
+                            <h2>{{ forecast.day }}</h2>
+                            <p>Temperatura: {{ forecast.temperature }}</p>
+                            <p>Descrição: {{ forecast.description }}</p>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+{% endblock %}

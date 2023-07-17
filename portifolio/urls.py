@@ -62,6 +62,7 @@ urlpatterns = [
     path('web_laboratorios/', views.web_laboratorios, name='web_laboratorios'),
     path('web_javaScript_playground/', views.web_javaScript_playground, name='web_javaScript_playground'),
     path('web_scrapping/', views.web_scrapping, name='web_scrapping'),
+    path('scraping_previsao_tempo/', views.scraping_previsao_tempo, name='scraping_previsao_tempo'),
 
     path('index_lab_1', views.index_lab_1, name='index_lab_1'),
     path('info_lab_1', views.info_lab_1, name='info_lab_1'),
