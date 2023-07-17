@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  
+    <meta charset="utf-8">
+    <meta name="author" content="Felipe Silva">
+    <meta name="description" content="Website sobre São Paulo">
+    <meta name="keywords" content="palavras chave">
+   {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/sobreMim/programacao_web/lab_1/estilos.css' %}">
+</head>
+
+<body>
+    <header>
+        <title>São Paulo</title>
+        <h1>São Paulo</h1>
+        <figure>
+            <img src="{% static 'portfolio/images/lab_1/sampaLego.jpg' %}" alt="sampaLego">
+            <details>
+                <figcaption>Ponte do Rio Tietê em São Paulo.</figcaption>
+            </details>
+        </figure>
+    </header>
+    <nav>
+        <a href="{% url 'portifolio:index_lab_1' %}">Introdução</a>
+        <a href="{% url 'portifolio:local_lab_1' %}">Localização</a>
+        <a href="{% url 'portifolio:multimidia_lab_1' %}">Multimedia</a>
+        <a href="{% url 'portifolio:info_lab_1' %}">Informação</a>
+        <a href="{% url 'portifolio:quizz_lab_1' %}">Quizz</a>
+        <a href="{% url 'portifolio:html_css_lab_1' %}">Html-CSS</a>
+        <a href="{% url 'portifolio:index_lab_3' %}">Lab3</a>
+        <a href="{% url 'portifolio:index_lab_4' %}">Lab4</a>
+    </nav>
+
+
+    <main>
+        <section>
+            <h2>Localização</h2>
+        </section>
+        <section>
+            <p>A cidade de São Paulo está localizada no sudeste do Brasil, no continente americano. É a maior cidade do
+                país
+                e a
+                segunda maior metrópole da América Latina. Está situada na região Sudeste do Brasil, entre os estados de
+                Minas
+                Gerais e Rio de Janeiro. A cidade tem uma área total de 1.521 km² e é banhada pelo rio Tietê. Possui um
+                clima
+                tropical úmido com verões quentes e invernos amenos.</p>
+        </section>
+
+        <section>
+            <figure>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d467688.89495119266!2d-46.5952992!3d-23.6824124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce448183a461d1%3A0x9ba94b08ff335bae!2sS%C3%A3o%20Paulo%2C%20SP%2C%20Brasil!5e0!3m2!1spt-PT!2spt!4v1676583922553!5m2!1spt-PT!2spt"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+
+
+                <details>
+                    <figcaption>Localização da cidade.</figcaption>
+                </details>
+
+            </figure>
+        </section>
+
+    </main>
+
+    <footer>Felipe Guimarães Silva, 22103965, Universidade Lusófona, 2ºano </footer>
+
+</body>
+
+
+</html>

@@ -51,9 +51,6 @@ header {
 }
 
 
-
-
-
 /*-----CAPITAIS-----*/
 .capitais {
     display: grid;
@@ -98,8 +95,6 @@ header {
 }
 
 /*-----/CAPITAIS-----*/
-
-
 
 
 .btn input[type='button'] {
@@ -152,9 +147,6 @@ button {
 }
 
 
-
-
-
 .main {
     width: 400px;
     height: 450px;
@@ -179,4 +171,11 @@ button {
     margin: auto;
     border-radius: 6px;
     color: black;
+}
+
+.iframe-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ajuste a altura conforme necessário */
 }

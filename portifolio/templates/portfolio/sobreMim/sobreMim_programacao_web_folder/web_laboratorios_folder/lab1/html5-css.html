@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="author" content="Felipe Silva">
+    <meta name="description" content="Website sobre São Paulo">
+    <meta name="keywords" content="palavras chave">
+       {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/sobreMim/programacao_web/lab_4/estilosNovo2.css' %}">
+
+</head>
+
+<body>
+    <header>
+
+        <title>São Paulo</title>
+        <h1>São Paulo</h1>
+        <figure>
+            <img src="{% static 'portfolio/images/lab_1/sampaLego.jpg' %}" alt="sampaLego">
+
+            <details>
+                <figcaption>Ponte do Rio Tietê em São Paulo.</figcaption>
+            </details>
+        </figure>
+    </header>
+    <nav>
+
+        <a href="{% url 'portifolio:index_lab_1' %}">Introdução</a>
+        <a href="{% url 'portifolio:local_lab_1' %}">Localização</a>
+        <a href="{% url 'portifolio:multimidia_lab_1' %}">Multimedia</a>
+        <a href="{% url 'portifolio:info_lab_1' %}">Informação</a>
+        <a href="{% url 'portifolio:quizz_lab_1' %}">Quizz</a>
+        <a href="{% url 'portifolio:html_css_lab_1' %}">Html-CSS</a>
+        <a href="{% url 'portifolio:index_lab_3' %}">Lab3</a>
+        <a href="{% url 'portifolio:index_lab_4' %}">Lab4</a>
+
+    </nav>
+
+    <main>
+
+        <h3>HTML5 e CSS</h3>
+
+        <section>
+            <h4>HTML5</h4>
+            <p>O HTML5 é a mais recente versão da linguagem de marcação HTML, utilizada para desenvolver páginas web.
+                Com o HTML5, é possível criar páginas mais acessíveis, estruturadas e com novas funcionalidades.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Elementos semânticos</th>
+                        <th>Utilizado</th>
+                        <th>Descrição</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>&lt;header&gt;</code></td>
+                        <td>✔️</td>
+                        <td>Utilizado para o cabeçalho da página (usei logo a seguir ao body).</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;nav&gt;</code></td>
+                        <td>✔️</td>
+                        <td>Utilizado para a navegação da página (Introdução, Localização, Multimedia, Informação).</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;main&gt;</code></td>
+                        <td>✔️</td>
+                        <td>Utilizado para o conteúdo principal da página(usei para colocar a informação relevante na
+                            página).</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;section&gt;</code></td>
+                        <td>✔️</td>
+                        <td>Utilizado para dividir a página em seções.</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;details&gt;</code></td>
+                        <td>✔️</td>
+                        <td>Utilizado para ver ou esconder detalhes adicionais (usei para descrição das imagens e
+                            tabelas).</td>
+                    </tr>
+
+                    <tr>
+                        <td><code>&lt;footer&gt;</code></td>
+                        <td>✔️</td>
+                        <td>Utilizado para o rodapé da página (usei para colocar os meus dados).</td>
+                    </tr>
+
+
+                    <tr>
+                        <td><code>&lt;article&gt;</code></td>
+                        <td>❌</td>
+                        <td>Não utilizei.</td>
+                    <tr>
+                        <td><code>&lt;aside&gt;</code></td>
+                        <td>❌</td>
+                        <td>Não utilizei.</td>
+                    </tr>
+
+
+                    <tr>
+                        <td><code>&lt;meter&gt;</code></td>
+                        <td>❌</td>
+                        <td>Não utilizei.</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;progress&gt;</code></td>
+                        <td>❌</td>
+                        <td>Não utilizei.</td>
+                    </tr>
+
+
+                    <tr>
+                        <td><code>&lt;abbr&gt;</code></td>
+                        <td>❌</td>
+                        <td>Não utilizei.</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;address&gt;</code></td>
+                        <td>❌</td>
+                        <td>Não utilizei.</td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <section>
+                <h4>CSS</h4>
+                <p>O CSS é uma linguagem de estilo utilizada para definir a aparência e o layout das páginas web. Com o
+                    CSS, é possível criar designs responsivos, com animações e transições.</p>
+                <table>
+                    <thead>
+                        <th>Tipo de Seletor</th>
+                        <th>Usado</th>
+                        <th>Comentário</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Seletor de Tipo</td>
+                            <td>✔️</td>
+                            <td>Usado para definir estilos para um tipo específico de elemento HTML, como h1, p, etc.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Seletor de Classe</td>
+                            <td>✔️</td>
+                            <td>Usado para definir estilos para um grupo de elementos com a mesma classe, identificados
+                                pelo atributo "class".</td>
+                        </tr>
+                        <tr>
+                            <td>Seletor de ID</td>
+                            <td>✔️</td>
+                            <td>Usado para definir estilos para um elemento HTML com um ID específico, identificado pelo
+                                atributo "id".</td>
+                        </tr>
+                        <tr>
+                            <td>Seletor de Atributo</td>
+                            <td>✔️</td>
+                            <td>Utilizado para selecionar elementos que possuem um atributo específico com um valor
+                                exato correspondente.</td>
+                        </tr>
+                        <tr>
+                            <td>Seletor Universal</td>
+                            <td>✔️</td>
+                            <td>Usado para definir estilos para todos os elementos, representado pelo asterisco "*".
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Seletor de Descendência</td>
+                            <td>✔️</td>
+                            <td>Usado para definir estilos para elementos filhos de um elemento pai específico, por
+                                exemplo: div p {}</td>
+                        </tr>
+                        <tr>
+                            <td>Seletor de Irmão Adjacente</td>
+                            <td>✔️</td>
+                            <td>Usado para definir estilos para o primeiro irmão adjacente de um elemento específico,
+                                por exemplo: h1 + p {}</td>
+                        </tr>
+                        <tr>
+                            <td>Seletor de Irmão Geral</td>
+                            <td>✔️</td>
+                            <td>Usado para definir estilos para todos os irmãos de um elemento específico, por exemplo:
+                                h1 ~ p {}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Combinador de Seletor</th>
+                            <th>Usado</th>
+                            <th>Comentário</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Descendente</td>
+                            <td>✔️</td>
+                            <td>Usado para definir estilos para um elemento que é um descendente de outro elemento, por
+                                exemplo: div p {}</td>
+                        </tr>
+                        <tr>
+                            <td>Irmão Adjacente</td>
+                            <td>✔️</td>
+                            <td>Usado para definir estilos para o primeiro irmão adjacente de um elemento específico,
+                                por exemplo: h1 + p {}</td>
+                        </tr>
+                        <tr>
+                            <td>Irmão Geral</td>
+                            <td>❌</td>
+                            <td>Não utilizado.</td>
+                        </tr>
+                        <tr>
+                            <td>Filho Direto</td>
+                            <td>✔️</td>
+                            <td>Utilizado apenas para os elementos que são imediatamente filhos de um determinado elemento, excluindo os elementos netos e outros descendentes mais distantes.</td>
+                        </tr>
+                        <tr>
+                            <td>Atributo</td>
+                            <td>✔️</td>
+                            <td>Utilizado para selecionar elementos com base em atributos específicos, como o valor do atributo class ou id</td>
+                        </tr>
+
+                </table>
+
+            </section>
+
+        </section>
+
+
+    </main>
+    <footer>Felipe Guimarães Silva, 22103965, Universidade Lusófona, 2ºano </footer>
+</body>
+
+
+</html>

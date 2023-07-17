@@ -7,7 +7,6 @@ from .forms import *
 from .models import *
 
 
-
 ###############################################################
 @login_required
 def criar_cadeira_educacao(request):
@@ -294,14 +293,13 @@ def home_full_template(request):
     return render(request, 'portfolio/blog/blog_template_folder/home_full_template.html', context)
 
 
-
 @login_required
 def add_categoria_blog(request):
     if request.method == 'POST':
         form = CategoriaForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('portifolio:home_blog_full')
+            return redirect('portifolio:home_full_template')
     else:
         form = CategoriaForm()
     context = {
@@ -316,7 +314,7 @@ def add_artigo_blog(request):
         form = ArtigoForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('portifolio:home_blog_full')
+            return redirect('portifolio:home_full_template')
     else:
         form = ArtigoForm()
     context = {
@@ -332,7 +330,7 @@ def editar_categoria_blog(request, categoria_id):
         form = CategoriaForm(request.POST, request.FILES, instance=categoria)
         if form.is_valid():
             form.save()
-            return redirect('portifolio:home_blog_full')
+            return redirect('portifolio:home_full_template')
     else:
         form = CategoriaForm(instance=categoria)
     context = {
@@ -348,7 +346,7 @@ def editar_artigo_blog(request, artigo_id):
         form = ArtigoForm(request.POST, request.FILES, instance=artigo)
         if form.is_valid():
             form.save()
-            return redirect('portifolio:home_blog_full')
+            return redirect('portifolio:home_full_template')
     else:
         form = ArtigoForm(instance=artigo)
     context = {
@@ -362,7 +360,7 @@ def apagar_categoria_blog(request, categoria_id):
     categoria = get_object_or_404(Categoria, id=categoria_id)
     if request.method == 'POST':
         categoria.delete()
-        return redirect('portifolio:home_blog_full')
+        return redirect('portifolio:home_full_template')
     context = {
         'categoria': categoria
     }
@@ -374,7 +372,7 @@ def apagar_artigo_blog(request, artigo_id):
     artigo = get_object_or_404(Artigo, id=artigo_id)
     if request.method == 'POST':
         artigo.delete()
-        return redirect('portifolio:home_blog_full')
+        return redirect('portifolio:home_full_template')
     context = {
         'artigo': artigo
     }
@@ -464,3 +462,132 @@ def login_blog(request):
 def logout_blog(request):
     logout(request)
     return redirect('portifolio:home_full_template')
+
+
+####################################################
+def web_home_full(request):
+    categorias = Categoria.objects.all()
+    artigos_destaque = Artigo.objects.filter(destaque=True)
+    autores = Autor.objects.all()
+    context = {
+        'categorias': categorias,
+        'artigos_destaque': artigos_destaque,
+        'autores': autores
+    }
+    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_home_full.html', context)
+
+
+def web_laboratorios(request):
+    categorias = Categoria.objects.all()
+    artigos_destaque = Artigo.objects.filter(destaque=True)
+    autores = Autor.objects.all()
+    context = {
+        'categorias': categorias,
+        'artigos_destaque': artigos_destaque,
+        'autores': autores
+    }
+    return render(request,
+                  'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/web_laboratorios.html',
+                  context)
+
+
+def web_javaScript_playground(request):
+    categorias = Categoria.objects.all()
+    artigos_destaque = Artigo.objects.filter(destaque=True)
+    autores = Autor.objects.all()
+    context = {
+        'categorias': categorias,
+        'artigos_destaque': artigos_destaque,
+        'autores': autores
+    }
+    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_javaScript_playground.html', context)
+
+
+def web_scrapping(request):
+    categorias = Categoria.objects.all()
+    artigos_destaque = Artigo.objects.filter(destaque=True)
+    autores = Autor.objects.all()
+    context = {
+        'categorias': categorias,
+        'artigos_destaque': artigos_destaque,
+        'autores': autores
+    }
+    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_scrapping.html', context)
+
+def index_lab_1(request):
+    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/index.html')
+
+def info_lab_1(request):
+    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/info.html')
+
+def local_lab_1(request):
+    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/local.html')
+
+def multimidia_lab_1(request):
+    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/multimedia.html')
+
+def quizz_lab_1(request):
+    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/quizz.html')
+
+def html_css_lab_1(request):
+    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/html5-css.html')
+
+def index_lab_3(request):
+    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab3/indexNovo.html')
+
+def sec2_lab_3(request):
+    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab3/sec2.html')
+
+def sec3_lab_3(request):
+    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab3/sec3.html')
+
+def sec4_lab_3(request):
+    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab3/sec4.html')
+
+def sec5_lab_3(request):
+    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab3/sec5.html')
+
+def sec6_lab_3(request):
+    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab3/sec6.html')
+
+def index_lab_4(request):
+    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab4/indexNovo2.html')
+
+def animacoes_lab_4(request):
+    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab4/animacoes.html')
+
+def imagensResponsivas_lab_4(request):
+    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab4/ImagensResponsivas.html')
+
+def paralax_lab_4(request):
+    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab4/paralax.html')
+
+def sec2_lab_4(request):
+    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab4/sec2.html')
+
+def sec3_lab_4(request):
+    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab4/sec3.html')
+
+def sec4_lab_4(request):
+    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab4/sec4.html')
+
+def sec5_lab_4(request):
+    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab4/sec5.html')
+
+def sec6_lab_4(request):
+    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab4/sec6.html')
+
+def svg_lab_4(request):
+    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab4/svg.html')
+
+def videoBackground_lab_4(request):
+    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab4/videoBackground.html')
+
+def web_calculator(request):
+    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_calculator.html')
+
+def web_tecnologias_existentes(request):
+    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_tecnologias_existentes.html')
+
+def web_video_tecnico(request):
+    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_video_tecnico.html')

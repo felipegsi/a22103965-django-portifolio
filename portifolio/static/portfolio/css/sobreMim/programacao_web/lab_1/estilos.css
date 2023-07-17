@@ -1,0 +1,164 @@
+/* Seletor de tipo */
+header {
+    background-color: #f1d907;
+    color: #fff;
+}
+
+/* Seletor de classe */
+.intro {
+    font-size: 24px;
+}
+
+/* Seletor de id */
+#localizacao {
+    text-align: center;
+}
+
+/* Seletor de atributo */
+img[alt="SP"] {
+    max-width: 100%;
+}
+
+/* Seletor de pseudo-classe */
+a:hover {
+    color: red;
+}
+
+/* Seletor de pseudo-elemento */
+p::first-letter {
+    font-size: 200%;
+}
+
+/* Seletor de descendente */
+main section {
+    margin: 20px;
+}
+
+/* Seletor de filho */
+figure>details {
+    display: none;
+}
+
+/* Seletor de irmão adjacente */
+h2+p {
+    font-style: italic;
+}
+
+/* Seletor de irmão geral */
+section~section {
+    background-color: #eee;
+}
+
+/* Seletor universal */
+* {
+    box-sizing: border-box;
+}
+
+/*Descendentes*/
+header figcaption {
+    font-size: 1.2em;
+    color: #000000;
+}
+
+/*Filhos diretos*/
+nav>a {
+    color: #88894a;
+    text-decoration: none;
+    padding: 10px;
+}
+
+/*Adjacentes*/
+section+section {
+    margin-top: 30px;
+}
+
+/*Agrupados*/
+main section,
+main p {
+    font-size: 1.2em;
+}
+
+/* Configuração das cores de fundo */
+body {
+    background-color: #f2f2f2;
+}
+
+nav {
+    background-color: #333;
+    color: #fff;
+}
+
+fieldset:nth-of-type(odd) {
+    background-color: #e6e6e6;
+}
+
+fieldset:nth-of-type(even) {
+    background-color: #d9d9d9;
+}
+
+/* Configuração das cores dos links no menu */
+nav a:link {
+    color: #fff;
+}
+
+nav a:visited {
+    color: #ccc;
+}
+
+nav a:hover {
+    color: #ff0;
+}
+
+nav a:active {
+    color: #f00;
+}
+
+/* Configuração dos ícones do menu*/
+nav a:before {
+    font-family: 'FontAwesome';
+    content: "🏡";
+    /* Ícone de casa */
+}
+
+nav a[href='multimedia.html']:before {
+    font-family: 'FontAwesome';
+    content: "📷";
+    /* Ícone de câmera */
+}
+
+nav a[href='local.html']:before {
+    font-family: 'FontAwesome';
+    content: "🗺";
+    /* Ícone de mapa */
+}
+
+nav a[href='info.html']:before {
+    font-family: 'FontAwesome';
+    content: "📰";
+    /* Ícone de câmera */
+}
+
+nav a[href='quizz.html']:before {
+    font-family: 'FontAwesome';
+    content: "❓";
+    /* Ícone de mapa */
+}
+
+nav a[href='html5-css.html']:before {
+    font-family: 'FontAwesome';
+    content: "📝";
+    /* Ícone de mapa */
+}
+
+nav a[href='lab3/indexNovo.html']:before {
+    font-family: 'FontAwesome';
+    content: "🆕";
+    /* Ícone de mapa */
+}
+img {
+    border: 2px solid black;
+}
+
+iframe {
+    border: 1px dashed grey;
+}

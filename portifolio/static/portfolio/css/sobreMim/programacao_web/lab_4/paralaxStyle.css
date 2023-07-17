@@ -1,0 +1,102 @@
+
+ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin: 0 10px;
+}
+
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #f2f2f2;
+  }
+
+  header {
+
+    position: sticky;
+    top: 0;
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 1;
+  }
+
+  nav a {
+    display: flex;
+    justify-content: center;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    padding: 20px;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  nav a:hover {
+    background-color: #ddd;
+    font-weight: bold;
+  }
+
+
+
+
+
+
+
+
+div.parallax {
+   margin: 30px;
+  border: 3px solid black;
+}
+div.parallax2 {
+  margin: 30px;
+ border: 3px solid black;
+}
+div.parallax3 {
+  margin: 30px;
+ border: 3px solid black;
+}
+.parallax {
+  background-image: url("../../../../images/lab_4/foto1_grande.jpg");
+  min-height: 200px; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.parallax2 {
+  background-image: url("../../../../images/lab_4/foto2_grande.jpg");
+  min-height: 200px; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.parallax3 {
+  background-image: url("../../../../images/lab_4/foto3_grande.jpg");
+  min-height: 200px; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

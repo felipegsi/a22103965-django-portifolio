@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="author" content="Felipe Silva">
+    <meta name="description" content="Website sobre São Paulo">
+    <meta name="keywords" content="palavras chave">
+
+
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/sobreMim/programacao_web/lab_1/estilos.css' %}">
+
+</head>
+
+<body>
+    <header>
+
+        <title>São Paulo</title>
+        <h1>São Paulo</h1>
+        <figure>
+            <img src="{% static 'portfolio/images/lab_1/sampaLego.jpg' %}" alt="sampaLego">
+            <details>
+                <figcaption>Ponte do Rio Tietê em São Paulo.</figcaption>
+            </details>
+        </figure>
+    </header>
+    <nav>
+
+        <a href="{% url 'portifolio:index_lab_1' %}">Introdução</a>
+        <a href="{% url 'portifolio:local_lab_1' %}">Localização</a>
+        <a href="{% url 'portifolio:multimidia_lab_1' %}">Multimedia</a>
+        <a href="{% url 'portifolio:info_lab_1' %}">Informação</a>
+        <a href="{% url 'portifolio:quizz_lab_1' %}">Quizz</a>
+        <a href="{% url 'portifolio:html_css_lab_1' %}">Html-CSS</a>
+        <a href="{% url 'portifolio:index_lab_3' %}">Lab3</a>
+        <a href="{% url 'portifolio:index_lab_4' %}">Lab4</a>
+    </nav>
+
+    <main>
+
+        <section>
+            <h2>Introdução</h2>
+        </section>
+        <section>
+            <p>A cidade que nunca dorme.</p>
+        </section>
+
+        <section>
+            <figure>
+            <img src="{% static 'portfolio/images/lab_1/sampachave.png' %}" alt="sampachave">
+                <details>
+                    <figcaption>Palavras que refrenciam a cidade.</figcaption>
+                </details>
+            </figure>
+        </section>
+
+    </main>
+    <footer>Felipe Guimarães Silva, 22103965, Universidade Lusófona, 2ºano </footer>
+</body>
+
+
+</html>

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Felipe Silva">
+    <meta name="description" content="Website sobre São Paulo">
+    <meta name="keywords" content="palavras chave">
+   {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/sobreMim/programacao_web/lab_1/estilos.css' %}">
+</head>
+
+<body>
+    <header>
+        <title>São Paulo</title>
+        <h1>São Paulo</h1>
+        <figure>
+            <img src="{% static 'portfolio/images/lab_1/sampaLego.jpg' %}" alt="sampaLego">
+            <details>
+                <figcaption>Ponte do Rio Tietê em São Paulo</figcaption>
+            </details>
+        </figure>
+    </header>
+
+    <nav>
+      <a href="{% url 'portifolio:index_lab_1' %}">Introdução</a>
+        <a href="{% url 'portifolio:local_lab_1' %}">Localização</a>
+        <a href="{% url 'portifolio:multimidia_lab_1' %}">Multimedia</a>
+        <a href="{% url 'portifolio:info_lab_1' %}">Informação</a>
+        <a href="{% url 'portifolio:quizz_lab_1' %}">Quizz</a>
+        <a href="{% url 'portifolio:html_css_lab_1' %}">Html-CSS</a>
+        <a href="{% url 'portifolio:index_lab_3' %}">Lab3</a>
+        <a href="{% url 'portifolio:index_lab_4' %}">Lab4</a>
+    </nav>
+
+    <br>
+
+
+    <main>
+
+        <section>
+            <h2>Informação</h2>
+        </section>
+
+        <section>
+            <figure>
+                <table class="toccolours" width="100%" align="center" cellpadding="1" cellspacing="0"
+                    style="margin:1 1 1em 1em; clear:right; text-align:center">
+                    <tbody>
+                        <tr>
+                            <th colspan="8" align="center"
+                                style="background:lightgrey; padding-left:8px; font-size:130%">
+                                Subprefeituras do município de São Paulo<sup id="cite_ref-179" class="reference"><a
+                                        href="#cite_note-179"><span>[</span>179<span>]</span></a></sup>
+                            </th>
+                            <th colspan="1" align="right" style="background:lightgrey; padding-right:10px">
+                            </th>
+                        </tr>
+                        <tr style="font-size:95%">
+                            <th width="2%" style="background:white; text-align:center; border-bottom:2px solid black">
+                                &nbsp;
+                            </th>
+                            <th width="16%" style="background:white; text-align:center; border-bottom:2px solid black">
+                                Região
+                            </th>
+                            <th width="4%" style="background:white; text-align:center; border-bottom:2px solid black">
+                                Área
+                            </th>
+                            <th width="10%" style="background:white; text-align:center; border-bottom:2px solid black">
+                                População
+                            </th>
+                            <th width="15%" style="background:white; text-align:center">&nbsp;
+                            </th>
+                            <th width="2%" style="background:white; text-align:center; border-bottom:2px solid black">
+                                &nbsp;
+                            </th>
+                            <th width="16%" style="background:white; text-align:center; border-bottom:2px solid black">
+                                Região
+                            </th>
+                            <th width="4%" style="background:white; text-align:center; border-bottom:2px solid black">
+                                Área
+                            </th>
+                            <th width="10%" style="background:white; text-align:center; border-bottom:2px solid black">
+                                População
+                            </th>
+                        </tr>
+                        <tr style="font-size:95%">
+                            <td style="background:#f0f0f0; border:1px solid white">1
+                            </td>
+                            <td align="left" style="padding-left:5px"><b><a
+                                        href="/wiki/Subprefeitura_de_Aricanduva/Vila_Formosa" class="mw-redirect"
+                                        title="Subprefeitura de Aricanduva/Vila Formosa">Aricanduva/Vila
+                                        Formosa</a></b>
+                            </td>
+                            <td align="left">21,5&nbsp;km²
+                            </td>
+                            <td>266&nbsp;838
+                            </td>
+                            <th align="center" rowspan="20"
+                                style="background:white; text-align:center; border-bottom:1px solid black; border-right:1px solid black; border-left:1px solid black">
+                                <a href="/wiki/Ficheiro:Mapa_sp.svg" class="image"><img alt="Mapa sp.svg"
+                                        src="//upload.wikimedia.org/wikipedia/commons/thumb/5/56/Mapa_sp.svg/250px-Mapa_sp.svg.png"
+                                        decoding="async" width="250" height="375"
+                                        srcset="//upload.wikimedia.org/wikipedia/commons/thumb/5/56/Mapa_sp.svg/375px-Mapa_sp.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/5/56/Mapa_sp.svg/500px-Mapa_sp.svg.png 2x"
+                                        data-file-width="1200" data-file-height="1800"></a>
+                            </th>
+                            <td style="background:#f0f0f0; border:1px solid white">17
+                            </td>
+                            <td align="left" style="padding-left:5px"><b><a href="/wiki/Subprefeitura_da_Mooca"
+                                        title="Subprefeitura da Mooca">Mooca</a></b>
+                            </td>
+                            <td align="left">35,2&nbsp;km²
+                            </td>
+                            <td>305&nbsp;436
+                            </td>
+                        </tr>
+                        <tr style="font-size:95%">
+                            <td style="background:#f0f0f0; border:1px solid white">2
+                            </td>
+                            <td align="left" style="padding-left:5px"><b><a href="/wiki/Subprefeitura_do_Butant%C3%A3"
+                                        title="Subprefeitura do Butantã">Butantã</a></b>
+                            </td>
+                            <td align="left">56,1&nbsp;km²
+                            </td>
+                            <td>345&nbsp;943
+                            </td>
+                            <td style="background:#f0f0f0; border:1px solid white">18
+                            </td>
+                            <td align="left" style="padding-left:5px"><b><a href="/wiki/Subprefeitura_de_Parelheiros"
+                                        title="Subprefeitura de Parelheiros">Parelheiros</a></b>
+                            </td>
+                            <td align="left">353,5&nbsp;km²
+                            </td>
+                            <td>110&nbsp;909
+                            </td>
+                        </tr>
+                        <tr style="font-size:95%">
+                            <td style="background:#f0f0f0; border:1px solid white">3
+                            </td>
+                            <td align="left" style="padding-left:5px"><b><a href="/wiki/Subprefeitura_do_Campo_Limpo"
+                                        title="Subprefeitura do Campo Limpo">Campo Limpo</a></b>
+                            </td>
+                            <td align="left">36,7&nbsp;km²
+                            </td>
+                            <td>508&nbsp;607
+                            </td>
+                            <td style="background:#f0f0f0; border:1px solid white">19
+                            </td>
+                            <td align="left" style="padding-left:5px"><b><a href="/wiki/Subprefeitura_da_Penha"
+                                        title="Subprefeitura da Penha">Penha</a></b>
+                            </td>
+                            <td align="left">42,8&nbsp;km²
+                            </td>
+                            <td>472&nbsp;247
+                            </td>
+                        </tr>
+                        <tr style="font-size:95%">
+                            <td style="background:#f0f0f0; border:1px solid white">4
+                            </td>
+                            <td align="left" style="padding-left:5px"><b><a
+                                        href="/wiki/Subprefeitura_da_Capela_do_Socorro"
+                                        title="Subprefeitura da Capela do Socorro">Capela do Socorro</a></b>
+                            </td>
+                            <td align="left">134,2&nbsp;km²
+                            </td>
+                            <td>561&nbsp;071
+                            </td>
+                            <td style="background:#f0f0f0; border:1px solid white">20
+                            </td>
+                            <td align="left" style="padding-left:5px"><b><a href="/wiki/Subprefeitura_de_Perus"
+                                        title="Subprefeitura de Perus">Perus</a></b>
+                            </td>
+                            <td align="left">57,2&nbsp;km²
+                            </td>
+                            <td>109&nbsp;218
+                            </td>
+                        </tr>
+                        <tr style="font-size:95%">
+                            <td style="background:#f0f0f0; border:1px solid white">5
+                            </td>
+                            <td align="left" style="padding-left:5px"><b><a href="/wiki/Subprefeitura_da_Casa_Verde"
+                                        title="Subprefeitura da Casa Verde">Casa Verde/Cachoeirinha</a></b>
+                            </td>
+                            <td align="left">26,7&nbsp;km²
+                            </td>
+                            <td>313&nbsp;176
+                            </td>
+                            <td style="background:#f0f0f0; border:1px solid white">21
+                            </td>
+                            <td align="left" style="padding-left:5px"><b><a href="/wiki/Subprefeitura_de_Pinheiros"
+                                        title="Subprefeitura de Pinheiros">Pinheiros</a></b>
+                            </td>
+                            <td align="left">31,7&nbsp;km²
+                            </td>
+                            <td>270&nbsp;798
+                            </td>
+                        </tr>
+                        <tr style="font-size:95%">
+                            <td style="background:#f0f0f0; border:1px solid white">6
+                            </td>
+                            <td align="left" style="padding-left:5px"><b><a href="/wiki/Subprefeitura_da_Cidade_Ademar"
+                                        title="Subprefeitura da Cidade Ademar">Cidade Ademar</a></b>
+                            </td>
+                            <td align="left">30,7&nbsp;km²
+                            </td>
+                            <td>370&nbsp;759
+                            </td>
+                            <td style="background:#f0f0f0; border:1px solid white">22
+                            </td>
+                            <td align="left" style="padding-left:5px"><b><a
+                                        href="/wiki/Subprefeitura_de_Pirituba/Jaragu%C3%A1"
+                                        title="Subprefeitura de Pirituba/Jaraguá">Pirituba/Jaraguá</a></b>
+                            </td>
+                            <td align="left">54,7&nbsp;km²
+                            </td>
+                            <td>390&nbsp;083
+                            </td>
+                        </tr>
+                        <tr style="font-size:95%">
+                            <td style="background:#f0f0f0; border:1px solid white">7
+                            </td>
+                            <td align="left" style="padding-left:5px"><b><a
+                                        href="/wiki/Subprefeitura_da_Cidade_Tiradentes"
+                                        title="Subprefeitura da Cidade Tiradentes">Cidade Tiradentes</a></b>
+                            </td>
+                            <td align="left">15&nbsp;km²
+                            </td>
+                            <td>248&nbsp;762
+                            </td>
+                            <td style="background:#f0f0f0; border:1px solid white">23
+                            </td>
+                            <td align="left" style="padding-left:5px"><b><a href="/wiki/Subprefeitura_da_S%C3%A9"
+                                        title="Subprefeitura da Sé">Sé</a></b>
+                            </td>
+                            <td align="left">26,2&nbsp;km²
+                            </td>
+                            <td>373&nbsp;160
+                            </td>
+                        </tr>
+                        <tr style="font-size:95%">
+                            <td style="background:#f0f0f0; border:1px solid white">8
+                            </td>
+                            <td align="left" style="padding-left:5px"><b><a
+                                        href="/wiki/Subprefeitura_de_Ermelino_Matarazzo"
+                                        title="Subprefeitura de Ermelino Matarazzo">Ermelino Matarazzo</a></b>
+                            </td>
+                            <td align="left">15,1&nbsp;km²
+                            </td>
+                            <td>204&nbsp;315
+                            </td>
+                            <td style="background:#f0f0f0; border:1px solid white">24
+                            </td>
+                            <td align="left" style="padding-left:5px"><b><a
+                                        href="/wiki/Subprefeitura_de_Santana-Tucuruvi" class="mw-redirect"
+                                        title="Subprefeitura de Santana-Tucuruvi">Santana/Tucuruvi</a></b>
+                            </td>
+                            <td align="left">34,7&nbsp;km²
+                            </td>
+                            <td>327&nbsp;279
+                            </td>
+                        </tr>
+                        <tr style="font-size:95%">
+                            <td style="background:#f0f0f0; border:1px solid white">9
+                            </td>
+                            <td align="left" style="padding-left:5px"><b><a
+                                        href="/wiki/Subprefeitura_da_Freguesia_do_%C3%93/Brasil%C3%A2ndia"
+                                        title="Subprefeitura da Freguesia do Ó/Brasilândia">Freguesia do
+                                        Ó/Brasilândia</a></b>
+                            </td>
+                            <td align="left">31,5&nbsp;km²
+                            </td>
+                            <td>391&nbsp;403
+                            </td>
+                            <td style="background:#f0f0f0; border:1px solid white">25
+                            </td>
+                            <td align="left" style="padding-left:5px"><b><a
+                                        href="/wiki/Subprefeitura_de_Ja%C3%A7an%C3%A3/Trememb%C3%A9"
+                                        title="Subprefeitura de Jaçanã/Tremembé">Jaçanã/Tremembé</a></b>
+                            </td>
+                            <td align="left">64,1&nbsp;km²
+                            </td>
+                            <td>255&nbsp;435
+                            </td>
+                        </tr>
+                        <tr style="font-size:95%">
+                            <td style="background:#f0f0f0; border:1px solid white">10
+                            </td>
+                            <td align="left" style="padding-left:5px"><b><a href="/wiki/Subprefeitura_de_Guaianases"
+                                        title="Subprefeitura de Guaianases">Guaianases</a></b>
+                            </td>
+                            <td align="left">17,8&nbsp;km²
+                            </td>
+                            <td>283&nbsp;162
+                            </td>
+                            <td style="background:#f0f0f0; border:1px solid white">26
+                            </td>
+                            <td align="left" style="padding-left:5px"><b><a href="/wiki/Subprefeitura_de_Santo_Amaro"
+                                        title="Subprefeitura de Santo Amaro">Santo Amaro</a></b>
+                            </td>
+                            <td align="left">37,5&nbsp;km²
+                            </td>
+                            <td>217&nbsp;280
+                            </td>
+                        </tr>
+                        <tr style="font-size:95%">
+                            <td style="background:#f0f0f0; border:1px solid white">11
+                            </td>
+                            <td align="left" style="padding-left:5px"><b><a href="/wiki/Subprefeitura_do_Ipiranga"
+                                        title="Subprefeitura do Ipiranga">Ipiranga</a></b>
+                            </td>
+                            <td align="left">37,5&nbsp;km²
+                            </td>
+                            <td>427&nbsp;585
+                            </td>
+                            <td style="background:#f0f0f0; border:1px solid white">27
+                            </td>
+                            <td align="left" style="padding-left:5px"><b><a
+                                        href="/wiki/Subprefeitura_de_S%C3%A3o_Mateus"
+                                        title="Subprefeitura de São Mateus">São Mateus</a></b>
+                            </td>
+                            <td align="left">45,8&nbsp;km²
+                            </td>
+                            <td>422&nbsp;199
+                            </td>
+                        </tr>
+                        <tr style="font-size:95%">
+                            <td style="background:#f0f0f0; border:1px solid white">12
+                            </td>
+                            <td align="left" style="padding-left:5px"><b><a href="/wiki/Subprefeitura_do_Itaim_Paulista"
+                                        title="Subprefeitura do Itaim Paulista">Itaim Paulista</a></b>
+                            </td>
+                            <td align="left">21,7&nbsp;km²
+                            </td>
+                            <td>358&nbsp;888
+                            </td>
+                            <td style="background:#f0f0f0; border:1px solid white">28
+                            </td>
+                            <td align="left" style="padding-left:5px"><b><a
+                                        href="/wiki/Subprefeitura_de_S%C3%A3o_Miguel_Paulista"
+                                        title="Subprefeitura de São Miguel Paulista">São Miguel Paulista</a></b>
+                            </td>
+                            <td align="left">24,3&nbsp;km²
+                            </td>
+                            <td>377&nbsp;540
+                            </td>
+                        </tr>
+                        <tr style="font-size:95%">
+                            <td style="background:#f0f0f0; border:1px solid white">13
+                            </td>
+                            <td align="left" style="padding-left:5px"><b><a href="/wiki/Subprefeitura_de_Itaquera"
+                                        title="Subprefeitura de Itaquera">Itaquera</a></b>
+                            </td>
+                            <td align="left">54,3&nbsp;km²
+                            </td>
+                            <td>488&nbsp;327
+                            </td>
+                            <td style="background:#f0f0f0; border:1px solid white">29
+                            </td>
+                            <td align="left" style="padding-left:5px"><b><a href="/wiki/Subprefeitura_de_Sapopemba"
+                                        title="Subprefeitura de Sapopemba">Sapopemba</a></b>
+                            </td>
+                            <td align="left">13,4&nbsp;km²
+                            </td>
+                            <td>296&nbsp;042
+                            </td>
+                        </tr>
+                        <tr style="font-size:95%">
+                            <td style="background:#f0f0f0; border:1px solid white">14
+                            </td>
+                            <td align="left" style="padding-left:5px"><b><a href="/wiki/Subprefeitura_do_Jabaquara"
+                                        class="mw-redirect" title="Subprefeitura do Jabaquara">Jabaquara</a></b>
+                            </td>
+                            <td align="left">14,1&nbsp;km²
+                            </td>
+                            <td>214&nbsp;200
+                            </td>
+                            <td style="background:#f0f0f0; border:1px solid white">30
+                            </td>
+                            <td align="left" style="padding-left:5px"><b><a
+                                        href="/wiki/Subprefeitura_da_Vila_Maria/Vila_Guilherme"
+                                        title="Subprefeitura da Vila Maria/Vila Guilherme">Vila Maria/Vila
+                                        Guilherme</a></b>
+                            </td>
+                            <td align="left">26,4&nbsp;km²
+                            </td>
+                            <td>302&nbsp;899
+                            </td>
+                        </tr>
+                        <tr style="font-size:95%">
+                            <td style="background:#f0f0f0; border:1px solid white">15
+                            </td>
+                            <td align="left" style="padding-left:5px"><b><a href="/wiki/Subprefeitura_da_Lapa"
+                                        title="Subprefeitura da Lapa">Lapa</a></b>
+                            </td>
+                            <td align="left">40,1&nbsp;km²
+                            </td>
+                            <td>270&nbsp;102
+                            </td>
+                            <td style="background:#f0f0f0; border:1px solid white">31
+                            </td>
+                            <td align="left" style="padding-left:5px"><b><a href="/wiki/Subprefeitura_da_Vila_Mariana"
+                                        title="Subprefeitura da Vila Mariana">Vila Mariana</a></b>
+                            </td>
+                            <td align="left">26,5&nbsp;km²
+                            </td>
+                            <td>311&nbsp;019
+                            </td>
+                        </tr>
+                        <tr style="font-size:95%">
+                            <td style="background:#f0f0f0; border:1px solid white">16
+                            </td>
+                            <td align="left" style="padding-left:5px"><b><a href="/wiki/Subprefeitura_de_M%27Boi_Mirim"
+                                        title="Subprefeitura de M'Boi Mirim">M'Boi Mirim</a></b>
+                            </td>
+                            <td align="left">62,1&nbsp;km²
+                            </td>
+                            <td>523&nbsp;138
+                            </td>
+                            <td style="background:#f0f0f0; border:1px solid white">32
+                            </td>
+                            <td align="left" style="padding-left:5px"><b><a href="/wiki/Subprefeitura_da_Vila_Prudente"
+                                        title="Subprefeitura da Vila Prudente">Vila Prudente</a></b>
+                            </td>
+                            <td align="left">33,3&nbsp;km²
+                            </td>
+                            <td>480&nbsp;823
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <details>
+                    <figcaption>
+                        Zonas de São Paulo com o seu repectivo tamanho e densidade populacional.
+                    </figcaption>
+                </details>
+            </figure>
+        </section>
+    </main>
+
+    <footer>Felipe Guimarães Silva, 22103965, Universidade Lusófona, 2ºano </footer>
+</body>
+
+
+</html>

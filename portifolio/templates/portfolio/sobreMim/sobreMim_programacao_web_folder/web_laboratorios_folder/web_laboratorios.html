@@ -1,0 +1,109 @@
+{% extends 'portfolio/base/layout_base.html' %}
+
+
+{% block link %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/blog/blog_template_folder/home_full_template.css' %}">
+{% endblock %}
+
+{% block main %}
+
+
+
+
+    <!-- Top Background Image Wrapper -->
+    <div class="bgded overlay" style="background-image:url('{% static 'portfolio/images/about/header-bg.jpg' %}');">
+
+        <div id="pageintro" class="hoc clear">
+
+            <article>
+                <h3 class="heading">Bem-vindo aos meus laboratórios</h3>
+                <p>Estes são os meus labs realizados na cadeira de Programação Web</p>
+                <footer><a class="btn" href="#">Recarregar</a></footer>
+            </article>
+        </div>
+    </div>
+    <!-- End Top Background Image Wrapper -->
+
+
+    <div class="wrapper row3">
+        <main class="hoc container clear">
+            <!-- main body -->
+            <!-- ################################################################################################ -->
+            <section id="introblocks">
+                <ul class="nospace group">
+                    <li class="one_third">
+                        <figure><a class="imgover" href="{% url 'portifolio:index_lab_1' %}"><img src="{% static 'portfolio/images/lab_1/img_CAPA.png' %}" alt=""></a>
+                            <figcaption>
+                                <h6 class="heading">Laboratório 1</h6>
+                                <p>Primeiros passos com HTML e CSS</p>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="one_third">
+                        <figure><a class="imgover" href="{% url 'portifolio:quizz_lab_1' %}"><img src="{% static 'portfolio/images/lab_1/img2_CAPA.png' %}" alt=""></a>
+                            <figcaption>
+                                <h6 class="heading">Laboratório 2</h6>
+                                <p>Primeiros passos com HTML e CSS</p>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="one_third">
+                        <figure><a class="imgover" href="{% url 'portifolio:index_lab_3' %}"><img src="{% static 'portfolio/images/lab_3/img_CAPA.png' %}" alt=""></a>
+                            <figcaption>
+                                <h6 class="heading">Laboratório 3</h6>
+                                <p>Primeiros passos com HTML e CSS</p>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="one_third">
+                        <figure><a class="imgover" href="{% url 'portifolio:index_lab_4' %}"><img src="{% static 'portfolio/images/lab_4/img_CAPA.png' %}" alt=""></a>
+                            <figcaption>
+                                <h6 class="heading">Laboratório 4</h6>
+                                <p>Primeiros passos com HTML e CSS</p>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="one_third">
+                        <figure><a class="imgover" href="#"><img src="images/demo/348x220.png" alt=""></a>
+                            <figcaption>
+                                <h6 class="heading">Laboratório 5</h6>
+                                <p>Ac lobortis sed cursus at magna vivamus laoreet orci vel tortor in nisi in porttitor
+                                    vulputate arcu integer.</p>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="one_third">
+                        <figure><a class="imgover" href="#"><img src="images/demo/348x220.png" alt=""></a>
+                            <figcaption>
+                                <h6 class="heading">Laboratório 6</h6>
+                                <p>Pretium curabitur lacinia aenean eu lectus maecenas at urna morbi porta est a mi duis
+                                    felis nunc lobortis ut.</p>
+                            </figcaption>
+                        </figure>
+                    </li>
+                </ul>
+            </section>
+            <!-- ################################################################################################ -->
+            <!-- / main body -->
+            <div class="clear"></div>
+        </main>
+    </div>
+
+    <div class="wrapper row5">
+        <div id="copyright" class="hoc clear">
+            <!-- ################################################################################################ -->
+            <p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a href="#">Domain Name</a></p>
+            <p class="fl_right">Template by <a target="_blank" href="https://www.os-templates.com/"
+                                               title="Free Website Templates">OS Templates</a></p>
+            <!-- ################################################################################################ -->
+        </div>
+    </div>
+
+    <a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
+    <!-- JAVASCRIPTS -->
+    <script src="{% static 'portfolio/JavaScript/jquery.min.js' %}"></script>
+    <script src="{% static 'portfolio/JavaScript/jquery.backtotop.js' %}"></script>
+    <script src="{% static 'portfolio/JavaScript/jquery.mobilemenu.js' %}"></script>
+
+{% endblock %}

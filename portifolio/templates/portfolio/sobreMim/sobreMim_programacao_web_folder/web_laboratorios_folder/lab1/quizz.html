@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="author" content="Felipe Silva">
+    <meta name="description" content="Website sobre São Paulo">
+    <meta name="keywords" content="palavras chave">
+   {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/sobreMim/programacao_web/lab_1/estilos.css' %}">
+
+</head>
+
+<body>
+    <header>
+        <title>São Paulo</title>
+        <h1>São Paulo</h1>
+        <figure>
+            <img src="{% static 'portfolio/images/lab_1/sampaLego.jpg' %}" alt="sampaLego">
+            <details>
+                <figcaption>Ponte do Rio Tietê em São Paulo.</figcaption>
+            </details>
+        </figure>
+    </header>
+    <nav>
+
+          <a href="{% url 'portifolio:index_lab_1' %}">Introdução</a>
+        <a href="{% url 'portifolio:local_lab_1' %}">Localização</a>
+        <a href="{% url 'portifolio:multimidia_lab_1' %}">Multimedia</a>
+        <a href="{% url 'portifolio:info_lab_1' %}">Informação</a>
+        <a href="{% url 'portifolio:quizz_lab_1' %}">Quizz</a>
+        <a href="{% url 'portifolio:html_css_lab_1' %}">Html-CSS</a>
+        <a href="{% url 'portifolio:index_lab_3' %}">Lab3</a>
+        <a href="{% url 'portifolio:index_lab_4' %}">Lab4</a>
+    </nav>
+
+    <main>
+        <section>
+            <h3>Quizz</h3>
+            <p>Bem-vindo(a) a esta página! Aqui, você encontrará um quizz para testar seus conhecimentos sobre a cidade
+                apresentada. Será uma oportunidade de descobrir o quanto você sabe sobre seus monumentos, história,
+                cultura, arquitetura e muito mais. Então, fique atento(a) e boa sorte no desafio!</p>
+        </section>
+        <section>
+            <form method="POST" action="felipeguimarae9787@gmail.com" enctype="multipart/form-data">
+                <fieldset>
+                    <legend>Quizz sobre a Cidade de São Paulo</legend>
+                    <fieldset>
+                        <legend>Info</legend>
+                        <label>
+                            <p>Nome: <input type="text" name="nome" placeholder="Digite seu nome"></p>
+                        </label>
+                        <label>
+                            <p>Apelido: <input type="text" name="apelido" placeholder="Digite seu apelido"></p>
+
+                        </label>
+                        <label>
+                            <p>Email: <input type="email" id="email" name="email" placeholder="Digite seu e-mail"
+                                    autocomplete="email" required></p>
+                        </label>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Perguntas</legend>
+                        <label>
+                            <p> 1. Qual é o rio que atravessa a cidade? </p>
+                            <input type="text" id="pergunta1" name="pergunta1" maxlength="50"
+                                placeholder="Introduza a sua resposta" size="30" maxlength="50" required>
+                        </label>
+
+                        <label>
+                            <p> 2. Qual é a cidade irmã da cidade?</p>
+                            <select id="pergunta2" name="pergunta2" autocomplete="off" required>
+                                <option value="">Selecionar</option>
+                                <option value="a">Minas Gerais</option>
+                                <option value="b">Acre</option>
+                                <option value="c">Rio de Janeiro</option>
+                                <option value="d">Santa Catarina</option>
+                            </select>
+                        </label>
+
+                        <label>
+                            <p>3. Qual é o edifício mais alto da cidade?</p>
+                            <input type="text" id="pergunta3" name="pergunta3" maxlength="50"
+                                placeholder="Introduza a sua resposta" required>
+                        </label>
+
+                        <label>
+                            <p>4. Que dia é celebrado o feriado da cidade?</p>
+                            <input type="date" id="pergunta4" name="pergunta4" required>
+                        </label>
+
+                        <label>
+                            <p>5. Qual é a cor do sistema de transporte público da cidade?</p>
+                            <input type="color" id="pergunta5" name="pergunta5" value="#ff0000" required>
+                        </label>
+
+                        <label>
+                            <p>6. Que famosa atração turística da cidade pode ser vista na imagem abaixo?</p>
+                            <img src="../../../../../../static/portfolio/images/lab_1/turistico.png" alt="Atração turística da cidade">
+                            <input type="text" id="pergunta6" name="pergunta6" required>
+                        </label>
+
+                        <label>
+                            <p>7. Qual é o principal prato típico da cidade?</p>
+                            <input type="checkbox" id="pergunta7a" name="pergunta7" value="a">
+                            <label for="pergunta7a">a) Pizza</label>
+                            <input type="checkbox" id="pergunta7b" name="pergunta7" value="b">
+                            <label for="pergunta7b">b) Sushi</label>
+                            <input type="checkbox" id="pergunta7c" name="pergunta7" value="c">
+                            <label for="pergunta7c">c) Feijoada</label>
+                            <input type="checkbox" id="pergunta7d" name="pergunta7" value="c">
+                            <label for="pergunta7d">d) Mandioca Frita</label>
+                        </label>
+                        <label>
+                            <p>8. Qual é a cor predominante na bandeira da cidade?</p>
+                            <input type="radio" id="pergunta8a" name="pergunta8" value="a">
+                            <label for="pergunta8a">a) Azul</label>
+                            <input type="radio" id="pergunta8b" name="pergunta8" value="b">
+                            <label for="pergunta8b">b) Vermelho</label>
+                            <input type="radio" id="pergunta8c" name="pergunta8" value="c">
+                            <label for="pergunta8c">c) Verde</label>
+                            <input type="radio" id="pergunta8d" name="pergunta8" value="d">
+                            <label for="pergunta8d">d) Preto</label>
+                        </label>
+                        <label>
+                            <p>9. Qual é a população estimada de São Paulo?
+                            <p>
+                                <input type="range" id="populacao" name="populacao" min="0" max="30" step="1"
+                                    value="12">
+                                <span id="populacao-output">12 milhões de habitantes</span>
+
+                        </label>
+
+                        <label>
+                            <p>10. Qual é o prato típico de São Paulo?</p>
+                            <input type="text" id="comida" name="comida" placeholder="Digite sua resposta aqui" required
+                                pattern="[a-zA-Z\s]+" title="Somente letras e espaços são permitidos">
+                        </label>
+
+                        <label>
+                            <p>11. Qual é a língua oficial falada em São Paulo?</p>
+                            <datalist id="linguas">
+                                <option value="Português"></option>
+                                <option value="Inglês"></option>
+                                <option value="Espanhol"></option>
+                                <option value="Latim"></option>
+                            </datalist>
+                        </label>
+
+                        <label>
+                            <p>12. Qual é o nome do parque mais famoso de São Paulo?</p>
+                            <input type="text" id="foto" name="foto" placeholder="Digite sua resposta aqui" required
+                                autofocus form="quiz-form">
+                            <input type="file" id="foto-upload" name="foto-upload" multiple accept=".jpg,.png"
+                                form="quiz-form"> (Escolha uma foto do parque)
+                        </label>
+
+                        <label>
+                            <p>13. Quantos arranha-céus a cidade possui?</p>
+                            <label><input type="number" name="arranha-ceus" min="0" max="1000" required></label>
+                        </label>
+
+                        <label>
+                            <p>Escreva seu comentário:</p>
+                            <textarea name="comentario" id="comentario" cols="30" rows="5"
+                                placeholder="Deixe aqui o seu comentário"></textarea>
+                        </label>
+
+
+                        <label>
+                            <p>
+                                <input type="submit" value="Enviar">
+                            </p>
+                        </label>
+
+
+
+                    </fieldset>
+                </fieldset>
+
+
+            </form>
+        </section>
+    </main>
+    <footer>Felipe Guimarães Silva, 22103965, Universidade Lusófona, 2ºano </footer>
+</body>
+
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Imagens Responsivas</title>
+	<style>
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+	</style>
+</head>
+<body>
+	<h1>Imagens Responsivas</h1>
+	
+	<p>Aqui está uma imagem responsiva:</p>
+	<picture>
+		<source media="(max-width: 600px)" srcset="https://source.unsplash.com/kvKxo-xgELE/480x320">
+		<source media="(max-width: 900px)" srcset="https://source.unsplash.com/kvKxo-xgELE/800x533">
+		<source media="(max-width: 1200px)" srcset="https://source.unsplash.com/kvKxo-xgELE/1200x800">
+		<source media="(min-width: 1201px)" srcset="https://source.unsplash.com/kvKxo-xgELE/1920x1280">
+		<img src="../../../../../../../static/portfolio/images/lab_4/london.jpg" alt="Uma imagem responsiva">
+	</picture>
+
+	<p>E aqui está outra imagem responsiva:</p>
+	<picture>
+		<source media="(max-width: 600px)" srcset="https://source.unsplash.com/LsJQe1GJBno/480x320">
+		<source media="(max-width: 900px)" srcset="https://source.unsplash.com/LsJQe1GJBno/800x533">
+		<source media="(max-width: 1200px)" srcset="https://source.unsplash.com/LsJQe1GJBno/1200x800">
+		<source media="(min-width: 1201px)" srcset="https://source.unsplash.com/LsJQe1GJBno/1920x1280">
+		<img src="../../../../../../../static/portfolio/images/lab_4/madrid.jpg" alt="Outra imagem responsiva">
+	</picture>
+
+</body>
+</html>

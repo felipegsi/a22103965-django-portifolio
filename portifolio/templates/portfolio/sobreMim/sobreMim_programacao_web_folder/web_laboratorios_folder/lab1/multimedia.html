@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="author" content="Felipe Silva">
+    <meta name="description" content="Website sobre São Paulo">
+    <meta name="keywords" content="palavras chave">
+   {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/sobreMim/programacao_web/lab_1/estilos.css' %}">
+
+</head>
+
+<body>
+    <header>
+        <title>São Paulo</title>
+        <h1>São Paulo</h1>
+        <figure>
+            <img src="{% static 'portfolio/images/lab_1/sampaLego.jpg' %}" alt="sampaLego">
+            <details>
+                <figcaption>Ponte do Rio Tietê em São Paulo.</figcaption>
+            </details>
+        </figure>
+    </header>
+    <nav>
+      <a href="{% url 'portifolio:index_lab_1' %}">Introdução</a>
+        <a href="{% url 'portifolio:local_lab_1' %}">Localização</a>
+        <a href="{% url 'portifolio:multimidia_lab_1' %}">Multimedia</a>
+        <a href="{% url 'portifolio:info_lab_1' %}">Informação</a>
+        <a href="{% url 'portifolio:quizz_lab_1' %}">Quizz</a>
+        <a href="{% url 'portifolio:html_css_lab_1' %}">Html-CSS</a>
+        <a href="{% url 'portifolio:index_lab_3' %}">Lab3</a>
+        <a href="{% url 'portifolio:index_lab_4' %}">Lab4</a>
+    </nav>
+    <main>
+        <section>
+            <h2>Multimédia</h2>
+        </section>
+
+
+        <section>
+            <figure>
+
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/tG20DR0vDDA"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+                <details>
+                    <figcaption>
+                        Video 8K da cidade.
+                    </figcaption>
+                </details>
+            </figure>
+        </section>
+
+        <section>
+            <h2>Sobre o Lugar Escolhido</h2>
+            <p>O lugar que escolhi para apresentar nesta página é a cidade de São Paulo.</p>
+
+            <h3>Fotografias</h3>
+            <p>A seguir, apresento três fotografias emblemáticas de São Paulo:</p>
+
+
+            <p>
+                <iframe name="foto" width="600" height="400" src="../../../../../../static/portfolio/images/lab_1/foto1_grande.jpg"></iframe>
+            </p>
+            <p>
+                <a href="../../../../../../static/portfolio/images/lab_1/foto1_grande.jpg" target="foto"><img src="../../../../../../static/portfolio/images/lab_1/foto1_pequena.jpg" alt="100"></a>
+                <a href="../../../../../../static/portfolio/images/lab_1/foto2_grande.jpg" target="foto"><img src="../../../../../../static/portfolio/images/lab_1/foto2_pequena.jpg" alt="100"></a>
+                <a href="../../../../../../static/portfolio/images/lab_1/foto3_grande.jpg" target="foto"><img src="../../../../../../static/portfolio/images/lab_1/foto3_pequena.jpg" alt="100"></a>
+            </p>
+
+            <p>Clique nas imagens acima para visualizá-las em tamanho grande.</p>
+        </section>
+
+        <section>
+            <h2 id="poema">Poema</h2>
+        
+            <h3 id="titulo-poema">Vastos e atuais</h3>
+            <h4 id="nome-poeta">João Doederlein</h4>
+            <p><em>Conhecer você
+                    fez tempestar dentro de mim.
+                    Mas te ver acordar
+                    é ver o sol nascer
+                    de novo
+                </em></p>
+
+
+        </section>
+    </main>
+
+
+
+
+    <footer>Felipe Guimarães Silva, 22103965, Universidade Lusófona, 2ºano </footer>
+</body>
+
+
+</html>

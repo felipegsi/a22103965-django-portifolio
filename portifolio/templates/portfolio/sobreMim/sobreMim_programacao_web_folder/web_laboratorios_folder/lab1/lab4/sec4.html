@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Capitais Europeias</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+    }
+
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background-color: #333;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      z-index: 1;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 20px;
+      font-weight: bold;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      background-color: #ddd;
+      font-weight: bold;
+    }
+
+
+
+
+/* Adaptação para telas pequenas em modo portrait */
+@media only screen and (max-width: 480px) and (orientation: portrait) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 100px);
+  }
+}
+
+/* Adaptação para telas pequenas em modo landscape */
+@media only screen and (max-width: 768px) and (orientation: landscape) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 100px);
+  }
+}
+
+/* Adaptação para telas grandes */
+@media only screen and (min-width: 1024px) {
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 100px);
+  }
+}
+
+
+    .capitais {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      background-color: rgb(238, 248, 248);
+      padding: 50px;
+    }
+
+    .capitais>div {
+      display: flex;
+      justify-content: space-between;
+      border-radius: 20px;
+      box-shadow: 5px 5px 15px #888888;
+      margin: 10px;
+    }
+
+    .capitais img {
+
+
+      border-radius: 20px 8px 0 28px;
+      width: 200px;
+      /* defina o tamanho desejado */
+      height: auto;
+      /* mantém a proporção de altura */
+    }
+
+    .capitais>div>div:last-child {
+      width: 150px;
+      background-color: white;
+      padding: 20px;
+      border-radius: 0 20px 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 200px;
+    }
+
+    .circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: rgb(251, 255, 9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .circle p {
+      margin: 0;
+      text-align: center;
+    }
+
+    .image {
+      width: 300px;
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      clip-path: polygon(10% 0%, 100% 0, 100% 100%, 10% 100%, 0% 50%);
+    }
+
+    .icon {
+      position: relative;
+    }
+
+    .icon i {
+      font-size: 24px;
+      color: red;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    .icon:hover i {
+      display: none;
+    }
+
+
+    .container {
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "main sidebar"
+    "footer footer";
+}
+
+main {
+  grid-area: main;
+}
+
+aside {
+  grid-area: sidebar;
+}
+
+footer {
+  grid-area: footer;
+}
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Exemplo de Layout Grid</h1>
+    <nav>
+      <a href="indexNovo.html">Seção 1</a>
+      <a href="sec2.html">Seção 2</a>
+      <a href="sec3.html">Seção 3</a>
+      <a href="sec4.html">Seção 4</a>
+      <a href="sec5.html">Seção 5</a>
+      <a href="sec6.html">Seção 6</a>
+
+
+    </nav>
+  </header>
+
+
+  <h1>Capitais Europeias</h1>
+  <div class="capitais">
+    <div>
+      <img src="imagesLab3/madrid.jpg" alt="madrid">
+      <div>
+        <p>Madrid</p>
+      </div>
+    </div>
+
+    <div>
+      <img src="imagesLab3/amsterdam.jpg" alt="amsterdam">
+      <div>
+        <p>Amsterdam</p>
+      </div>
+    </div>
+
+    <div>
+      <img src="imagesLab3/berlin.jpg" alt="berlin">
+      <div>
+        <p>Berlin</p>
+      </div>
+    </div>
+
+    <div>
+      <img src="imagesLab3/london.jpg" alt="london">
+      <div>
+        <p>London</p>
+      </div>
+    </div>
+
+    <div>
+      <img src="imagesLab3/paris.jpg" alt="paris">
+      <div>
+        <p>Paris</p>
+      </div>
+    </div>
+
+    <div>
+      <img src="imagesLab3/rome.jpg" alt="rome">
+      <div>
+        <p>Rome</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="circle">
+        <p>Texto dentro do círculo</p>
+      </div>
+      <div class="image">
+        <img src="https://picsum.photos/400/300" alt="Imagem">
+      </div>
+      <div class="icon">
+        <i class="fa fa-star"></i>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>

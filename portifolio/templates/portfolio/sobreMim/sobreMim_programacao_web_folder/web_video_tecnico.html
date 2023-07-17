@@ -1,0 +1,17 @@
+{% extends 'portfolio/base/layout_base.html' %}
+
+
+{% block link %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/base/projetos_base.css' %}">
+{% endblock %}
+
+{% block main %}
+
+  <div class="iframe-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/C3RZfOtyyMM" title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+    </div>
+{% endblock %}

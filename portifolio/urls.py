@@ -58,4 +58,40 @@ urlpatterns = [
     path('login_educacao', views.login_educacao, name='login_educacao'),
     path('logout_educacao', views.logout_educacao, name='logout_educacao'),
 
+    path('web_home_full/', views.web_home_full, name='web_home_full'),
+    path('web_laboratorios/', views.web_laboratorios, name='web_laboratorios'),
+    path('web_javaScript_playground/', views.web_javaScript_playground, name='web_javaScript_playground'),
+    path('web_scrapping/', views.web_scrapping, name='web_scrapping'),
+
+    path('index_lab_1', views.index_lab_1, name='index_lab_1'),
+    path('info_lab_1', views.info_lab_1, name='info_lab_1'),
+    path('local_lab_1', views.local_lab_1, name='local_lab_1'),
+    path('multimidia_lab_1', views.multimidia_lab_1, name='multimidia_lab_1'),
+    path('quizz_lab_1', views.quizz_lab_1, name='quizz_lab_1'),
+    path('html_css_lab_1', views.html_css_lab_1, name='html_css_lab_1'),
+
+    path('index_lab_3', views.index_lab_3, name='index_lab_3'),
+    path('sec2_lab_3', views.sec2_lab_3, name='sec2_lab_3'),
+    path('sec3_lab_3', views.sec3_lab_3, name='sec3_lab_3'),
+    path('sec4_lab_3', views.sec4_lab_3, name='sec4_lab_3'),
+    path('sec5_lab_3', views.sec5_lab_3, name='sec5_lab_3'),
+    path('sec6_lab_3', views.sec6_lab_3, name='sec6_lab_3'),
+
+    path('index_lab_4', views.index_lab_4, name='index_lab_4'),
+    path('animacoes_lab_4', views.animacoes_lab_4, name='animacoes_lab_4'),
+    path('imagensResponsivas_lab_4', views.imagensResponsivas_lab_4, name='imagensResponsivas_lab_4'),
+    path('paralax_lab_4', views.paralax_lab_4, name='paralax_lab_4'),
+    path('paralax_lab_4', views.paralax_lab_4, name='paralax_lab_4'),
+    path('sec2_lab_4', views.sec2_lab_4, name='sec2_lab_4'),
+    path('sec3_lab_4', views.sec3_lab_4, name='sec3_lab_4'),
+    path('sec4_lab_4', views.sec4_lab_4, name='sec4_lab_4'),
+    path('sec5_lab_4', views.sec5_lab_4, name='sec5_lab_4'),
+    path('sec6_lab_4', views.sec6_lab_4, name='sec6_lab_4'),
+    path('svg_lab_4', views.svg_lab_4, name='svg_lab_4'),
+    path('videoBackground_lab_4', views.videoBackground_lab_4, name='videoBackground_lab_4'),
+    path('web_calculator', views.web_calculator, name='web_calculator'),
+    path('web_tecnologias_existentes', views.web_tecnologias_existentes, name='web_tecnologias_existentes'),
+    path('web_video_tecnico', views.web_video_tecnico, name='web_video_tecnico'),
+
+
 ]
