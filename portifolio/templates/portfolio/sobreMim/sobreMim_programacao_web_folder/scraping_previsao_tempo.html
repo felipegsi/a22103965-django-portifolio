@@ -2,21 +2,14 @@
 
 
 {% block main %}
- <section class="hero-projetos">
+    <section class="hero-projetos">
         <div class="content">
             <div class="capitais">
 
-                <h1>Previsão do Tempo</h1>
+                <h1>Preço do Playstation</h1>
+                <h3>{{ name }}</h3>
+                <h3>{{ price }}</h3>
 
-                <ul>
-                    {% for forecast in forecast_data %}
-                        <li>
-                            <h2>{{ forecast.day }}</h2>
-                            <p>Temperatura: {{ forecast.temperature }}</p>
-                            <p>Descrição: {{ forecast.description }}</p>
-                        </li>
-                    {% endfor %}
-                </ul>
             </div>
         </div>
     </section>

@@ -1,16 +1,18 @@
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
-import requests
+
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from .forms import *
 from .models import *
-from bs4 import BeautifulSoup
-
 from django.shortcuts import render
 from django.core.mail import send_mail
 from django.conf import settings
+
+import requests
+from bs4 import BeautifulSoup
+import lxml
 
 
 ###############################################################
@@ -635,32 +637,66 @@ def web_tecnologias_existentes(request):
 def web_video_tecnico(request):
     return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_video_tecnico.html')
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 def scraping_previsao_tempo(request):
-    url = 'https://www.climatempo.com.br/previsao-do-tempo/15-dias/cidade/558/saopaulo-sp'
+    url = "https://www.amazon.com/Sony-Playstation-VR-Marvels-Bundle/dp/B0B2WDLQQP/ref=pd_vtp_h_pd_vtp_h_sccl_3/137-0687099-4683901?pd_rd_w=o5N1a&content-id=amzn1.sym.e16c7d1a-0497-4008-b7be-636e59b1dfaf&pf_rd_p=e16c7d1a-0497-4008-b7be-636e59b1dfaf&pf_rd_r=YGYYMGMEE008NDP7NAR0&pd_rd_wg=8WZL2&pd_rd_r=93cc9a11-9c74-499a-8f26-9d4ed6268991&pd_rd_i=B0B2WDLQQP&psc=1"
 
-    # Realize a requisição HTTP
-    response = requests.get(url)
-    soup = BeautifulSoup(response.text, 'html.parser')
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+        "Accept-Language": "en",
+    }
+    r = requests.get(url, headers=headers)
+    soup = BeautifulSoup(r.text, "lxml")
 
-    # Extraia os dados de meteorologia da página
-    forecast_cards = soup.find_all('li')
 
-    forecast_data = []
-    for card in forecast_cards:
-        day_element = card.find('h2', {'class': 'day'})
-        day = day_element.text if day_element else 'N/A'
-        temperature = card.find('p', {'class': 'temperature'}).text.split(": ")[1]
-        description = card.find('p', {'class': 'description'}).text.split(": ")[1]
+    name = soup.select_one(selector="#productTitle").getText()
+    name = name.strip()
+    print(name)
 
-        forecast_data.append({
-            'day': day,
-            'temperature': temperature,
-            'description': description
-        })
+    price = soup.select_one(selector="#price_inside_buybox").getText()
+
+    print(price)
+
+
+    context = {
+        'name': name,
+        'price': price
+    }
+
 
     # Renderize o template HTML com os dados obtidos
-    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/scraping_previsao_tempo.html',
-                  {'forecast_data': forecast_data})
+    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/scraping_previsao_tempo.html', context)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 def contacto_full(request):
     if request.method == 'POST':
@@ -718,11 +754,6 @@ def contacto_todos_formularios(request):
     return render(request, 'portfolio/contacto/contacto_todos_formularios.html', context)
 
 
-
-
-
-
-
 @login_required
 def criar_projeto(request):
     if request.method == 'POST':
@@ -764,6 +795,7 @@ def detalhes_projeto(request, pk):
     return render(request, 'portfolio/projetos/detalhes_projeto.html',
                   {'projeto': projeto})
 
+
 def login_projeto(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -787,4 +819,3 @@ def login_projeto(request):
 def logout_projeto(request):
     logout(request)
     return redirect('portifolio:projetos_full')
-
