@@ -1,0 +1,12 @@
+{% extends 'portfolio/base/layout_base.html' %}
+
+{% block main %}
+
+  <h2>Apagar Projeto</h2>
+  <p>Tem certeza de que deseja apagar o projeto "{{ projeto.nome }}"?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Apagar</button>
+  </form>
+
+{% endblock %}

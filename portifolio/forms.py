@@ -82,3 +82,30 @@ class CadeiraForm(forms.ModelForm):
     class Meta:
        model = Cadeira
        fields = '__all__'
+
+
+class ContatoForm(forms.Form):
+    ASSUNTO_CHOICES = [
+        ('', 'Selecione o assunto'),
+        ('duvida', 'Dúvida'),
+        ('sugestao', 'Sugestão'),
+        ('reclamacao', 'Reclamação'),
+        ('outro', 'Outro'),
+    ]
+
+    nome = forms.CharField(label='Nome', max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Digite seu nome'}))
+    email = forms.EmailField(label='E-mail', widget=forms.EmailInput(attrs={'placeholder': 'Digite seu e-mail'}))
+    telefone = forms.CharField(label='Telefone', max_length=20, required=False, widget=forms.TextInput(attrs={'placeholder': 'Digite seu telefone'}))
+    assunto = forms.ChoiceField(label='Assunto', choices=ASSUNTO_CHOICES)
+    mensagem = forms.CharField(label='Mensagem', widget=forms.Textarea(attrs={'placeholder': 'Digite sua mensagem', 'rows': 5}))
+
+    def clean_assunto(self):
+        assunto = self.cleaned_data['assunto']
+        if not assunto:
+            raise forms.ValidationError('Selecione um assunto válido.')
+        return assunto
+
+class ProjetoForm(forms.ModelForm):
+    class Meta:
+       model = Projeto
+       fields = '__all__'

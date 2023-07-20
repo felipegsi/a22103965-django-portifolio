@@ -18,4 +18,6 @@ admin.site.register(Projeto)
 admin.site.register(Cadeira)
 admin.site.register(SobreMim)
 
+admin.site.register(Contato)
+
 

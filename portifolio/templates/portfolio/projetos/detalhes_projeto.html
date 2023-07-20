@@ -1,0 +1,54 @@
+{% extends 'portfolio/base/layout_base.html' %}
+
+{% block main %}
+
+    <section class="project-details">
+        <div class="project-info">
+            <h1>{{ projeto.nome }}</h1>
+            <p>Dificuldade: {{ projeto.get_dificuldade_display }}</p>
+            <p>Data de Início: {{ projeto.data_inicio }}</p>
+            <p>Data de Conclusão: {{ projeto.data_conclusao }}</p>
+            <p>Descrição: {{ projeto.descricao }}</p>
+            <p>Ranking: {{ projeto.ranking }}</p>
+
+            {% if projeto.imagem %}
+                <img src="{{ projeto.imagem.url }}" alt="Imagem do projeto">
+            {% endif %}
+        </div>
+    </section>
+
+    <style>
+        .project-details {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .project-info {
+            max-width: 600px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 5px;
+        }
+
+        img {
+            max-width: 100%;
+            margin-top: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+
+{% endblock main %}

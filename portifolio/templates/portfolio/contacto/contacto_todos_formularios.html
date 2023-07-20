@@ -1,0 +1,50 @@
+{% extends "portfolio/base/layout_base.html" %}
+
+
+{% block main %}
+
+    <style>
+        .cards_sobreMim {
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            margin-bottom: 20px;
+            padding: 20px;
+            transition: background-color 0.3s ease;
+            display: flex;
+            justify-content: center; /* Centraliza horizontalmente */
+            align-items: center; /* Centraliza verticalmente */
+            text-align: center; /* Centraliza o texto */
+        }
+
+        .title_sobreMim {
+            width: 100%;
+        }
+
+        .title_sobreMim p {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+    </style>
+
+    {% for formulario in formularios %}
+
+        <div class="cards_sobreMim {{ formulario.nome }}"
+             onclick="window.location.href='{% url 'portifolio:contacto_todos_formularios' %}'">
+            <div class="title_sobreMim">
+                <span class="info">
+                    <p>Nome: {{ formulario.nome }}</p>
+                    <p>Assunto: {{ formulario.assunto }}</p>
+                    <p>Telefone: {{ formulario.telefone }}</p>
+                    <p>Assunto: {{ formulario.assunto }}</p>
+                    <p>Mensagem: {{ formulario.mensagem }}</p>
+                </span>
+            </div>
+        </div>
+
+    {% endfor %}
+
+
+{% endblock main %}

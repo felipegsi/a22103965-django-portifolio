@@ -68,11 +68,21 @@ class Pessoa(models.Model):
 
 
 class Projeto(models.Model):
+    DIFICULDADE_CHOICES = [
+        ('facil', 'Fácil'),
+        ('medio', 'Médio'),
+        ('dificil', 'Difícil'),
+        ('profissional', 'Profissional'),
+    ]
     nome = models.CharField(max_length=100)
-    descricao = models.TextField()
+    dificuldade = models.CharField(max_length=20, choices=DIFICULDADE_CHOICES, blank=True, null=True)
     data_inicio = models.DateField()
     data_conclusao = models.DateField()
-    imagem = models.ImageField(upload_to='portfolio/', blank=True, null=True)
+    descricao = models.TextField()
+    ranking = models.PositiveIntegerField(
+        choices=((1, '1 estrela'), (2, '2 estrelas'), (3, '3 estrelas'), (4, '4 estrelas'), (5, '5 estrelas'))
+        , blank=True, null=True)
+    imagem = models.ImageField(upload_to='projetos/', blank=True, null=True)
 
     # Outros atributos do projeto aqui
 
@@ -146,3 +156,21 @@ class Artigo(models.Model):
 
     def __str__(self):
         return self.titulo
+
+
+class Contato(models.Model):
+    ASSUNTO_CHOICES = [
+        ('duvida', 'Dúvida'),
+        ('sugestao', 'Sugestão'),
+        ('reclamacao', 'Reclamação'),
+        ('outro', 'Outro'),
+    ]
+
+    nome = models.CharField(max_length=100)
+    email = models.EmailField()
+    telefone = models.CharField(max_length=20, blank=True)
+    assunto = models.CharField(max_length=20, choices=ASSUNTO_CHOICES)
+    mensagem = models.TextField()
+
+    def __str__(self):
+        return self.nome

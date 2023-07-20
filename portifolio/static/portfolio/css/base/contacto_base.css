@@ -127,8 +127,6 @@ button:hover {
     background-color: #555;
 }
 
-
-
 .social {
     display: flex;
     justify-content: center;
@@ -151,7 +149,6 @@ button:hover {
     max-width: 100%;
     margin: 0 auto;
     padding: 0 20px;
-
 }
 
 .page-hero {
@@ -164,7 +161,6 @@ button:hover {
     margin: 20px;
     background-color: #b3afaf;
     border-radius: 23px;
-
 }
 
 .page-hero h2 {

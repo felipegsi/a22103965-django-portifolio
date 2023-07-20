@@ -8,6 +8,9 @@ from .forms import *
 from .models import *
 from bs4 import BeautifulSoup
 
+from django.shortcuts import render
+from django.core.mail import send_mail
+from django.conf import settings
 
 
 ###############################################################
@@ -92,12 +95,12 @@ def home_base(request):
     return render(request, 'portfolio/base/home_base.html')
 
 
-def projetos_base(request):
-    return render(request, 'portfolio/base/projetos_base.html')
-
-
-def contacto_base(request):
-    return render(request, 'portfolio/base/contacto_base.html')
+def projetos_full(request):
+    projetos = Projeto.objects.all()
+    context = {
+        'projetos': projetos
+    }
+    return render(request, 'portfolio/projetos/projetos_full.html', context)
 
 
 def home_tarefa(request):
@@ -250,7 +253,7 @@ def sobreMim_educacao(request):
     }
 
     return render(request,
-                  'portfolio/sobreMim/sobreMim_educacao_folder/templates/portfolio/sobreMim/sobreMim_educacao.html',
+                  'portfolio/sobreMim/sobreMim_educacao_folder/templates/projetos/sobreMim/sobreMim_educacao.html',
                   context)
 
 
@@ -509,84 +512,128 @@ def web_javaScript_playground(request):
 def web_scrapping(request):
     return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_scrapping.html')
 
+
 def index_lab_1(request):
     return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/index.html')
+
 
 def info_lab_1(request):
     return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/info.html')
 
+
 def local_lab_1(request):
     return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/local.html')
 
+
 def multimidia_lab_1(request):
-    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/multimedia.html')
+    return render(request,
+                  'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/multimedia.html')
+
 
 def quizz_lab_1(request):
     return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/quizz.html')
 
+
 def html_css_lab_1(request):
-    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/html5-css.html')
+    return render(request,
+                  'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/html5-css.html')
+
 
 def index_lab_3(request):
-    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab3/indexNovo.html')
+    return render(request,
+                  'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab3/indexNovo.html')
+
 
 def sec2_lab_3(request):
-    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab3/sec2.html')
+    return render(request,
+                  'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab3/sec2.html')
+
 
 def sec3_lab_3(request):
-    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab3/sec3.html')
+    return render(request,
+                  'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab3/sec3.html')
+
 
 def sec4_lab_3(request):
-    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab3/sec4.html')
+    return render(request,
+                  'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab3/sec4.html')
+
 
 def sec5_lab_3(request):
-    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab3/sec5.html')
+    return render(request,
+                  'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab3/sec5.html')
+
 
 def sec6_lab_3(request):
-    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab3/sec6.html')
+    return render(request,
+                  'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab3/sec6.html')
+
 
 def index_lab_4(request):
-    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab4/indexNovo2.html')
+    return render(request,
+                  'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab4/indexNovo2.html')
+
 
 def animacoes_lab_4(request):
-    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab4/animacoes.html')
+    return render(request,
+                  'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab4/animacoes.html')
+
 
 def imagensResponsivas_lab_4(request):
-    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab4/ImagensResponsivas.html')
+    return render(request,
+                  'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab4/ImagensResponsivas.html')
+
 
 def paralax_lab_4(request):
-    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab4/paralax.html')
+    return render(request,
+                  'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab4/paralax.html')
+
 
 def sec2_lab_4(request):
-    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab4/sec2.html')
+    return render(request,
+                  'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab4/sec2.html')
+
 
 def sec3_lab_4(request):
-    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab4/sec3.html')
+    return render(request,
+                  'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab4/sec3.html')
+
 
 def sec4_lab_4(request):
-    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab4/sec4.html')
+    return render(request,
+                  'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab4/sec4.html')
+
 
 def sec5_lab_4(request):
-    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab4/sec5.html')
+    return render(request,
+                  'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab4/sec5.html')
+
 
 def sec6_lab_4(request):
-    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab4/sec6.html')
+    return render(request,
+                  'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab4/sec6.html')
+
 
 def svg_lab_4(request):
-    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab4/svg.html')
+    return render(request,
+                  'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab4/svg.html')
+
 
 def videoBackground_lab_4(request):
-    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab4/videoBackground.html')
+    return render(request,
+                  'portfolio/sobreMim/sobreMim_programacao_web_folder/web_laboratorios_folder/lab1/lab4/videoBackground.html')
+
 
 def web_calculator(request):
     return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_calculator.html')
 
+
 def web_tecnologias_existentes(request):
     return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_tecnologias_existentes.html')
 
+
 def web_video_tecnico(request):
     return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/web_video_tecnico.html')
-
 
 def scraping_previsao_tempo(request):
     url = 'https://www.climatempo.com.br/previsao-do-tempo/15-dias/cidade/558/saopaulo-sp'
@@ -596,18 +643,148 @@ def scraping_previsao_tempo(request):
     soup = BeautifulSoup(response.text, 'html.parser')
 
     # Extraia os dados de meteorologia da página
-    forecast_cards = soup.find_all('li', {'class': 'forecast-card'})
+    forecast_cards = soup.find_all('li')
 
     forecast_data = []
     for card in forecast_cards:
-        day = card.find('p', {'class': 'date'}).text
-        temperature = card.find('span', {'class': 'temperature'}).text.strip()
-        description = card.find('p', {'class': 'description'}).text.strip()
+        day_element = card.find('h2', {'class': 'day'})
+        day = day_element.text if day_element else 'N/A'
+        temperature = card.find('p', {'class': 'temperature'}).text.split(": ")[1]
+        description = card.find('p', {'class': 'description'}).text.split(": ")[1]
 
         forecast_data.append({
             'day': day,
             'temperature': temperature,
             'description': description
         })
+
     # Renderize o template HTML com os dados obtidos
-    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/scraping_previsao_tempo.html',  {'forecast_data': forecast_data})
+    return render(request, 'portfolio/sobreMim/sobreMim_programacao_web_folder/scraping_previsao_tempo.html',
+                  {'forecast_data': forecast_data})
+
+def contacto_full(request):
+    if request.method == 'POST':
+        form = ContatoForm(request.POST)
+        if form.is_valid():
+            nome = form.cleaned_data['nome']
+            email = form.cleaned_data['email']
+            telefone = form.cleaned_data['telefone']
+            assunto = form.cleaned_data['assunto']
+            mensagem = form.cleaned_data['mensagem']
+            contato = Contato(nome=nome, email=email, telefone=telefone, assunto=assunto, mensagem=mensagem)
+            contato.save()
+
+            return render(request, 'portfolio/contacto/contacto_sucesso.html')
+    else:
+        form = ContatoForm()
+
+    return render(request, 'portfolio/contacto/contacto_full.html', {'form': form})
+
+
+def contacto_sucesso(request):
+    return render(request, 'portfolio/contacto/contacto_sucesso.html')
+
+
+def login_contacto(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = authenticate(request,
+                            username=username,
+                            password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('portifolio:contacto_full')
+        else:
+            # aqui
+            return render(request, 'portfolio/contacto/contacto_login.html', {
+                'message': 'Credenciais invalidas'
+            })
+    return render(request, 'portfolio/contacto/contacto_login.html')
+
+
+def logout_contacto(request):
+    logout(request)
+    return redirect('portifolio:contacto_full')
+
+
+def contacto_todos_formularios(request):
+    formularios = Contato.objects.all()
+    context = {
+        'formularios': formularios
+    }
+    return render(request, 'portfolio/contacto/contacto_todos_formularios.html', context)
+
+
+
+
+
+
+
+@login_required
+def criar_projeto(request):
+    if request.method == 'POST':
+        form = ProjetoForm(request.POST, request.FILES)
+        if form.is_valid():
+            projeto = form.save()
+            return redirect('portifolio:detalhes_projeto', pk=projeto.pk)
+    else:
+        form = ProjetoForm()
+    return render(request, 'portfolio/projetos/criar_projeto.html', {'form': form})
+
+
+@login_required
+def editar_projeto(request, pk):
+    projeto = get_object_or_404(Projeto, pk=pk)
+    if request.method == 'POST':
+        form = ProjetoForm(request.POST, instance=projeto)
+        if form.is_valid():
+            form.save()
+            return redirect('portifolio:detalhes_projeto', pk=projeto.pk)
+    else:
+        form = ProjetoForm(instance=projeto)
+    return render(request, 'portfolio/projetos/editar_projeto.html',
+                  {'form': form, 'projeto': projeto})
+
+
+@login_required
+def apagar_projeto(request, pk):
+    projeto = get_object_or_404(Projeto, pk=pk)
+    if request.method == 'POST':
+        projeto.delete()
+        return redirect('portifolio:projetos_full')
+    return render(request, 'portfolio/projetos/apagar_projeto.html',
+                  {'projeto': projeto})
+
+
+def detalhes_projeto(request, pk):
+    projeto = get_object_or_404(Projeto, pk=pk)
+    return render(request, 'portfolio/projetos/detalhes_projeto.html',
+                  {'projeto': projeto})
+
+def login_projeto(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = authenticate(request,
+                            username=username,
+                            password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('portifolio:projetos_full')
+        else:
+            # aqui
+            return render(request, 'portfolio/projetos/login_projeto.html', {
+                'message': 'Credenciais invalidas'
+            })
+    return render(request, 'portfolio/projetos/login_projeto.html')
+
+
+def logout_projeto(request):
+    logout(request)
+    return redirect('portifolio:projetos_full')
+

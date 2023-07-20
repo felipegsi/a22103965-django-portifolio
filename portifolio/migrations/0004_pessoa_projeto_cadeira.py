@@ -27,7 +27,7 @@ class Migration(migrations.Migration):
                 ('descricao', models.TextField()),
                 ('data_inicio', models.DateField()),
                 ('data_conclusao', models.DateField()),
-                ('imagem', models.ImageField(blank=True, null=True, upload_to='portfolio/')),
+                ('imagem', models.ImageField(blank=True, null=True, upload_to='projetos/')),
             ],
         ),
         migrations.CreateModel(

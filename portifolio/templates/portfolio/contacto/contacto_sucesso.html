@@ -1,0 +1,17 @@
+{% extends 'portfolio/base/layout_base.html' %}
+
+{% block link %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/base/contacto_base.css' %}">
+{% endblock %}
+
+{% block main %}
+
+
+    <section class="page-hero">
+        <div class="conteudo">
+            <h1 class="success-message">Mensagem enviada com sucesso!</h1>
+            <p class="success-text">Obrigado por entrar em contato. Responderemos em breve.</p>
+        </div>
+    </section>
+{% endblock main %}

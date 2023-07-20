@@ -1,0 +1,82 @@
+{% extends 'portfolio/base/layout_base.html' %}
+
+
+{% block link %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/sobreMim/home_educacao/home_educacao.css' %}">
+{% endblock %}
+
+{% block main %}
+  <p>
+        {% if request.user.is_authenticated %}
+            user: {{ request.user }}
+            <a href="{% url 'portifolio:logout_projeto' %}">Logout</a>
+        {% else %}
+            <a href="{% url 'portifolio:login_projeto' %}">Login</a>
+        {% endif %}
+    </p>
+
+
+    <section class="hero_educacao">
+        <div class="content_educacao">
+            <div class="bloco_educacao">
+                <h2>Lista de Projetos</h2>
+                {% if projetos %}
+                    {% for projeto in projetos %}
+
+                        <div class="cards_educacao  {{ projeto.id }}"
+                             onclick="window.location.href='{% url 'portifolio:projetos_full' %}'">
+                            <div class="title_educacao">
+                                     <span class="info">
+                                         {% if projeto.imagem %}
+                                             <img src="{{ projeto.imagem.url }}" alt="Imagem do projeto">
+                                         {% endif %}
+                                         <p>{{ projeto.data_inicio }} - {{ projeto.data_conclusao }}</p>
+                                         <p>Dificuldade: {{ projeto.dificuldade }}</p>
+                                         <p>{{ projeto.nome }}</p>
+                                         {% if projeto.ranking == 1 %}
+                                             <p>⭐</p>
+                                         {% elif projeto.ranking == 2 %}
+                                             <p>⭐⭐</p>
+                                         {% elif projeto.ranking == 3 %}
+                                             <p>⭐⭐⭐</p>
+                                         {% elif projeto.ranking == 4 %}
+                                             <p>⭐⭐⭐⭐</p>
+                                         {% elif projeto.ranking == 5 %}
+                                             <p>⭐⭐⭐⭐⭐</p>
+                                         {% else %}
+                                             <p>⭐ - erro</p>
+                                         {% endif %}
+                                     </span>
+                            </div>
+
+                            <div class="button-yellow_tarefa">
+                                {% if user.is_authenticated %}
+                                    <a href="{% url 'portifolio:editar_projeto' pk=projeto.pk %}"
+                                       class="btn btn-warning btn-sm">Editar</a>
+                                    <a href="{% url 'portifolio:apagar_projeto' pk=projeto.pk %}"
+                                       class="btn btn-warning btn-sm">Apagar</a>
+                                {% endif %}
+                            </div>
+
+                        </div>
+                    {% endfor %}
+
+                {% else %}
+                    <p>Nenhum projeto encontrado.</p>
+                {% endif %}
+
+            </div>
+            <p>
+                {% if request.user.is_authenticated %}
+                    <a href="{% url 'portifolio:criar_projeto' %}" class="btn btn-success btn-block">
+                        Criar Projeto</a>
+                {% endif %}
+            </p>
+        </div>
+    </section>
+
+
+
+
+{% endblock %}

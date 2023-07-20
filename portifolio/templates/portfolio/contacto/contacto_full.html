@@ -1,0 +1,50 @@
+{% extends 'portfolio/base/layout_base.html' %}
+
+{% block link %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/base/contacto_base.css' %}">
+{% endblock %}
+
+{% block main %}
+
+    {% if request.user.is_authenticated %}
+        user: {{ request.user }}
+        <a href="{% url 'portifolio:logout_contacto' %}" class="btn btn-warning btn-sm">Logout</a>
+    {% else %}
+        <a href="{% url 'portifolio:login_contacto' %}" class="btn btn-warning btn-sm">Login</a>
+    {% endif %}
+
+    {% if user.is_authenticated %}
+        <a href="{% url 'portifolio:contacto_todos_formularios' %}" class="btn btn-warning btn-sm">Todos formulários</a>
+    {% endif %}
+
+    <section class="page-hero">
+        <div class="conteudo">
+            <h1>Entre em contato</h1>
+            <form action="{% url 'portifolio:contacto_full' %}" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="id_nome">Nome:</label>
+                    {{ form.nome }}
+                </div>
+                <div class="form-group">
+                    <label for="id_email">E-mail:</label>
+                    {{ form.email }}
+                </div>
+                <div class="form-group">
+                    <label for="id_telefone">Telefone:</label>
+                    {{ form.telefone }}
+                </div>
+                <div class="form-group">
+                    <label for="id_assunto">Assunto:</label>
+                    {{ form.assunto }}
+                </div>
+                <div class="form-group">
+                    <label for="id_mensagem">Mensagem:</label>
+                    {{ form.mensagem }}
+                </div>
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+    </section>
+{% endblock main %}

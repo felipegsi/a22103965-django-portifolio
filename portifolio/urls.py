@@ -12,8 +12,6 @@ urlpatterns = [
 
     path('', views.home_base, name='home'),
 
-    path('projetos', views.projetos_base, name='projetos'),
-    path('contacto', views.contacto_base, name='contacto'),
 
     path('home_tarefa', views.home_tarefa, name='home_tarefa'),
     path('nova_tarefa', views.nova_tarefa, name='nova_tarefa'),
@@ -94,5 +92,18 @@ urlpatterns = [
     path('web_tecnologias_existentes', views.web_tecnologias_existentes, name='web_tecnologias_existentes'),
     path('web_video_tecnico', views.web_video_tecnico, name='web_video_tecnico'),
 
+    path('contacto_full', views.contacto_full, name='contacto_full'),
+    path('contacto_sucesso', views.contacto_sucesso, name='contacto_sucesso'),
+    path('login_contacto', views.login_contacto, name='login_contacto'),
+    path('logout_contacto', views.logout_contacto, name='logout_contacto'),
+    path('contacto_todos_formularios', views.contacto_todos_formularios, name='contacto_todos_formularios'),
+
+    path('projetos_full', views.projetos_full, name='projetos_full'),
+    path('criar_projeto/', views.criar_projeto, name='criar_projeto'),
+    path('editar_projeto/<int:pk>/', views.editar_projeto, name='editar_projeto'),
+    path('apagar_projeto/<int:pk>/', views.apagar_projeto, name='apagar_projeto'),
+    path('detalhes_projeto/<int:pk>/', views.detalhes_projeto, name='detalhes_projeto'),
+    path('login_projeto', views.login_projeto, name='login_projeto'),
+    path('logout_projeto', views.logout_projeto, name='logout_projeto'),
 
 ]

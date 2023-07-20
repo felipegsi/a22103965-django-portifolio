@@ -28,7 +28,9 @@
             <section id="introblocks">
                 <ul class="nospace group">
                     <li class="one_third">
-                        <figure><a class="imgover" href="{% url 'portifolio:scraping_previsao_tempo' %}"><img src="images/demo/348x220.png" alt=""></a>
+                        <figure><a class="imgover" href="{% url 'portifolio:scraping_previsao_tempo' %}">
+                            <img src="{% static 'portfolio/images/outros/meteorologia.jpg' %}" alt="">
+                        </a>
                             <figcaption>
                                 <h6 class="heading">Meteorologia</h6>
                                 <p>Buscamos a temperatura de uma cidade a tempo real</p>

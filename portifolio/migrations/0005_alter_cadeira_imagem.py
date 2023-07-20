@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='cadeira',
             name='imagem',
-            field=models.ImageField(blank=True, null=True, upload_to='portfolio/images/external_images/cadeiras_educacao'),
+            field=models.ImageField(blank=True, null=True, upload_to='projetos/images/external_images/cadeiras_educacao'),
         ),
     ]
