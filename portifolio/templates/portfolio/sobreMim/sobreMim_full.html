@@ -5,6 +5,7 @@
 {% block link %}
     {% load static %}
     <link rel="stylesheet" href="{% static 'portfolio/css/base/sobreMim_fullPage_base.css' %}">
+
 {% endblock %}
 
 
@@ -24,7 +25,7 @@
                             onclick="window.location.href='{% url 'portifolio:home_educacao' %}'">
                            <span class="fa-stack fa-4x">
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                            <i class="fa-solid fa-book fa-stack-1x fa-inverse"></i>
                         </span>
                     </button>
                     <h4 class="my-3">Educação</h4>
@@ -42,10 +43,8 @@
                         </span>
                     </button>
                     <h4 class="my-3">Apresentação Pessoal(vídeo)</h4>
-                    <p class="text-muted">Neste breve vídeo, compartilho meus hobbies, mostrando minha paixão por
-                        esportes ao ar livre, minha dedicação à música, meu amor pela leitura e meu lado criativo
-                        por
-                        meio de projetos de arte. Conheça um pouco mais sobre mim além do trabalho.</p>
+                    <p class="text-muted">Neste breve vídeo, compartilho meus hobbies, expondo minha paixão por
+                        esportes, livros, etc. Conheça um pouco mais sobre mim além do trabalho.</p>
 
                 </div>
                 <div class="col-md-4">
@@ -53,7 +52,7 @@
                             onclick="window.location.href='{% url 'portifolio:web_home_full' %}'">
                         <span class="fa-stack fa-4x">
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+                            <i class="fa-solid fa-code fa-stack-1x fa-inverse"></i>
                         </span>
                     </button>
                     <h4 class="my-3">Programação Web</h4>
@@ -233,20 +232,25 @@
                             no começo da minha carreira e que existem imensos temas que sou leigo</p></div>
                     </div>
                 </li>
-                <li class="timeline-inverted">
-                    <div class="timeline-image">
-                        <h4>
-                            Faça Parte
-                            <br/>
-                            Dessa
-                            <br/>
-                            História!
-                        </h4>
-                    </div>
-                </li>
+              <li class="timeline-inverted">
+    <div class="timeline-image">
+        <h4>
+            <a href="{% url 'portifolio:contacto_full' %}">
+                Faça Parte
+                <br/>
+                Dessa
+                <br/>
+                História!
+            </a>
+        </h4>
+    </div>
+</li>
+
             </ul>
         </div>
     </section>
+
+
     <!-- Clients-->
     <div class="py-5">
         <div class="container">
@@ -278,58 +282,57 @@
     <section class="page-section bg-light" id="team">
         <div class="container">
             <div class="text-center">
-                <h2 class="section-heading text-uppercase">Equipe de colegas(entre outros)</h2>
-                <h3 class="section-subheading text-muted">Estes são amigos que caminham comigo na jornada acadêmica</h3>
+                <h2 class="section-heading text-uppercase">Testemunhos</h2>
+                <h3 class="section-subheading text-muted">Estes são amigos que caminharam comigo na jornada acadêmica</h3>
             </div>
             <div class="row">
                 <div class="col-lg-4">
                     <div class="team-member">
-                        <img class="mx-auto rounded-circle" src="{% static 'portfolio/images/about/team/1.jpg' %}"
+                        <img class="mx-auto rounded-circle" src="{% static 'portfolio/images/about/team/Gabriel.jpeg' %}"
                              alt="..."/>
-                        <h4>Parveen Anand</h4>
-                        <p class="text-muted">Lead Designer</p>
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Twitter Profile"><i
-                                class="fab fa-twitter"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Facebook Profile"><i
-                                class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand LinkedIn Profile"><i
+                        <h4>Gabriel Souza  </h4>
+                        <p class="text-muted">Junior Developer</p>
+                        <a class="btn btn-dark btn-social mx-2" href="https://github.com/Bielsouza110/" aria-label="Parveen Anand Twitter Profile"><i
+                                class="fab fa-github"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/bielsouza110/" aria-label="Parveen Anand Facebook Profile"><i
+                                class="fab fa-instagram"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/gabriel-souza-82004b180/" aria-label="Parveen Anand LinkedIn Profile"><i
                                 class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="team-member">
-                        <img class="mx-auto rounded-circle" src="{% static 'portfolio/images/about/team/2.jpg' %}"
+                        <img class="mx-auto rounded-circle" src="{% static 'portfolio/images/about/team/Betania.jpeg' %}"
                              alt="..."/>
-                        <h4>Diana Petersen</h4>
-                        <p class="text-muted">Lead Marketer</p>
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Twitter Profile"><i
-                                class="fab fa-twitter"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!"
+                        <h4>Betânia Silá</h4>
+                        <p class="text-muted">Junior Developer</p>
+                        <a class="btn btn-dark btn-social mx-2" href="https://github.com/betania-sila-22102238" aria-label="Diana Petersen Twitter Profile"><i
+                                class="fab fa-github"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/betaniamariaq/"
                            aria-label="Diana Petersen Facebook Profile"><i
-                                class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!"
+                                class="fab fa-instagram"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/betaniamaria/"
                            aria-label="Diana Petersen LinkedIn Profile"><i
                                 class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="team-member">
-                        <img class="mx-auto rounded-circle" src="{% static 'portfolio/images/about/team/3.jpg' %}"
+                        <img class="mx-auto rounded-circle" src="{% static 'portfolio/images/about/team/Wisley.jpeg' %}"
                              alt="..."/>
-                        <h4>Larry Parker</h4>
-                        <p class="text-muted">Lead Developer</p>
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i
-                                class="fab fa-twitter"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Facebook Profile"><i
-                                class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker LinkedIn Profile"><i
+                        <h4>Wisley Fontura</h4>
+                        <p class="text-muted">Junior Developer</p>
+                        <a class="btn btn-dark btn-social mx-2" href="https://github.com/wisley-costa-a22103352" aria-label="Larry Parker Twitter Profile"><i
+                                class="fab fa-github"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/wisley_fontoura/" aria-label="Larry Parker Facebook Profile"><i
+                                class="fab fa-instagram"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/wisley-costa-5b786b240/" aria-label="Larry Parker LinkedIn Profile"><i
                                 class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Estes são apenas alguns dos muitos
-                    companheiros de carreira.</p></div>
+                <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Companheiros de carreira.</p></div>
             </div>
         </div>
     </section>
@@ -337,13 +340,13 @@
     <footer class="footer py-4">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2023</div>
+                <div class="col-lg-4 text-lg-start">2023 &copy; Developed for Felipe Silva</div>
                 <div class="col-lg-4 my-3 my-lg-0">
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i
-                            class="fab fa-twitter"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i
-                            class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i
+                    <a class="btn btn-dark btn-social mx-2" href="https://github.com/felipegsi" aria-label="Twitter"><i
+                            class="fab fa-github"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/lipe_gsi/" aria-label="Facebook"><i
+                            class="fab fa-instagram"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/felipe-guimar%C3%A3es-751231236/" aria-label="LinkedIn"><i
                             class="fab fa-linkedin-in"></i></a>
                 </div>
                 <div class="col-lg-4 text-lg-end">

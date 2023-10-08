@@ -1,5 +1,10 @@
 {% extends "portfolio/base/layout_base.html" %}
 
+{% block link %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/base/home_base.css' %}">
+{% endblock %}
+
 {% block main %}
   
 <h3>Login</h3>

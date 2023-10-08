@@ -109,3 +109,8 @@ class ProjetoForm(forms.ModelForm):
     class Meta:
        model = Projeto
        fields = '__all__'
+
+class PraiaForm(forms.ModelForm):
+    class Meta:
+       model = Praia
+       fields = '__all__'

@@ -1,97 +1,8 @@
+
+
 * {
     box-sizing: border-box;
 }
-
-.meu-header nav {
-    margin: 27px auto 0;
-    display: flex;
-    position: relative;
-    width: 590px;
-    height: 50px;
-    background-color: #000000;
-    border-radius: 12px;
-    font-size: 0;
-    z-index: 1;
-}
-
-.meu-header nav a {
-    line-height: 50px;
-    height: 100%;
-    font-size: 15px;
-    display: inline-block;
-    position: relative;
-    z-index: 1;
-    text-decoration: none;
-    text-transform: uppercase;
-    text-align: center;
-    color: white;
-    cursor: pointer;
-}
-
-.meu-header nav .animation {
-    position: absolute;
-    height: 100%;
-    top: 0;
-    z-index: 0;
-    transition: all .5s ease 0s;
-    border-radius: 8px;
-}
-
-.meu-header a:nth-child(1) {
-    width: 100px;
-}
-
-.meu-header a:nth-child(2) {
-    width: 110px;
-}
-
-.meu-header a:nth-child(3) {
-    width: 100px;
-}
-
-.meu-header a:nth-child(4) {
-    width: 160px;
-}
-
-.meu-header a:nth-child(5) {
-    width: 120px;
-}
-
-.meu-header nav .start-home,
-a:nth-child(1):hover ~ .animation {
-    width: 100px;
-    left: 0;
-    background-color: #FFD21C;
-}
-
-.meu-header nav .start-about,
-.meu-header a:nth-child(2):hover ~ .animation {
-    width: 110px;
-    left: 100px;
-    background-color: #e74c3c;
-}
-
-.meu-header nav .start-blog,
-.meu-header a:nth-child(3):hover ~ .animation {
-    width: 100px;
-    left: 210px;
-    background-color: #3498db;
-}
-
-.meu-header nav .start-portefolio,
-.meu-header a:nth-child(4):hover ~ .animation {
-    width: 160px;
-    left: 310px;
-    background-color: #9b59b6;
-}
-
-.meu-header nav .start-contact,
-.meu-header a:nth-child(5):hover ~ .animation {
-    width: 120px;
-    left: 470px;
-    background-color: #e67e22;
-}
-
 
 
 .waves {
@@ -99,7 +10,7 @@ a:nth-child(1):hover ~ .animation {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 600px;
+    height: 400px;
     background-color: var(--color);
     transition: 500ms;
     z-index: -1;
@@ -137,8 +48,6 @@ a:nth-child(1):hover ~ .animation {
     }
 }
 
-
-
 :root {
     --color: #FFD21C;
 }
@@ -152,11 +61,10 @@ a:nth-child(1):hover ~ .animation {
 .hero {
     position: relative;
     color: white;
-    height: 100vh;
+    /*height: 100vh;*/
     display: flex;
     align-items: center;
     overflow: hidden;
-
 }
 
 .hero h2 {
@@ -177,21 +85,113 @@ a:nth-child(1):hover ~ .animation {
     font-size: 16px;
 }
 
-@media only screen and (max-width: 768px) {
-    nav {
-        margin: 10px auto 0;
-        height: 40px;
-        border-radius: 6px;
+
+
+
+header {
+    position: relative;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 10px;
+    background: #333333;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgb(0 0 0 / 81%);
+}
+
+.logo {
+    float: left;
+    text-align: center;
+    line-height: 60px;
+    font-size: 36px;
+    padding: 0 20px;
+    color: #ffc107;;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+nav {
+    float: right;
+}
+
+.clear {
+    clear: both;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav ul li a {
+    display: block;
+    margin: 10px 0;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #b4b4b4;
+    border-radius: 20px;
+}
+
+nav ul li a.active,
+nav ul li a:hover {
+    background: #ffc107;
+    color: #fff;
+    transition: 0.5s;
+}
+
+@media (max-width: 1200px) {
+    header {
+        margin: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .mean-toggle {
+        display: block;
+        width: auto;
+        height: auto;
+        margin: 10px;
+        float: right;
+        cursor: pointer;
+        text-align: center;
+        font-size: 30px;
+        color: #ffd21c;
     }
 
-    nav a {
+    .mean-toggle:before {
+        content: '\f0c9';
+        font-family: fontAwesome, sans-serif;
         line-height: 40px;
-        font-size: 14px;
+    }
+
+    .mean-toggle.active:before {
+        content: '\f00d';
+    }
+
+    nav {
+        display: none;
+    }
+
+    nav.active {
+        display: block;
+        width: 100%;
+    }
+
+    nav.active ul {
+        display: block;
+    }
+
+    nav.active ul li {
+        margin: 0;
+        text-align: center;
     }
 }
 
 
 
 
-/*-----------------------------------*/
 

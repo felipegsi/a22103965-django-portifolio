@@ -3,11 +3,11 @@
 
 {% block link %}
     {% load static %}
-    <link rel="stylesheet" href="{% static 'portfolio/css/sobreMim/home_educacao/home_educacao.css' %}">
+    <link rel="stylesheet" href="{% static 'portfolio/css/base/sobreMim_fullPage_base.css' %}">
 {% endblock %}
 
 {% block main %}
-  <p>
+    <p>
         {% if request.user.is_authenticated %}
             user: {{ request.user }}
             <a href="{% url 'portifolio:logout_projeto' %}">Logout</a>
@@ -17,66 +17,114 @@
     </p>
 
 
-    <section class="hero_educacao">
-        <div class="content_educacao">
-            <div class="bloco_educacao">
-                <h2>Lista de Projetos</h2>
+
+    <section class="page-section bg-light" id="portfolio">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Projetos</h2>
+                <h3 class="section-subheading text-muted">Todos os meus projetos realizados.</h3>
+            </div>
+
+            <div class="row">
+
+
                 {% if projetos %}
                     {% for projeto in projetos %}
 
-                        <div class="cards_educacao  {{ projeto.id }}"
-                             onclick="window.location.href='{% url 'portifolio:projetos_full' %}'">
-                            <div class="title_educacao">
-                                     <span class="info">
-                                         {% if projeto.imagem %}
-                                             <img src="{{ projeto.imagem.url }}" alt="Imagem do projeto">
-                                         {% endif %}
-                                         <p>{{ projeto.data_inicio }} - {{ projeto.data_conclusao }}</p>
-                                         <p>Dificuldade: {{ projeto.dificuldade }}</p>
-                                         <p>{{ projeto.nome }}</p>
-                                         {% if projeto.ranking == 1 %}
-                                             <p>⭐</p>
-                                         {% elif projeto.ranking == 2 %}
-                                             <p>⭐⭐</p>
-                                         {% elif projeto.ranking == 3 %}
-                                             <p>⭐⭐⭐</p>
-                                         {% elif projeto.ranking == 4 %}
-                                             <p>⭐⭐⭐⭐</p>
-                                         {% elif projeto.ranking == 5 %}
-                                             <p>⭐⭐⭐⭐⭐</p>
-                                         {% else %}
-                                             <p>⭐ - erro</p>
-                                         {% endif %}
-                                     </span>
-                            </div>
+                        <div class="col-lg-4 col-sm-6 mb-4">
+                            <!-- Portfolio item 1-->
+                            <div class="portfolio-item">
 
-                            <div class="button-yellow_tarefa">
-                                {% if user.is_authenticated %}
-                                    <a href="{% url 'portifolio:editar_projeto' pk=projeto.pk %}"
-                                       class="btn btn-warning btn-sm">Editar</a>
-                                    <a href="{% url 'portifolio:apagar_projeto' pk=projeto.pk %}"
-                                       class="btn btn-warning btn-sm">Apagar</a>
-                                {% endif %}
-                            </div>
+                                <a class="portfolio-link {{ projeto.id }}" data-bs-toggle="modal"
+                                   onclick="window.location.href='{% url 'portifolio:detalhes_projeto' pk=projeto.pk %}'">
 
+                                    <div class="portfolio-hover">
+                                        <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                    </div>
+
+
+                                    {% if projeto.imagem %}
+                                        <img class="img-fluid"
+                                             src="{{ projeto.imagem.url }}" alt="Imagem do projeto"/>
+                                    {% endif %}
+
+                                </a>
+
+                                <div class="portfolio-caption">
+                                    <div class="portfolio-caption-heading">{{ projeto.nome }}</div>
+                                    <div class="portfolio-caption-subheading text-muted">{{ projeto.data_inicio }}
+                                        - {{ projeto.data_conclusao }}</div>
+                                    <div class="portfolio-caption-subheading text-muted">
+                                        Dificuldade: {{ projeto.dificuldade }}</div>
+
+                                    <div class="portfolio-caption-subheading text-muted">
+                                        {% if projeto.ranking == 1 %}
+                                            <p>⭐</p>
+                                        {% elif projeto.ranking == 2 %}
+                                            <p>⭐⭐</p>
+                                        {% elif projeto.ranking == 3 %}
+                                            <p>⭐⭐⭐</p>
+                                        {% elif projeto.ranking == 4 %}
+                                            <p>⭐⭐⭐⭐</p>
+                                        {% elif projeto.ranking == 5 %}
+                                            <p>⭐⭐⭐⭐⭐</p>
+                                        {% else %}
+                                            <p>⭐ - erro</p>
+                                        {% endif %}
+                                    </div>
+
+
+                                    <div class="button-yellow_tarefa">
+                                        {% if user.is_authenticated %}
+                                            <a href="{% url 'portifolio:editar_projeto' pk=projeto.pk %}"
+                                               class="btn btn-warning btn-sm">Editar</a>
+                                            <a href="{% url 'portifolio:apagar_projeto' pk=projeto.pk %}"
+                                               class="btn btn-warning btn-sm">Apagar</a>
+                                        {% endif %}
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
+
                     {% endfor %}
 
                 {% else %}
                     <p>Nenhum projeto encontrado.</p>
                 {% endif %}
 
+
             </div>
-            <p>
-                {% if request.user.is_authenticated %}
-                    <a href="{% url 'portifolio:criar_projeto' %}" class="btn btn-success btn-block">
-                        Criar Projeto</a>
-                {% endif %}
-            </p>
         </div>
     </section>
 
 
-
-
+    <p>
+        {% if request.user.is_authenticated %}
+            <a href="{% url 'portifolio:criar_projeto' %}" class="btn btn-success btn-block">
+                Criar Projeto</a>
+        {% endif %}
+    </p>
+    <!-- Footer-->
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 text-lg-start">2023 &copy; Developed for Felipe Silva</div>
+                <div class="col-lg-4 my-3 my-lg-0">
+                    <a class="btn btn-dark btn-social mx-2" href="https://github.com/felipegsi" aria-label="Twitter"><i
+                            class="fab fa-github"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/lipe_gsi/"
+                       aria-label="Facebook"><i
+                            class="fab fa-instagram"></i></a>
+                    <a class="btn btn-dark btn-social mx-2"
+                       href="https://www.linkedin.com/in/felipe-guimar%C3%A3es-751231236/" aria-label="LinkedIn"><i
+                            class="fab fa-linkedin-in"></i></a>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
+                    <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 {% endblock %}

@@ -174,3 +174,18 @@ class Contato(models.Model):
 
     def __str__(self):
         return self.nome
+
+
+class Regiao(models.Model):
+    nome = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.nome
+
+
+class Praia(models.Model):
+    nome = models.CharField(max_length=100)
+    regiao = models.ForeignKey(Regiao, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.nome

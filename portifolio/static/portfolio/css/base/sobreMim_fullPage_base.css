@@ -74,10 +74,11 @@
     --bs-border-radius-2xl: 2rem;
     --bs-border-radius-pill: 50rem;
     --bs-body-text-align: 8px;
-    --bs-link-color: #ffc800;
+    --bs-link-color: #ffffff;
     --bs-link-hover-color: #cca000;
     --bs-code-color: #d63384;
     --bs-highlight-bg: #fff4cc;
+    --bs-light-rgb: #ffff;
 }
 
 *,
@@ -252,7 +253,7 @@ sup {
 
 a {
     color: var(--bs-link-color);
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 a:hover {

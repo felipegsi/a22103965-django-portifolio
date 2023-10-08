@@ -1,4 +1,8 @@
-/* ==========WAVES=============== */
+
+
+
+
+
 
 .button {
     border: none;
@@ -58,7 +62,7 @@ body.dark-mode {
     color: #fff;
 }
 
-/*          diferente do projeto.css         */
+
 header {
     background-color: #333;
     color: #fff;
@@ -153,13 +157,13 @@ button:hover {
 
 .page-hero {
     position: relative;
-    color: #555;
-    height: 80vh;
+    color: #1c1a1a;
+    /*height: 80vh;*/
     display: flex;
     align-items: center;
     overflow: hidden;
     margin: 20px;
-    background-color: #b3afaf;
+    /*background-color: #b3afaf;*/
     border-radius: 23px;
 }
 

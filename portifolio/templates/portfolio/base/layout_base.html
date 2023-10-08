@@ -17,39 +17,84 @@
     <!-- Favicon-->
     {% load static %}
     <link rel="icon" type="image/x-icon" href="{% static 'portfolio/images/about/favicon.ico' %}"/>
-    {% load static %}
+
     <link rel="stylesheet" href="{% static 'portfolio/css/base/layout_base.css' %}">
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"/>
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css"/>
+    {% load static %}
 
-    <!-- Font Awesome icons (free version)-->
-    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    <script src="{% static 'portfolio/JavaScript/dark-mode-button.js' %}"></script>
-    <script src="{% static 'portfolio/JavaScript/calculator.js' %}"></script>
+
 </head>
 
 <body>
+
 <header class="meu-header">
+
+    <a href="{% url 'portifolio:home' %}" class="logo">Porfolio</a>
+    <div class="mean-toggle"></div>
     <nav>
-        <div>
-            <a href="{% url 'portifolio:home' %}">Início</a>
-            <a href="{% url 'portifolio:sobreMim_Full' %}">Sobre</a>
-            <a href="{% url 'portifolio:projetos_full' %}">Projetos</a>
-            <a href="{% url 'portifolio:home_full_template' %}">Blog</a>
-            <a href="{% url 'portifolio:contacto_full' %}">Contacto</a>
-            <div class="animation start-home"></div>
-        </div>
+        <ul>
+
+           <li> <a href="{% url 'portifolio:home' %}">Início</a></li>
+           <li> <a href="{% url 'portifolio:sobreMim_Full' %}">Sobre</a></li>
+           <li> <a href="{% url 'portifolio:projetos_full' %}">Projetos</a></li>
+           <li> <a href="{% url 'portifolio:home_blog_full' %}">Blog</a></li>
+           <li> <a href="{% url 'portifolio:contacto_full' %}">Contacto</a></li>
+
+        </ul>
     </nav>
+    <div class="clear"></div>
+
+
 </header>
 
 <main>
     {% block main %}
     {% endblock main %}
-</main>
-<footer>
 
+</main>
+
+<footer>
     <div class="waves"></div>
+
 </footer>
+<!-- Font Awesome icons (free version)-->
+<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+<script src="{% static 'portfolio/JavaScript/dark-mode-button.js' %}"></script>
+<script src="{% static 'portfolio/JavaScript/calculator.js' %}"></script>
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'portfolio/JavaScript/lib/typed/typed.min.js' %}"></script>
+<script src="{% static 'portfolio/JavaScript/lib/easing/easing.min.js' %}"></script>
+<script src="{% static 'portfolio/JavaScript/lib/waypoints/waypoints.min.js' %}"></script>
+<script src="{% static 'portfolio/JavaScript/lib/owlcarousel/owl.carousel.min.js' %}"></script>
+<script src="{% static 'portfolio/JavaScript/lib/isotope/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'portfolio/JavaScript/lib/lightbox/js/lightbox.min.js' %}"></script>
+
+<!-- Contact Javascript File -->
+<script src="{% static 'portfolio/JavaScript/mail/jqBootstrapValidation.min.js' %}"></script>
+<script src="{% static 'portfolio/JavaScript/mail/contact.js' %}"></script>
+
+<!-- Template Javascript -->
+<script src="{% static 'portfolio/JavaScript/js/main.js' %}"></script>
+<script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous">
+</script>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.mean-toggle').click(function () {
+            $('.mean-toggle').toggleClass('active')
+            $('nav').toggleClass('active')
+        })
+    })
+</script>
 </body>
 </html>

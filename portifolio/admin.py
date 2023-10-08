@@ -20,4 +20,5 @@ admin.site.register(SobreMim)
 
 admin.site.register(Contato)
 
-
+admin.site.register(Regiao)
+admin.site.register(Praia)

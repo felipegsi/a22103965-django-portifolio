@@ -1,0 +1,39 @@
+{% extends 'portfolio/base/layout_base.html' %}
+
+
+{% block link %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/base/sobreMim_fullPage_base.css' %}">
+{% endblock %}
+
+{% block main %}
+
+
+
+    <section class="page-section bg-light" id="portfolio">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Praias</h2>
+                <h3 class="section-subheading text-muted">Defesa</h3>
+            </div>
+
+            <div class="row">
+
+
+                {% for regiao in regioes %}
+                    <p>{{ regiao.nome }}</p>
+                    {% for foo in regioes.praia_set.all %}
+
+                    {% endfor %}
+
+                {% endfor %}
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+{% endblock %}

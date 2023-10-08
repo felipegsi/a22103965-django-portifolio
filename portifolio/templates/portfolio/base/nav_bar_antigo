@@ -1,0 +1,123 @@
+
+.meu-header nav {
+    margin: 27px auto 0;
+    display: flex;
+    position: relative;
+    width: 590px;
+    height: 50px;
+    background-color: #000000;
+    border-radius: 12px;
+    font-size: 0;
+    z-index: 1;
+}
+
+.meu-header nav a {
+    line-height: 50px;
+    height: 100%;
+    font-size: 15px;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+}
+
+.meu-header nav .animation {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    z-index: 0;
+    transition: all .5s ease 0s;
+    border-radius: 8px;
+}
+
+.meu-header a:nth-child(1) {
+    width: 100px;
+}
+
+.meu-header a:nth-child(2) {
+    width: 110px;
+}
+
+.meu-header a:nth-child(3) {
+    width: 100px;
+}
+
+.meu-header a:nth-child(4) {
+    width: 160px;
+}
+
+.meu-header a:nth-child(5) {
+    width: 120px;
+}
+
+.meu-header nav .start-home,
+a:nth-child(1):hover ~ .animation {
+    width: 100px;
+    left: 0;
+    background-color: #FFD21C;
+}
+
+.meu-header nav .start-about,
+.meu-header a:nth-child(2):hover ~ .animation {
+    width: 110px;
+    left: 100px;
+    background-color: #e74c3c;
+}
+
+.meu-header nav .start-blog,
+.meu-header a:nth-child(3):hover ~ .animation {
+    width: 100px;
+    left: 210px;
+    background-color: #3498db;
+}
+
+.meu-header nav .start-portefolio,
+.meu-header a:nth-child(4):hover ~ .animation {
+    width: 160px;
+    left: 310px;
+    background-color: #9b59b6;
+}
+
+.meu-header nav .start-contact,
+.meu-header a:nth-child(5):hover ~ .animation {
+    width: 120px;
+    left: 470px;
+    background-color: #e67e22;
+}
+/* Media query for smaller screens */
+@media only screen and (max-width: 768px) {
+    .meu-header nav {
+        display: none; /* Hide the original nav on small screens */
+    }
+
+    /* Show the responsive nav on small screens */
+    .meu-header nav.responsive {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        width: 100%;
+        max-width: 400px; /* Adjust this value as needed for your design */
+        display: flex;
+    }
+
+    /* Adjust the styles for the anchor tags inside the responsive nav */
+    .meu-header nav.responsive a {
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        font-size: 14px;
+        margin: 5px 0;
+    }
+
+    /* Add a style for the active/hover effect in responsive mode */
+    .meu-header nav.responsive .animation,
+    .meu-header nav.responsive a:hover ~ .animation {
+        width: 100%;
+        left: 0;
+        background-color: #FFD21C;
+    }
+}
