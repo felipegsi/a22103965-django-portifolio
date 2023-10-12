@@ -6,7 +6,7 @@
        <link rel="stylesheet" href="{% static 'portfolio/css/base/home_base.css' %}">
 {% endblock %}
 
-{% block main %}z
+{% block main %}
     {% if request.user.is_authenticated %}
         user: {{ request.user }}
         <a href="{% url 'portifolio:logout_contacto' %}" class="btn btn-warning btn-sm">Logout</a>
