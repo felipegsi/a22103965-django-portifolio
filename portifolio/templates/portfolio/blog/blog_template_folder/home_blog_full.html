@@ -24,9 +24,9 @@
                 {% endif %}
             </p>
             <article>
-                <h3 class="heading">Bem-vindo ao meu Blog</h3>
-                <p>Aqui, encontrarás uma ampla gama de informações sobre o mundo.</p>
-                <footer><a class="btn" href="#">Recarregar</a></footer>
+                <h3 class="heading">Welcome to my Blog</h3>
+                <p>Here, you will find a wide range of information about the world.</p>
+                <footer><a class="btn" href="{% url 'portifolio:home_blog_full' %}">Reload</a></footer>
             </article>
         </div>
     </div>
@@ -86,7 +86,7 @@
         <main class="hoc container clear">
             <!-- main body -->
             <section id="introblocks">
-                <h1 style="padding: 60px; text-align: center; font-size: 40px;">Artigos Destacados</h1>
+                <h1 style="padding: 60px; text-align: center; font-size: 40px;">Featured Articles</h1>
                 <ul class="nospace group">
                     {% for artigo in artigos_destaque %}
                         <li class="one_third">
@@ -121,7 +121,7 @@
             <p style="padding: 20px; text-align: center;">
 
                 <a href="{% url 'portifolio:artigos_blog' %}" class="btn btn-success btn-block">
-                    Todos Artigos</a>
+                    All Articles</a>
 
             </p>
             <!-- / main body -->
@@ -132,31 +132,29 @@
     <div class="wrapper row2">
         <section class="hoc container clear">
             <div class="sectiontitle">
-                <p class="nospace font-xs">Saiba quais categorias mais relevantes do momento</p>
-                <h6 class="heading">As categorias mais procuradas</h6>
+                <p class="nospace font-xs">Discover the most relevant categories of the moment</p>
+                <h6 class="heading">The most searched categories</h6>
             </div>
             <ul class="nospace group center">
                 <li class="one_third first">
                     <article><a href="#"><i class="fas fa-eraser fa-5x btmspace-50"></i></a>
-                        <h6 class="heading">Escolar</h6>
-                        <p class="btmspace-30">Entenda os fatores principais para o sucesso acadêmico do seu filho [&hellip;]</p>
-                        <footer><a class="btn" href="#">Saiba Mais</a></footer>
+                        <h6 class="heading">Educational</h6>
+                        <p class="btmspace-30">Understand the key factors for your child's academic success [&hellip;]</p>
+                        <footer><a class="btn" href="#">Learn More</a></footer>
                     </article>
                 </li>
                 <li class="one_third">
                     <article><a href="#"><i class="fas fa-chess-bishop fa-5x btmspace-50"></i></a>
-                        <h6 class="heading">Gestão do Tempo</h6>
-                        <p class="btmspace-30">Com o crescimento exponencial da tecnologia, um dia normal passa a ser
-                            curto diante das ofertas [&hellip;]</p>
-                        <footer><a class="btn" href="#">Saiba Mais</a></footer>
+                        <h6 class="heading">Time Management</h6>
+                        <p class="btmspace-30">With the exponential growth of technology, a regular day becomes short in the face of the offerings [&hellip;]</p>
+                        <footer><a class="btn" href="#">Learn More</a></footer>
                     </article>
                 </li>
                 <li class="one_third">
                     <article><a href="#"><i class="fas fa-coins fa-5x btmspace-50"></i></a>
-                        <h6 class="heading">Financias</h6>
-                        <p class="btmspace-30">Um tema extremamente importante para o nosso cotiadiano, algo que pode
-                            nos afastar das dividas [&hellip;]</p>
-                        <footer><a class="btn" href="#">Saiba Mais</a></footer>
+                        <h6 class="heading">Finance</h6>
+                        <p class="btmspace-30">An extremely important topic for our daily lives, something that can keep us away from debt [&hellip;]</p>
+                        <footer><a class="btn" href="#">Learn More</a></footer>
                     </article>
                 </li>
             </ul>
@@ -166,25 +164,25 @@
     <div class="wrapper row3">
         <section class="hoc container clear">
             <div class="sectiontitle">
-                <p class="nospace font-xs">Alguns números que este blog armazena</p>
-                <h6 class="heading">Estatísticas</h6>
+                <p class="nospace font-xs">Some numbers that this blog stores</p>
+                <h6 class="heading">Statistics</h6>
             </div>
             <ul id="stats" class="nospace group">
                 <li><i class="fas fa-id-badge"></i>
-                    <p><a href="#">123</a></p>
-                    <p>Visualizações</p>
+                    <p><a href="#">3421</a></p>
+                    <p>Views</p>
                 </li>
                 <li><i class="fas fa-skull"></i>
-                    <p><a href="#">1234</a></p>
-                    <p>Número de óbitos anuais</p>
+                    <p><a href="#">5963</a></p>
+                    <p>Number of annual deaths</p>
                 </li>
                 <li><i class="fas fa-umbrella"></i>
-                    <p><a href="#">12345</a></p>
-                    <p>Volume de precipitação deste ano</p>
+                    <p><a href="#">8473</a></p>
+                    <p>Rainfall volume for this year</p>
                 </li>
                 <li><i class="fas fa-store-alt"></i>
                     <p><a href="#">6789</a></p>
-                    <p>E-commerce's associados</p>
+                    <p>E-commerce's associates</p>
                 </li>
             </ul>
         </section>
@@ -194,7 +192,7 @@
         <section id="testimonials" class="hoc container clear">
             <!-- ################################################################################################ -->
             <div class="sectiontitle">
-                <p class="nospace font-xs">Principais autores deste blog</p>
+                <p class="nospace font-xs">Main authors of this blog</p>
                 <h6 class="heading">Autores</h6>
             </div>
 
