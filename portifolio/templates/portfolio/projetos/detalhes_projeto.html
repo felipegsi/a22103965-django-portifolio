@@ -5,10 +5,22 @@
     <section class="project-details">
         <div class="project-info">
             <h1>{{ projeto.nome }}</h1>
-            <p>Dificuldade: {{ projeto.get_dificuldade_display }}</p>
-            <p>Data de Início: {{ projeto.data_inicio }}</p>
-            <p>Data de Conclusão: {{ projeto.data_conclusao }}</p>
-            <p>Descrição: {{ projeto.descricao }}</p>
+
+
+
+            {% if projeto.get_dificuldade_display == 'Fácil' %}
+                <p>Difficulty:🟢</p>
+            {% elif projeto.get_dificuldade_display == 'Médio' %}
+                <p>Difficulty:🟡</p>
+            {% elif projeto.get_dificuldade_display == 'Difícil' %}
+                <p>Difficulty:🟠</p>
+            {% elif projeto.get_dificuldade_display == 'Profissional' %}
+                <p>Difficulty:🔴</p>
+            {% endif %}
+
+            <p>Start date: {{ projeto.data_inicio }}</p>
+            <p>End date: {{ projeto.data_conclusao }}</p>
+            <p>Description: {{ projeto.descricao }}</p>
             <p>Ranking: {{ projeto.ranking }}</p>
 
             {% if projeto.imagem %}
