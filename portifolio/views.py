@@ -770,6 +770,26 @@ def logout_projeto(request):
     return redirect('portifolio:projetos_full')
 
 
+def listaDeVisitantes_igreja(request):
+    visitantes = Visitante.objects.all()
+    context = {
+        'visitantes': visitantes
+    }
+    return render(request, 'portfolio/projetos/igreja_projeto/visitantes_igreja_projeto/listaDeVisitantes_igreja.html', context)
+
+
+def registrarVisitante_igreja(request):
+    if request.method == 'POST':
+        form = VisitanteForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('portifolio:listaDeVisitantes_igreja')  # Substitua 'success_url' pela URL de redirecionamento após sucesso
+    else:
+        form = VisitanteForm()
+    return render(request, 'portfolio/projetos/igreja_projeto/visitantes_igreja_projeto/registrarVisitante_igreja.html')
+
+
+
 # Skills (Sobre mim)----------------------
 def skills(request):
     return render(request, 'portfolio/sobreMim/sobreMim_skills_folder/sobreMim_skills.html')

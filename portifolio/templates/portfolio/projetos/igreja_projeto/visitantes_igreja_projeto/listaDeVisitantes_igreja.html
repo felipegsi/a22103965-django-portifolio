@@ -1,0 +1,23 @@
+<!-- listarConvidados.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Visitantes</title>
+</head>
+<body>
+    <h2>Lista de Visitantes</h2>
+    <ul>
+        {% for visitante in visitantes %}
+            <li>
+                Nome: {{ visitante.nome }}<br>
+                Telefone: {{ visitante.telefone }}<br>
+                Data de Registro: {{ visitante.data|date:"d/m/Y H:i" }}<br>
+                {% if visitante.foto %}
+                    <img src="{{ visitante.foto.url }}" alt="Foto de {{ visitante.nome }}" style="width:100px;"><br>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

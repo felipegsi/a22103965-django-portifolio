@@ -114,3 +114,8 @@ class PraiaForm(forms.ModelForm):
     class Meta:
        model = Praia
        fields = '__all__'
+
+class VisitanteForm(forms.ModelForm):
+    class Meta:
+        model = Visitante
+        fields = ['nome', 'telefone', 'nota', 'imagem']

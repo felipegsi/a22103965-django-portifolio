@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 
 # Create your models here.
@@ -186,6 +187,16 @@ class Regiao(models.Model):
 class Praia(models.Model):
     nome = models.CharField(max_length=100)
     regiao = models.ForeignKey(Regiao, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.nome
+
+class Visitante(models.Model):
+    nome = models.CharField(max_length=100)
+    telefone = models.CharField(max_length=15, blank=True, null=True)  # Torna o telefone opcional
+    data = models.DateTimeField(default=timezone.now)  # Data de registro, gerada automaticamente
+    nota = models.TextField(blank=True, null=True)  # Torna a nota opcional
+    imagem = models.ImageField(upload_to='visitantes/', blank=True, null=True)# Torna a imagem opcional
 
     def __str__(self):
         return self.nome

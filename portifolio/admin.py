@@ -17,6 +17,7 @@ admin.site.register(Pessoa)
 admin.site.register(Projeto)
 admin.site.register(Cadeira)
 admin.site.register(SobreMim)
+admin.site.register(Visitante)
 
 admin.site.register(Contato)
 

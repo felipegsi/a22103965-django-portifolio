@@ -111,6 +111,9 @@ urlpatterns = [
     path('detalhes_projeto/<int:pk>/', views.detalhes_projeto, name='detalhes_projeto'),
     path('login_projeto', views.login_projeto, name='login_projeto'),
     path('logout_projeto', views.logout_projeto, name='logout_projeto'),
+    path('listaDeVisitantes_igreja', views.listaDeVisitantes_igreja, name='listaDeVisitantes_igreja'),
+    path('registrarVisitante_igreja', views.registrarVisitante_igreja, name='registrarVisitante_igreja'),
+
 
     # Skills
     path('skills', views.skills, name='skills'),
