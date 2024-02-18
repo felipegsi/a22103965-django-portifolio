@@ -1,0 +1,38 @@
+<!-- base.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Site</title>
+    <!-- Inclua o Tailwind CSS via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="flex flex-col min-h-screen">
+
+<!-- Navbar -->
+<nav class="bg-gray-800 text-white p-4">
+    <div class="container mx-auto flex justify-between items-center">
+        <a href="/" class="text-lg font-semibold">Meu Site</a>
+        <div>
+            <a href="/visitantes" class="px-4 hover:text-gray-400">Visitantes</a>
+            <a href="/sobre" class="px-4 hover:text-gray-400">Sobre</a>
+            <!-- Adicione mais links conforme necessário -->
+        </div>
+    </div>
+</nav>
+
+<!-- Main content -->
+<div class="flex-grow container mx-auto px-4 py-8">
+    {% block main %}
+    <!-- O conteúdo específico da página vai aqui -->
+    {% endblock main %}
+</div>
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-white text-center p-4">
+    &copy; 2024 Meu Site. Todos os direitos reservados.
+</footer>
+
+</body>
+</html>

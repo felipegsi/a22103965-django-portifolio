@@ -1,0 +1,10 @@
+
+<!-- visitantes.html -->
+{% extends "portfolio/projetos/igreja_projeto/base_igreja_projeto/layout_igreja.html" %}
+
+{% block main %}
+    <a href="{% url 'portifolio:visitante_editar_igreja' pk=visitante.pk %}"
+       class="btn btn-warning btn-sm">Editar</a>
+    <a href="{% url 'portifolio:visitante_apagar_igreja' pk=visitante.pk %}"
+       class="btn btn-warning btn-sm">Apagar</a>
+{% endblock main %}

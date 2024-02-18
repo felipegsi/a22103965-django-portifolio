@@ -1,0 +1,12 @@
+<!-- visitantes.html -->
+{% extends "base.html" %}
+
+{% block main %}
+    <h2>Apagar Visitante</h2>
+    <p>Tem certeza de que deseja apagar o Visitante "{{ visitante.nome }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Apagar</button>
+    </form>
+
+{% endblock main %}

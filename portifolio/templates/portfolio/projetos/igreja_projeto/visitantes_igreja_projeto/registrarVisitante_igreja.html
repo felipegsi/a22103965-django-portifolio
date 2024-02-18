@@ -1,16 +1,36 @@
-<!-- registrar_convidado.html -->
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Registrar Convidado</title>
-</head>
-<body>
-    <h2>Registrar Convidado</h2>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Registrar</button>
-    </form>
-</body>
-</html>
+<!-- visitantes.html -->
+{% extends "portfolio/projetos/igreja_projeto/base_igreja_projeto/layout_igreja.html" %}
+{% load widget_tweaks %}
+
+{% block main %}
+
+        <div class="max-w-lg mx-auto bg-white rounded-lg shadow overflow-hidden">
+            <div class="p-6">
+                <h2 class="text-3xl font-bold text-gray-800 text-center mb-6">Registrar Convidado</h2>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <div class="mb-5">
+                            <label class="block text-gray-700 font-medium mb-2" for="{{ field.id_for_label }}">
+                                {{ field.label }}
+                            </label>
+                            {{ field|add_class:"appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" }}
+                            {% if field.help_text %}
+                                <small class="text-gray-600">{{ field.help_text }}</small>
+                            {% endif %}
+                            {% for error in field.errors %}
+                                <p class="text-red-500 text-xs italic">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                    <div class="flex justify-end mt-4">
+                        <button type="submit"
+                                class="inline-flex items-center px-6 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                            Registrar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+{% endblock main %}

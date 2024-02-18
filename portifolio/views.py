@@ -11,8 +11,6 @@ import requests
 from bs4 import BeautifulSoup
 
 
-
-
 def home_base(request):
     return render(request, 'portfolio/base/home_base.html')
 
@@ -770,29 +768,68 @@ def logout_projeto(request):
     return redirect('portifolio:projetos_full')
 
 
+# Igreja ----------------------------------------------
 def listaDeVisitantes_igreja(request):
-    visitantes = Visitante.objects.all()
+    visitantes = Visitante.objects.all().order_by('-data')
     context = {
         'visitantes': visitantes
     }
-    return render(request, 'portfolio/projetos/igreja_projeto/visitantes_igreja_projeto/listaDeVisitantes_igreja.html', context)
+    return render(request, 'portfolio/projetos/igreja_projeto/visitantes_igreja_projeto/listaDeVisitantes_igreja.html',
+                  context)
+
+def visitante_detalhe_igreja(request, pk):
+    visitante = get_object_or_404(Visitante, pk=pk)
+    return render(request, 'portfolio/projetos/igreja_projeto/visitantes_igreja_projeto/visitante_detalhe_igreja.html',
+                  {'visitante': visitante})
 
 
 def registrarVisitante_igreja(request):
     if request.method == 'POST':
-        form = VisitanteForm(request.POST)
+        form = VisitanteForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('portifolio:listaDeVisitantes_igreja')  # Substitua 'success_url' pela URL de redirecionamento após sucesso
+            return redirect(
+                'portifolio:listaDeVisitantes_igreja')  # Substitua 'success_url' pela URL de redirecionamento após sucesso
     else:
         form = VisitanteForm()
-    return render(request, 'portfolio/projetos/igreja_projeto/visitantes_igreja_projeto/registrarVisitante_igreja.html')
 
+    context = {
+        'form': form
+    }
+    return render(request, 'portfolio/projetos/igreja_projeto/visitantes_igreja_projeto/registrarVisitante_igreja.html',
+                  context)
+
+def visitante_editar_igreja(request, pk):
+    visitante = get_object_or_404(Visitante, pk=pk)
+    if request.method == 'POST':
+        form = VisitanteForm(request.POST, instance=visitante)
+        if form.is_valid():
+            form.save()
+            return redirect('portifolio:listaDeVisitantes_igreja')
+    else:
+        form = VisitanteForm(instance=visitante)
+    return render(request, 'portfolio/projetos/igreja_projeto/visitantes_igreja_projeto/visitante_editar_igreja.html',
+                  {'form': form, 'visitante': visitante})
+
+def visitante_apagar_igreja(request, pk):
+    visitante = get_object_or_404(Visitante, pk=pk)
+    if request.method == 'POST':
+        visitante.delete()
+        return redirect('portifolio:listaDeVisitantes_igreja')
+    return render(request, 'portfolio/projetos/igreja_projeto/visitantes_igreja_projeto/visitante_apagar_igreja.html',
+                  {'visitante': visitante})
+
+
+#----------------------------------------------
+
+def teste(request):
+    return render(request, 'portfolio/projetos/igreja_projeto/teste/teste.html')
 
 
 # Skills (Sobre mim)----------------------
 def skills(request):
     return render(request, 'portfolio/sobreMim/sobreMim_skills_folder/sobreMim_skills.html')
+
 
 # Testes------------------------------
 def defesa(request):

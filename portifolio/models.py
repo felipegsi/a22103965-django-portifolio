@@ -197,6 +197,21 @@ class Visitante(models.Model):
     data = models.DateTimeField(default=timezone.now)  # Data de registro, gerada automaticamente
     nota = models.TextField(blank=True, null=True)  # Torna a nota opcional
     imagem = models.ImageField(upload_to='visitantes/', blank=True, null=True)# Torna a imagem opcional
+    #outros atributos do visitante aqui
+    numero_visitas = models.PositiveIntegerField(default=1, blank=False, null=False)
+    #se é homem, mulher, jovem ou criança, é um campo obrigatório
+    SEXO_CHOICES = [
+        ('homem', 'Homem'),
+        ('mulher', 'Mulher'),
+    ]
+    sexo = models.CharField(max_length=20, choices=SEXO_CHOICES, default='homem')
 
+    FAIXA_ETARIA_CHOICES = [
+        ('adulto', 'Adulto'),
+        ('jovem', 'Jovem'),
+        ('crianca', 'Criança'),
+    ]
+    faixa_etaria = models.CharField(max_length=20, choices=FAIXA_ETARIA_CHOICES, default='adulto')
     def __str__(self):
         return self.nome
+

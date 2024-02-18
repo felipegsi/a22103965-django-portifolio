@@ -111,9 +111,13 @@ urlpatterns = [
     path('detalhes_projeto/<int:pk>/', views.detalhes_projeto, name='detalhes_projeto'),
     path('login_projeto', views.login_projeto, name='login_projeto'),
     path('logout_projeto', views.logout_projeto, name='logout_projeto'),
+
+    # Igreja
     path('listaDeVisitantes_igreja', views.listaDeVisitantes_igreja, name='listaDeVisitantes_igreja'),
     path('registrarVisitante_igreja', views.registrarVisitante_igreja, name='registrarVisitante_igreja'),
-
+    path('visitante_editar_igreja/<int:pk>/', views.visitante_editar_igreja, name='visitante_editar_igreja'),
+    path('visitante_apagar_igreja/<int:pk>/', views.visitante_apagar_igreja, name='visitante_apagar_igreja'),
+    path('visitante_detalhe_igreja/<int:pk>/', views.visitante_detalhe_igreja, name='visitante_detalhe_igreja'),
 
     # Skills
     path('skills', views.skills, name='skills'),
@@ -121,5 +125,5 @@ urlpatterns = [
     # Tests
     path('testeNav', views.testeNav, name='testeNav'),
     path('defesa', views.defesa, name='defesa'),
-
+    path('teste', views.teste, name='teste'),
 ]

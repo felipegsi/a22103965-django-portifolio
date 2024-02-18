@@ -118,4 +118,4 @@ class PraiaForm(forms.ModelForm):
 class VisitanteForm(forms.ModelForm):
     class Meta:
         model = Visitante
-        fields = ['nome', 'telefone', 'nota', 'imagem']
+        fields = ['nome', 'telefone', 'nota', 'imagem', 'numero_visitas', 'sexo', 'faixa_etaria']
