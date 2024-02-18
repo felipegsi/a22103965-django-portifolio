@@ -1,10 +1,92 @@
-
-<!-- visitantes.html -->
+<!-- visitante_detalhes.html -->
 {% extends "portfolio/projetos/igreja_projeto/base_igreja_projeto/layout_igreja.html" %}
+{% load static %}
 
 {% block main %}
-    <a href="{% url 'portifolio:visitante_editar_igreja' pk=visitante.pk %}"
-       class="btn btn-warning btn-sm">Editar</a>
-    <a href="{% url 'portifolio:visitante_apagar_igreja' pk=visitante.pk %}"
-       class="btn btn-warning btn-sm">Apagar</a>
+<div class="container mx-auto px-4 py-8">
+    <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+        <div class="px-4 py-5 sm:px-6 flex justify-between">
+            <h3 class="text-lg leading-6 font-medium text-gray-900">
+                Detalhes do Visitante
+            </h3>
+            <div>
+                <a href="{% url 'portifolio:visitante_editar_igreja' pk=visitante.pk %}"
+                   class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                    Editar
+                </a>
+                <a href="{% url 'portifolio:visitante_apagar_igreja' pk=visitante.pk %}"
+                   class="ml-3 inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                    Apagar
+                </a>
+            </div>
+        </div>
+        <div class="border-t border-gray-200">
+            <dl>
+                <!-- Nome -->
+                <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm font-medium text-gray-500">
+                        Nome
+                    </dt>
+                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                        {{ visitante.nome }}
+                    </dd>
+                </div>
+                <!-- Telefone -->
+                <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm font-medium text-gray-500">
+                        Telefone
+                    </dt>
+                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                        {{ visitante.telefone }}
+                    </dd>
+                </div>
+                <!-- Data de Visita -->
+                <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm font-medium text-gray-500">
+                        Data de Visita
+                    </dt>
+                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                        {{ visitante.data|date:"d/m/Y" }}
+                    </dd>
+                </div>
+                <!-- Nota -->
+                <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm font-medium text-gray-500">
+                        Nota
+                    </dt>
+                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                        {{ visitante.nota }}
+                    </dd>
+                </div>
+                <!-- Número de Visitas -->
+                <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm font-medium text-gray-500">
+                        Número de Visitas
+                    </dt>
+                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                        {{ visitante.numero_visitas }}
+                    </dd>
+                </div>
+                <!-- Sexo -->
+                <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm font-medium text-gray-500">
+                        Sexo
+                    </dt>
+                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                        {{ visitante.get_sexo_display }}
+                    </dd>
+                </div>
+                <!-- Faixa Etária -->
+                <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm font-medium text-gray-500">
+                        Faixa Etária
+                    </dt>
+                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                        {{ visitante.get_faixa_etaria_display }}
+                    </dd>
+                </div>
+            </dl>
+        </div>
+    </div>
+</div>
 {% endblock main %}
