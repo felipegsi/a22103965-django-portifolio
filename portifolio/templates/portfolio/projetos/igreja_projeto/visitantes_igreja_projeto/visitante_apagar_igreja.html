@@ -1,12 +1,20 @@
-<!-- visitantes.html -->
+<!-- delete_visitante.html -->
 {% extends "portfolio/projetos/igreja_projeto/base_igreja_projeto/layout_igreja.html" %}
 
 {% block main %}
-    <h2>Apagar Visitante</h2>
-    <p>Tem certeza de que deseja apagar o Visitante "{{ visitante.nome }}"?</p>
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit">Apagar</button>
-    </form>
-
+    <div class="max-w-lg mx-auto bg-white rounded-lg shadow overflow-hidden">
+        <div class="p-6">
+            <h2 class="text-3xl font-bold text-gray-800 text-center mb-6">Apagar Visitante</h2>
+            <p class="text-gray-700 text-center mb-4">Tem certeza de que deseja apagar o visitante "{{ visitante.nome }}"?</p>
+            <form method="post" class="text-center">
+                {% csrf_token %}
+                <button type="submit" class="inline-flex items-center px-6 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                    Apagar
+                </button>
+                <a href="{% url 'portifolio:listaDeVisitantes_igreja' %}" class="inline-flex items-center px-6 py-2 ml-4 border border-transparent text-base font-medium rounded-md shadow-sm text-gray-700 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+                    Cancelar
+                </a>
+            </form>
+        </div>
+    </div>
 {% endblock main %}

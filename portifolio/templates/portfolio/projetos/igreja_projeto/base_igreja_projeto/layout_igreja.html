@@ -1,3 +1,4 @@
+{% load static %}
 <!-- base.html -->
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -12,17 +13,7 @@
 </head>
 <body class="flex flex-col min-h-screen">
 
-<!-- Navbar -->
-<nav class="bg-gray-800 text-white p-4">
-    <div class="container mx-auto flex justify-between items-center">
-        <a href="/" class="text-lg font-semibold">Meu Site</a>
-        <div>
-            <a href="/visitantes" class="px-4 hover:text-gray-400">Visitantes</a>
-            <a href="/sobre" class="px-4 hover:text-gray-400">Sobre</a>
-            <!-- Adicione mais links conforme necessário -->
-        </div>
-    </div>
-</nav>
+
 
     {% block main %}
     <!-- O conteúdo específico da página vai aqui -->
